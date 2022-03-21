@@ -22,6 +22,8 @@ public class login extends Application{
 	@Override
 	public void start(Stage loginStage) {
 		
+		//Creating grid and positioning for elements on page
+		//done using GridPane method
 		GridPane loginGrid = new GridPane();
 		loginGrid.setHgap(4);
 		loginGrid.setVgap(4);
@@ -39,6 +41,7 @@ public class login extends Application{
 		tfPassword.setAlignment(Pos.BOTTOM_RIGHT);
 		
 		//events
+		
 		
 		//Create Scene
 		Scene loginScene = new Scene(loginGrid, 400, 500);
