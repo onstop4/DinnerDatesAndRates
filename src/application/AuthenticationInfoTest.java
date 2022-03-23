@@ -1,10 +1,10 @@
-import application.AuthenticationInfo;
+package application;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-class MyFirstJUnitJupiterTests {
+class AuthenticationInfoTest {
 
     private AuthenticationInfo authInfo = new AuthenticationInfo("student", "12345");
 
