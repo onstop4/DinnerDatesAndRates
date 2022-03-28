@@ -1,16 +1,17 @@
-package application;
+package main.application.view;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage; 
+import javafx.stage.Stage;
+import main.application.model.User;
 import javafx.geometry.Pos;
 import javafx.geometry.HPos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-public class login extends Application{
+public class Login extends Application{
 	
 	private TextField tfUsername = new TextField();
 	private TextField tfPassword = new TextField();
@@ -58,7 +59,7 @@ public class login extends Application{
 		
 
 		//Authentication object
-		AuthenticationInfo userAuthentication = new AuthenticationInfo(UserNameInput, UserPasswordInput);
+		User userAuthentication = new User(UserNameInput, UserPasswordInput);
 	}
 	
 	
