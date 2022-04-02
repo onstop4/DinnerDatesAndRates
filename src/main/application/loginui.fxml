@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
@@ -23,12 +23,20 @@
             <PasswordField fx:id="passwordField" />
          </children>
       </VBox>
-      <HBox prefWidth="320.0" spacing="5.0">
+      <VBox fx:id="fullNameBox" prefHeight="60.0" prefWidth="560.0" spacing="5.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleSubmit" text="Submit" />
-            <Button fx:id="switchModeButton" mnemonicParsing="false" onAction="#handleSwitchMode" text="Create a new account" />
+            <Label text="Full Name" />
+            <TextField fx:id="fullNameField" />
          </children>
-      </HBox>
+      </VBox>
+      <BorderPane prefWidth="420.0">
+         <left>
+            <Button mnemonicParsing="false" onAction="#handleSubmit" text="Submit" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Button fx:id="switchModeButton" mnemonicParsing="false" onAction="#handleSwitchMode" text="Create a new account" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
       <Text fx:id="errorText" strokeType="OUTSIDE" strokeWidth="0.0" />
    </children>
    <padding>

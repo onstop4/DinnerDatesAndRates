@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.application.model.UserModel;
@@ -19,6 +20,10 @@ public class SignInController {
 	@FXML
 	private TextField passwordField;
 	@FXML
+	private VBox fullNameBox;
+	@FXML
+	private TextField fullNameField;
+	@FXML
 	private Button switchModeButton;
 	@FXML
 	private Text errorText;
@@ -28,22 +33,32 @@ public class SignInController {
 		stage.setTitle("Sign in");
 	}
 
+	public void initialize() {
+		controlFullNameBox(false);
+	}
+
+	private void controlFullNameBox(boolean state) {
+		fullNameBox.setVisible(state);
+		fullNameBox.setManaged(state);
+	}
+
 	@FXML
 	private void handleSubmit(ActionEvent event) {
 		errorText.setText("");
 		String username = usernameField.getText().strip();
 		String password = passwordField.getText();
+		String fullName = fullNameField.getText().strip();
 
-		if (username.isBlank() || password.isBlank()) {
-			errorText.setText("Fields must not be blank.");
+		if (username.isBlank() || password.isBlank() || (isRegistering && fullName.isBlank())) {
+			errorText.setText("Fields must not be left blank.");
 			return;
 		}
-		
+
 		try {
 			UserModel userModel;
 
 			if (isRegistering) {
-				userModel = UserModel.create_user_model(username, password);
+				userModel = UserModel.create_user_model(username, password, fullName);
 			} else {
 				userModel = UserModel.get_user_model(username, password);
 				if (userModel == null) {
@@ -68,15 +83,18 @@ public class SignInController {
 		if (isRegistering) {
 			isRegistering = false;
 			stage.setTitle("Sign in");
-			switchModeButton.setText("Sign into an existing account");
+			controlFullNameBox(false);
+			switchModeButton.setText("Create a new account");
 		} else {
 			isRegistering = true;
 			stage.setTitle("Register");
-			switchModeButton.setText("Create a new account");
+			controlFullNameBox(true);
+			switchModeButton.setText("Sign into an existing account");
 		}
 	}
 
 	private void switchScene(UserModel userModel) {
 		// Will be used to switch to a scene for users who just signed in.
+		System.out.println(userModel.getId() + " " + userModel.getUsername() + " " + userModel.getFullName());
 	}
 }
