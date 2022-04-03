@@ -22,14 +22,14 @@ public class HomeController {
 	@FXML
 	private ListView<Event> EventsListView;
 
-	private static class XCell extends ListCell<Event> {
+	private static class EventCell extends ListCell<Event> {
 		HBox hbox = new HBox();
-		Text descriptionText = new Text("(empty)");
+		Text descriptionText = new Text("");
 		Pane pane = new Pane();
 		Button button = new Button("I will attend");
 		Event lastItem;
 
-		public XCell(UserModel userModel) {
+		public EventCell(UserModel userModel) {
 			super();
 			hbox.getChildren().addAll(descriptionText, pane, button);
 			HBox.setHgrow(pane, Priority.ALWAYS);
@@ -67,7 +67,7 @@ public class HomeController {
 		EventsListView.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {
 			@Override
 			public ListCell<Event> call(ListView<Event> param) {
-				return new XCell(userModel);
+				return new EventCell(userModel);
 			}
 		});
 
