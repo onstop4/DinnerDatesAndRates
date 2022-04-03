@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import main.application.SceneSwitcher;
 import main.application.model.UserModel;
 
 public class SignInController {
@@ -94,7 +95,6 @@ public class SignInController {
 	}
 
 	private void switchScene(UserModel userModel) {
-		// Will be used to switch to a scene for users who just signed in.
-		System.out.println(userModel.getId() + " " + userModel.getUsername() + " " + userModel.getFullName());
+		SceneSwitcher.switchToHome(userModel);
 	}
 }
