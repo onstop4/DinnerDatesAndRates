@@ -10,8 +10,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Callback;
+import main.application.SceneSwitcher;
 import main.application.model.Event;
 import main.application.model.EventsModel;
 import main.application.model.UserModel;
@@ -60,8 +60,8 @@ public class HomeController {
 		}
 	}
 
-	public void configure(Stage stage, UserModel userModel) {
-		stage.setTitle("Home");
+	public void configure(UserModel userModel) {
+		SceneSwitcher.getPrimaryStage().setTitle("Home");
 
 		eventModel = new EventsModel(userModel);
 		EventsListView.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {

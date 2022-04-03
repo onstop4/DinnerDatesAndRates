@@ -29,12 +29,9 @@ public class SignInController {
 	@FXML
 	private Text errorText;
 
-	public void setStage(Stage stage) {
-		this.stage = stage;
-		stage.setTitle("Sign in");
-	}
-
 	public void initialize() {
+		stage = SceneSwitcher.getPrimaryStage();
+		stage.setTitle("Sign in");
 		controlFullNameBox(false);
 	}
 
