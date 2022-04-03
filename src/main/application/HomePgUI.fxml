@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="477.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar id="navBar" layoutX="101.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0">
@@ -93,7 +92,7 @@
       </SplitPane>
       <HBox layoutX="35.0" layoutY="37.0" prefHeight="75.0" prefWidth="418.0">
          <children>
-            <Label alignment="CENTER" prefHeight="17.0" prefWidth="419.0" text="Header Image Will Insert Here" textAlignment="CENTER" textFill="#da2222" />
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="419.0" text="Header Image" textAlignment="CENTER" textFill="#da2222" />
          </children>
       </HBox>
    </children>
