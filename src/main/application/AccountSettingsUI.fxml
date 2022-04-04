@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="653.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar layoutX="11.0" prefHeight="28.0" prefWidth="469.0" useSystemMenuBar="true" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="HOME">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="ACCOUNT SETTINGS">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="COMMUNITY">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="RESTURANT REVIEWS">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.07722513089005235" layoutX="30.0" layoutY="67.0" orientation="VERTICAL" prefHeight="384.0" prefWidth="422.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="94.0" prefWidth="329.0">
+               <children>
+                  <Label alignment="CENTER" layoutY="4.0" prefHeight="20.0" prefWidth="420.0" text="Account Settings">
+                     <font>
+                        <Font name="Serif Regular" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="346.0" prefWidth="420.0">
+               <children>
+                  <AnchorPane layoutX="-1.0" prefHeight="349.0" prefWidth="420.0">
+                     <children>
+                        <TextField fx:id="AcademicYrTF" layoutX="113.0" layoutY="11.0" />
+                        <Label layoutX="20.0" layoutY="56.0" text="Major:" />
+                        <TextField fx:id="MajorTF" layoutX="62.0" layoutY="52.0" />
+                        <Label layoutX="11.0" layoutY="100.0" text="Favorite Resturant:" />
+                        <TextField fx:id="FavRestTF" layoutX="134.0" layoutY="95.0" />
+                        <Label layoutX="11.0" layoutY="142.0" text="Favorite Eating Time:" />
+                        <TextField fx:id="FavEatingTF" layoutX="135.0" layoutY="137.0" />
+                        <Label layoutX="16.0" layoutY="185.0" text="Availability:" />
+                        <TextField fx:id="AvailablityTF" layoutX="92.0" layoutY="181.0" />
+                        <Label layoutX="18.0" layoutY="15.0" text="Academic Year:" />
+                        <Label layoutX="12.0" layoutY="221.0" text="Interests:" />
+                        <TextField fx:id="InterestsTF" layoutX="75.0" layoutY="217.0" prefHeight="62.0" prefWidth="294.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Button fx:id="SubmitSettingsBtn" layoutX="351.0" layoutY="450.0" mnemonicParsing="false" text="Submit Settings" />
+   </children>
+</AnchorPane>
