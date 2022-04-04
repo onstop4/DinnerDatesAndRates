@@ -1,7 +1,8 @@
--- Create and use dinnerdates
+-- Create and use dinnerdates database
 
 CREATE DATABASE dinnerdates;
 USE dinnerdates;
+
 
 -- dinnerdates.Event definition
 
@@ -10,7 +11,7 @@ CREATE TABLE `Event` (
   `description` varchar(500) DEFAULT NULL,
   `event_date` date NOT NULL,
   PRIMARY KEY (`event_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.Restaurant definition
@@ -19,9 +20,8 @@ CREATE TABLE `Restaurant` (
   `restaurant_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
-  `time_open` varchar(500) NOT NULL,
   PRIMARY KEY (`restaurant_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.`User` definition
@@ -33,7 +33,7 @@ CREATE TABLE `User` (
   `full_name` varchar(100) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `User_UN` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.MenuItem definition
@@ -48,6 +48,20 @@ CREATE TABLE `MenuItem` (
   KEY `MenuItem_ibfk_1` (`restaurant_id`),
   CONSTRAINT `MenuItem_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- dinnerdates.RestaurantHours definition
+
+CREATE TABLE `RestaurantHours` (
+  `restaurant_hours_id` int NOT NULL AUTO_INCREMENT,
+  `restaurant_id` int NOT NULL,
+  `day_of_week` tinyint NOT NULL,
+  `opening_time` time NOT NULL,
+  `closing_time` time NOT NULL,
+  PRIMARY KEY (`restaurant_hours_id`),
+  KEY `RestaurantHours_ibfk_1` (`restaurant_id`),
+  CONSTRAINT `RestaurantHours_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.Student definition
@@ -80,6 +94,18 @@ CREATE TABLE `EventAttendant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
+-- dinnerdates.`Following` definition
+
+CREATE TABLE `Following` (
+  `from_id` int NOT NULL,
+  `to_id` int NOT NULL,
+  PRIMARY KEY (`from_id`,`to_id`),
+  KEY `Following_ibfk_2` (`to_id`),
+  CONSTRAINT `Following_ibfk_1` FOREIGN KEY (`from_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `Following_ibfk_2` FOREIGN KEY (`to_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 -- dinnerdates.Review definition
 
 CREATE TABLE `Review` (
@@ -94,29 +120,5 @@ CREATE TABLE `Review` (
   KEY `Review_ibfk_2` (`menu_item_id`),
   CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `Review_ibfk_2` FOREIGN KEY (`menu_item_id`) REFERENCES `MenuItem` (`menu_item_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- dinnerdates.`Following` definition
-
-CREATE TABLE `Following` (
-  `from_id` int NOT NULL,
-  `to_id` int NOT NULL,
-  PRIMARY KEY (`from_id`,`to_id`),
-  KEY `Following_ibfk_2` (`to_id`),
-  CONSTRAINT `Following_ibfk_1` FOREIGN KEY (`from_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `Following_ibfk_2` FOREIGN KEY (`to_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- dinnerdates.Friendship definition
-
-CREATE TABLE `Friendship` (
-  `friend1_id` int NOT NULL,
-  `friend2_id` int NOT NULL,
-  PRIMARY KEY (`friend1_id`,`friend2_id`),
-  KEY `Friendship_ibfk_2` (`friend2_id`),
-  CONSTRAINT `Friendship_ibfk_1` FOREIGN KEY (`friend1_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `Friendship_ibfk_2` FOREIGN KEY (`friend2_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

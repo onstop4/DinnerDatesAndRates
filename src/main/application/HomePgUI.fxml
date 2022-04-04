@@ -29,7 +29,7 @@
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
-            <Menu fx:id="ReveiwsBtn" mnemonicParsing="false" text="RESTURANT REVIEWS">
+            <Menu fx:id="ReviewsBtn" mnemonicParsing="false" text="RESTURANT REVIEWS">
                <items>
                   <MenuItem mnemonicParsing="false" text="About" />
                </items>
@@ -58,7 +58,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" layoutY="1.0" prefHeight="39.0" prefWidth="396.0" text="Resturant Hours" textAlignment="CENTER">
+                  <Label alignment="CENTER" layoutY="1.0" prefHeight="39.0" prefWidth="396.0" text="Resturant Hours for Today" textAlignment="CENTER">
                      <font>
                         <Font name="Serif Regular" size="18.0" />
                      </font>
@@ -67,7 +67,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="301.0">
                <children>
-                  <ListView fx:id="UpcomingSlotsListView" layoutX="1.0" layoutY="-2.0" prefHeight="98.0" prefWidth="396.0" />
+                  <ListView fx:id="RestaurantTimesListView" layoutX="1.0" layoutY="-2.0" prefHeight="98.0" prefWidth="396.0" />
                </children>
             </AnchorPane>
         </items>

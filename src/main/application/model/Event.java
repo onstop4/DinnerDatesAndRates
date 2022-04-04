@@ -11,7 +11,7 @@ public class Event {
 	private final LocalDate date;
 	private final boolean willAttend;
 
-	public Event(int id, String description, LocalDate date, boolean willAttend) {
+	Event(int id, String description, LocalDate date, boolean willAttend) {
 		this.id = id;
 		this.description = description;
 		this.date = date;

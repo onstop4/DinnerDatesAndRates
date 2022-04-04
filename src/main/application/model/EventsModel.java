@@ -11,7 +11,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class EventsModel {
-	private UserModel userModel;
+	private final UserModel userModel;
 
 	public EventsModel(UserModel userModel) {
 		this.userModel = userModel;
