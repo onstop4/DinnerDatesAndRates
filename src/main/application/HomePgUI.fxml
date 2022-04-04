@@ -36,11 +36,11 @@
             </Menu>
         </menus>
       </MenuBar>
-      <SplitPane dividerPositions="0.11879432624113476" layoutX="34.0" layoutY="127.0" orientation="VERTICAL" prefHeight="292.0" prefWidth="261.0">
+      <SplitPane dividerPositions="0.11879432624113476" layoutX="34.0" layoutY="127.0" orientation="VERTICAL" prefHeight="292.0" prefWidth="400.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="41.0" prefWidth="226.0">
                <children>
-                  <Label alignment="CENTER" layoutY="6.0" prefHeight="20.0" prefWidth="259.0" text="Upcoming Events" textAlignment="CENTER">
+                  <Label alignment="CENTER" layoutY="6.0" prefHeight="20.0" prefWidth="398.0" text="Upcoming Events" textAlignment="CENTER">
                      <font>
                         <Font name="Serif Regular" size="18.0" />
                      </font>
@@ -49,43 +49,25 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ListView fx:id="EventsListView" layoutY="1.0" prefHeight="252.0" prefWidth="259.0" />
+                  <ListView fx:id="EventsListView" layoutY="1.0" prefHeight="252.0" prefWidth="398.0" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <SplitPane dividerPositions="0.11206896551724138" layoutX="357.0" layoutY="127.0" orientation="VERTICAL" prefHeight="292.0" prefWidth="94.0">
+      <SplitPane dividerPositions="0.2923728813559322" layoutX="35.0" layoutY="434.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="398.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="28.0" prefWidth="92.0" text="Friends">
+                  <Label alignment="CENTER" layoutY="1.0" prefHeight="39.0" prefWidth="396.0" text="Resturant Hours" textAlignment="CENTER">
                      <font>
                         <Font name="Serif Regular" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="254.0" prefWidth="76.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="301.0">
                <children>
-                  <ListView fx:id="FriendsListView" prefHeight="254.0" prefWidth="92.0" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-      <SplitPane dividerPositions="0.2923728813559322" layoutX="35.0" layoutY="434.0" orientation="VERTICAL" prefHeight="146.0" prefWidth="259.0">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <Label alignment="CENTER" layoutY="1.0" prefHeight="39.0" prefWidth="257.0" text="Upcoming Time Slots" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="257.0">
-               <children>
-                  <ListView fx:id="UpcomingSlotsListView" layoutX="1.0" layoutY="-2.0" prefHeight="98.0" prefWidth="257.0" />
+                  <ListView fx:id="UpcomingSlotsListView" layoutX="1.0" layoutY="-2.0" prefHeight="98.0" prefWidth="396.0" />
                </children>
             </AnchorPane>
         </items>
