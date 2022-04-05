@@ -11,7 +11,7 @@ CREATE TABLE `Event` (
   `description` varchar(500) DEFAULT NULL,
   `event_date` date NOT NULL,
   PRIMARY KEY (`event_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.Restaurant definition
@@ -21,7 +21,7 @@ CREATE TABLE `Restaurant` (
   `name` varchar(200) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`restaurant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.`User` definition
@@ -33,7 +33,7 @@ CREATE TABLE `User` (
   `full_name` varchar(100) NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `User_UN` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.MenuItem definition
@@ -61,7 +61,7 @@ CREATE TABLE `RestaurantHours` (
   PRIMARY KEY (`restaurant_hours_id`),
   KEY `RestaurantHours_ibfk_1` (`restaurant_id`),
   CONSTRAINT `RestaurantHours_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 -- dinnerdates.Student definition
