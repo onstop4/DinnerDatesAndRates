@@ -14,6 +14,7 @@ public class Main extends Application {
 		SceneSwitcher.setPrimaryStage(primaryStage);
 		SceneSwitcher.setSignInLoader(new FXMLLoader(getClass().getResource("loginui.fxml")));
 		SceneSwitcher.setHomeLoader(new FXMLLoader(getClass().getResource("HomePgUI.fxml")));
+		SceneSwitcher.setAccountSettingsLoader(new FXMLLoader(getClass().getResource("AccountSettingsUI.fxml")));
 
 		SceneSwitcher.switchToSignIn();
 	}

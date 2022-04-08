@@ -24,6 +24,15 @@ public class HomeController {
 	private RestaurantTimeModel restaurantTimeModel;
 
 	@FXML
+	private Button NavHomeButton;
+	@FXML
+	private Button NavAccountSettingsButton;
+	@FXML
+	private Button NavCommunityButton;
+	@FXML
+	private Button NavRestaurantReviewsButton;
+
+	@FXML
 	private ListView<Event> EventsListView;
 	@FXML
 	private ListView<RestaurantTime> RestaurantTimesListView;
@@ -89,8 +98,11 @@ public class HomeController {
 			}
 		}
 	}
-	
+
 	public void configure(UserModel userModel) {
+		Navbar.configureAllNavButtons(userModel, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
+				NavRestaurantReviewsButton);
+
 		SceneSwitcher.getPrimaryStage().setTitle("Home");
 
 		eventModel = new EventsModel(userModel);
@@ -100,7 +112,7 @@ public class HomeController {
 				return new EventCell(userModel);
 			}
 		});
-		
+
 		restaurantTimeModel = new RestaurantTimeModel();
 		RestaurantTimesListView.setCellFactory(new Callback<ListView<RestaurantTime>, ListCell<RestaurantTime>>() {
 			@Override

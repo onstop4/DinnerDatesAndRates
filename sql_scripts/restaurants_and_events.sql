@@ -74,7 +74,6 @@ CREATE TABLE `Student` (
   `favorite_restaurant` int DEFAULT NULL,
   `preferred_food` varchar(200) DEFAULT NULL,
   `availability` varchar(200) DEFAULT NULL,
-  `favorite_eating_time` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   KEY `Student_ibfk_2` (`favorite_restaurant`),
   CONSTRAINT `Student_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
