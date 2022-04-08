@@ -100,10 +100,9 @@ public class HomeController {
 	}
 
 	public void configure(UserModel userModel) {
+		SceneSwitcher.getPrimaryStage().setTitle("Home");
 		Navbar.configureAllNavButtons(userModel, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
 				NavRestaurantReviewsButton);
-
-		SceneSwitcher.getPrimaryStage().setTitle("Home");
 
 		eventModel = new EventsModel(userModel);
 		EventsListView.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {

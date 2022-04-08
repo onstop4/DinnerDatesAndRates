@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.util.StringConverter;
+import main.application.SceneSwitcher;
 import main.application.model.AccountSettingsModel;
 import main.application.model.Restaurant;
 import main.application.model.UserModel;
@@ -40,6 +41,7 @@ public class AccountSettingsController {
 	private TextArea InterestsField;
 
 	public void configure(UserModel userModel) {
+		SceneSwitcher.getPrimaryStage().setTitle("Account Settings");
 		Navbar.configureAllNavButtons(userModel, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
 				NavRestaurantReviewsButton);
 
