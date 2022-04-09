@@ -65,7 +65,9 @@ public class SignInController {
 				}
 			}
 
-			switchScene(currentUser);
+			if (currentUser != null) {
+				switchScene(currentUser);
+			}
 		} catch (java.sql.SQLIntegrityConstraintViolationException e) {
 			errorText.setText("Error creating account. Username might be taken.");
 		} catch (SQLException e) {
