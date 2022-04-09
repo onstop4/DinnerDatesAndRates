@@ -7,18 +7,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.application.controller.AccountSettingsController;
+import main.application.controller.CommunityController;
 import main.application.controller.HomeController;
 import main.application.model.UserModel;
 
 public class SceneSwitcher {
 	private static Stage primaryStage;
-	private static FXMLLoader signInLoader;
 	private static FXMLLoader homeLoader;
 	private static FXMLLoader accountSettingsLoader;
+	private static FXMLLoader communityLoader;
 
 	private static Scene signInScene;
 	private static Scene homeScene;
 	private static Scene accountSettingsScene;
+	private static Scene communityScene;
 
 	public static void switchToSignIn() {
 		primaryStage.setScene(signInScene);
@@ -39,20 +41,15 @@ public class SceneSwitcher {
 		primaryStage.show();
 	}
 
+	public static void switchToCommunity(UserModel userModel) {
+		CommunityController controller = communityLoader.getController();
+		controller.configure(userModel);
+		primaryStage.setScene(communityScene);
+		primaryStage.show();
+	}
+
 	public static Stage getPrimaryStage() {
 		return primaryStage;
-	}
-
-	public static FXMLLoader getSignInLoader() {
-		return signInLoader;
-	}
-
-	public static FXMLLoader getHomeLoader() {
-		return homeLoader;
-	}
-
-	public static FXMLLoader getAccountSettingsLoader() {
-		return accountSettingsLoader;
 	}
 
 	static void setPrimaryStage(Stage primaryStage) {
@@ -60,7 +57,6 @@ public class SceneSwitcher {
 	}
 
 	static void setSignInLoader(FXMLLoader signInLoader) {
-		SceneSwitcher.signInLoader = signInLoader;
 		try {
 			signInScene = new Scene((Parent) signInLoader.load());
 		} catch (IOException e) {
@@ -86,15 +82,12 @@ public class SceneSwitcher {
 		}
 	}
 
-	public static Scene getSignInScene() {
-		return signInScene;
-	}
-
-	public static Scene getHomeScene() {
-		return homeScene;
-	}
-
-	public static Scene getAccountSettingsScene() {
-		return accountSettingsScene;
+	static void setCommunityLoader(FXMLLoader communityLoader) {
+		SceneSwitcher.communityLoader = communityLoader;
+		try {
+			communityScene = new Scene((Parent) communityLoader.load());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
