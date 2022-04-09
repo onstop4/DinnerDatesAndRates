@@ -13,7 +13,7 @@ import javafx.util.StringConverter;
 import main.application.SceneSwitcher;
 import main.application.model.AccountSettingsModel;
 import main.application.model.Restaurant;
-import main.application.model.UserModel;
+import main.application.model.User;
 
 public class AccountSettingsController {
 	private AccountSettingsModel accountSettingsModel;
@@ -40,12 +40,12 @@ public class AccountSettingsController {
 	@FXML
 	private TextArea InterestsField;
 
-	public void configure(UserModel userModel) {
+	public void configure(User currentUser) {
 		SceneSwitcher.getPrimaryStage().setTitle("Account Settings");
-		Navbar.configureAllNavButtons(userModel, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
+		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
 				NavRestaurantReviewsButton);
 
-		accountSettingsModel = new AccountSettingsModel(userModel);
+		accountSettingsModel = new AccountSettingsModel(currentUser);
 
 		refresh();
 	}

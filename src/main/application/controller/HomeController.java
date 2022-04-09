@@ -17,7 +17,7 @@ import main.application.model.Event;
 import main.application.model.EventsModel;
 import main.application.model.RestaurantTime;
 import main.application.model.RestaurantTimeModel;
-import main.application.model.UserModel;
+import main.application.model.User;
 
 public class HomeController {
 	private EventsModel eventModel;
@@ -44,14 +44,14 @@ public class HomeController {
 		Button button = new Button("I will attend");
 		Event lastItem;
 
-		public EventCell(UserModel userModel) {
+		public EventCell(User currentUser) {
 			super();
 			hbox.getChildren().addAll(descriptionText, pane, button);
 			HBox.setHgrow(pane, Priority.ALWAYS);
 			button.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					lastItem.confirmAttendance(userModel);
+					lastItem.confirmAttendance(currentUser);
 					button.setDisable(true);
 				}
 			});
@@ -99,16 +99,16 @@ public class HomeController {
 		}
 	}
 
-	public void configure(UserModel userModel) {
+	public void configure(User currentUser) {
 		SceneSwitcher.getPrimaryStage().setTitle("Home");
-		Navbar.configureAllNavButtons(userModel, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
+		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
 				NavRestaurantReviewsButton);
 
-		eventModel = new EventsModel(userModel);
+		eventModel = new EventsModel(currentUser);
 		EventsListView.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {
 			@Override
 			public ListCell<Event> call(ListView<Event> param) {
-				return new EventCell(userModel);
+				return new EventCell(currentUser);
 			}
 		});
 

@@ -11,10 +11,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class EventsModel {
-	private final UserModel userModel;
+	private final User currentUser;
 
-	public EventsModel(UserModel userModel) {
-		this.userModel = userModel;
+	public EventsModel(User currentUser) {
+		this.currentUser = currentUser;
 	}
 
 	public ObservableList<Event> getEvents() {
@@ -24,7 +24,7 @@ public class EventsModel {
 			String statement = "select Event.event_id, Event.description, Event.event_date, EventAttendant.attendant_id from Event left outer join EventAttendant on Event.event_id = EventAttendant.event_id and EventAttendant.attendant_id = ? where Event.event_date > ? order by Event.event_date";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
-			stmt.setInt(1, userModel.getId());
+			stmt.setInt(1, currentUser.getId());
 			stmt.setDate(2, Date.valueOf(LocalDate.now()));
 
 			ResultSet rs = stmt.executeQuery();

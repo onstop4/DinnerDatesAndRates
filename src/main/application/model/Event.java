@@ -34,12 +34,12 @@ public class Event {
 		return willAttend;
 	}
 
-	public void confirmAttendance(UserModel userModel) {
+	public void confirmAttendance(User currentUser) {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "insert into EventAttendant (attendant_id, event_id) values (?, ?)";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
-			stmt.setInt(1, userModel.getId());
+			stmt.setInt(1, currentUser.getId());
 			stmt.setInt(2, id);
 
 			stmt.executeUpdate();

@@ -9,7 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class AccountSettingsModel {
-	private final UserModel userModel;
+	private final User currentUser;
 	private int academicYear;
 	private String major;
 	private int favoriteRestaurantId;
@@ -17,8 +17,8 @@ public class AccountSettingsModel {
 	private String interests;
 	private String availability;
 
-	public AccountSettingsModel(UserModel userModel) {
-		this.userModel = userModel;
+	public AccountSettingsModel(User currentUser) {
+		this.currentUser = currentUser;
 		updateObject();
 	}
 
@@ -27,7 +27,7 @@ public class AccountSettingsModel {
 			String statement = "select year, major, interest, favorite_restaurant, preferred_food, availability from Student where user_id = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
-			stmt.setInt(1, userModel.getId());
+			stmt.setInt(1, currentUser.getId());
 
 			ResultSet rs = stmt.executeQuery();
 			if (!rs.next()) {
@@ -42,10 +42,10 @@ public class AccountSettingsModel {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (NullPointerException e) {
-			if (userModel == null) {
+			if (currentUser == null) {
 				System.err.println("UserModel object that passed to constructor was actually null");
 			} else {
-				System.err.println("Cannot find student with id " + userModel.getId());
+				System.err.println("Cannot find student with id " + currentUser.getId());
 			}
 		}
 	}
@@ -126,7 +126,7 @@ public class AccountSettingsModel {
 			stmt.setInt(4, favoriteRestaurantId);
 			stmt.setString(5, favoriteFoods);
 			stmt.setString(6, availability);
-			stmt.setInt(7, userModel.getId());
+			stmt.setInt(7, currentUser.getId());
 
 			stmt.executeUpdate();
 		} catch (SQLException e) {

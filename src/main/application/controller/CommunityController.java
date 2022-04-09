@@ -12,11 +12,10 @@ import javafx.util.StringConverter;
 import main.application.SceneSwitcher;
 import main.application.model.Following;
 import main.application.model.FollowingModel;
-import main.application.model.OtherUser;
-import main.application.model.UserModel;
+import main.application.model.User;
 
 public class CommunityController {
-	private UserModel userModel;
+	private User currentUser;
 	private FollowingModel followingModel;
 
 	@FXML
@@ -33,7 +32,7 @@ public class CommunityController {
 	@FXML
 	private ListView<Following> FollowingListView;
 	@FXML
-	private ListView<OtherUser> AddFriendsListView;
+	private ListView<User> AddFriendsListView;
 	@FXML
 	private Button AddFriendButton;
 
@@ -47,26 +46,26 @@ public class CommunityController {
 		public String toString(Following following) {
 			// Returns name of friend or follower based on whether or not the person being
 			// followed is the current user.
-			if (following.getToID() == userModel.getId()) {
+			if (following.getToID() == currentUser.getId()) {
 				return following.getFromName();
 			}
 			return following.getToName();
 		}
 	}
 
-	public void configure(UserModel userModel) {
-		this.userModel = userModel;
+	public void configure(User currentUser) {
+		this.currentUser = currentUser;
 		SceneSwitcher.getPrimaryStage().setTitle("Community");
-		Navbar.configureAllNavButtons(userModel, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
+		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
 				NavRestaurantReviewsButton);
 
-		followingModel = new FollowingModel(userModel);
+		followingModel = new FollowingModel(currentUser);
 
 		AddFriendButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				MultipleSelectionModel<OtherUser> selectionModel = AddFriendsListView.getSelectionModel();
-				if (selectionModel.getSelectedItem().addFriend()) {
+				MultipleSelectionModel<User> selectionModel = AddFriendsListView.getSelectionModel();
+				if (selectionModel.getSelectedItem().addAsFriend(currentUser)) {
 					refresh();
 				}
 			}
@@ -78,21 +77,21 @@ public class CommunityController {
 	private void refresh() {
 		ObservableList<Following> following = followingModel.getFollowing();
 		ObservableList<Following> friends = followingModel.getFriends();
-		ObservableList<OtherUser> potentialFriends = followingModel.getOtherUsers();
+		ObservableList<User> potentialFriends = followingModel.getOtherUsers();
 
 		FriendsListView.setItems(friends);
 		FriendsListView.setCellFactory(ComboBoxListCell.forListView(new FollowingConverter(), friends));
 		FollowingListView.setItems(following);
 		FollowingListView.setCellFactory(ComboBoxListCell.forListView(new FollowingConverter(), following));
 		AddFriendsListView.setItems(potentialFriends);
-		AddFriendsListView.setCellFactory(ComboBoxListCell.forListView(new StringConverter<OtherUser>() {
+		AddFriendsListView.setCellFactory(ComboBoxListCell.forListView(new StringConverter<User>() {
 			@Override
-			public OtherUser fromString(String arg0) {
+			public User fromString(String arg0) {
 				return null;
 			}
 
 			@Override
-			public String toString(OtherUser otherUser) {
+			public String toString(User otherUser) {
 				return otherUser.getFullName();
 			}
 		}, potentialFriends));

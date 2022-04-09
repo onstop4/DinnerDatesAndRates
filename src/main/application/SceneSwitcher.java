@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import main.application.controller.AccountSettingsController;
 import main.application.controller.CommunityController;
 import main.application.controller.HomeController;
-import main.application.model.UserModel;
+import main.application.model.User;
 
 public class SceneSwitcher {
 	private static Stage primaryStage;
@@ -27,23 +27,23 @@ public class SceneSwitcher {
 		primaryStage.show();
 	}
 
-	public static void switchToHome(UserModel userModel) {
+	public static void switchToHome(User currentUser) {
 		HomeController controller = homeLoader.getController();
-		controller.configure(userModel);
+		controller.configure(currentUser);
 		primaryStage.setScene(homeScene);
 		primaryStage.show();
 	}
 
-	public static void switchToAccountSettings(UserModel userModel) {
+	public static void switchToAccountSettings(User currentUser) {
 		AccountSettingsController controller = accountSettingsLoader.getController();
-		controller.configure(userModel);
+		controller.configure(currentUser);
 		primaryStage.setScene(accountSettingsScene);
 		primaryStage.show();
 	}
 
-	public static void switchToCommunity(UserModel userModel) {
+	public static void switchToCommunity(User currentUser) {
 		CommunityController controller = communityLoader.getController();
-		controller.configure(userModel);
+		controller.configure(currentUser);
 		primaryStage.setScene(communityScene);
 		primaryStage.show();
 	}

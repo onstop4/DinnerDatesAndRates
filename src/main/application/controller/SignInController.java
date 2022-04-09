@@ -10,7 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.application.SceneSwitcher;
-import main.application.model.UserModel;
+import main.application.model.User;
 
 public class SignInController {
 	private Stage stage;
@@ -53,19 +53,19 @@ public class SignInController {
 		}
 
 		try {
-			UserModel userModel;
+			User currentUser;
 
 			if (isRegistering) {
-				userModel = UserModel.create_user_model(username, password, fullName);
+				currentUser = User.create_user(username, password, fullName);
 			} else {
-				userModel = UserModel.get_user_model(username, password);
-				if (userModel == null) {
+				currentUser = User.get_user(username, password);
+				if (currentUser == null) {
 					errorText.setText("Incorrect username or password.");
 					return;
 				}
 			}
 
-			switchScene(userModel);
+			switchScene(currentUser);
 		} catch (java.sql.SQLIntegrityConstraintViolationException e) {
 			errorText.setText("Error creating account. Username might be taken.");
 		} catch (SQLException e) {
@@ -91,7 +91,7 @@ public class SignInController {
 		}
 	}
 
-	private void switchScene(UserModel userModel) {
-		SceneSwitcher.switchToHome(userModel);
+	private void switchScene(User currentUser) {
+		SceneSwitcher.switchToHome(currentUser);
 	}
 }
