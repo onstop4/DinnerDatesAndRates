@@ -12,10 +12,10 @@ public class Main extends Application {
 		this.primaryStage = primaryStage;
 
 		SceneSwitcher.setPrimaryStage(primaryStage);
-		SceneSwitcher.setSignInLoader(new FXMLLoader(getClass().getResource("loginui.fxml")));
+		SceneSwitcher.setSignInLoader(new FXMLLoader(getClass().getResource("LoginPgUI.fxml")));
 		SceneSwitcher.setHomeLoader(new FXMLLoader(getClass().getResource("HomePgUI.fxml")));
-		SceneSwitcher.setAccountSettingsLoader(new FXMLLoader(getClass().getResource("AccountSettingsUI.fxml")));
-		SceneSwitcher.setCommunityLoader(new FXMLLoader(getClass().getResource("CommunityUI.fxml")));
+		SceneSwitcher.setAccountSettingsLoader(new FXMLLoader(getClass().getResource("AccountSettingsPgUI.fxml")));
+		SceneSwitcher.setCommunityLoader(new FXMLLoader(getClass().getResource("CommunityPgUI.fxml")));
 
 		SceneSwitcher.switchToSignIn();
 	}
