@@ -42,7 +42,7 @@ public class HomeController {
 		Text descriptionText = new Text("");
 		Pane pane = new Pane();
 		Button button = new Button("I will attend");
-		Event lastItem;
+		Event item;
 
 		public EventCell(User currentUser) {
 			super();
@@ -51,7 +51,7 @@ public class HomeController {
 			button.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					lastItem.confirmAttendance(currentUser);
+					item.confirmAttendance(currentUser);
 					button.setDisable(true);
 				}
 			});
@@ -64,6 +64,7 @@ public class HomeController {
 			if (empty) {
 				setGraphic(null);
 			} else {
+				this.item = item;
 				descriptionText.setText(item.getDescription());
 				if (item.willAttend()) {
 					button.setDisable(true);
