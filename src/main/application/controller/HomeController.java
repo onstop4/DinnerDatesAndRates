@@ -19,18 +19,9 @@ import main.application.model.Restaurant;
 import main.application.model.RestaurantTimeModel;
 import main.application.model.User;
 
-public class HomeController {
+public class HomeController extends AbstractController {
 	private EventsModel eventModel;
 	private RestaurantTimeModel restaurantTimeModel;
-
-	@FXML
-	private Button NavHomeButton;
-	@FXML
-	private Button NavAccountSettingsButton;
-	@FXML
-	private Button NavCommunityButton;
-	@FXML
-	private Button NavRestaurantReviewsButton;
 
 	@FXML
 	private ListView<Event> EventsListView;
@@ -101,9 +92,8 @@ public class HomeController {
 	}
 
 	public void configure(User currentUser) {
+		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Home");
-		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
-				NavRestaurantReviewsButton);
 
 		eventModel = new EventsModel(currentUser);
 		EventsListView.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {

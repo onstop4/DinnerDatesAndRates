@@ -4,7 +4,6 @@ import java.util.stream.IntStream;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -15,17 +14,8 @@ import main.application.model.AccountSettingsModel;
 import main.application.model.Restaurant;
 import main.application.model.User;
 
-public class AccountSettingsController {
+public class AccountSettingsController extends AbstractController {
 	private AccountSettingsModel accountSettingsModel;
-
-	@FXML
-	private Button NavHomeButton;
-	@FXML
-	private Button NavAccountSettingsButton;
-	@FXML
-	private Button NavCommunityButton;
-	@FXML
-	private Button NavRestaurantReviewsButton;
 
 	@FXML
 	private TextField AcademicYearField;
@@ -41,9 +31,8 @@ public class AccountSettingsController {
 	private TextArea InterestsField;
 
 	public void configure(User currentUser) {
+		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Account Settings");
-		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
-				NavRestaurantReviewsButton);
 
 		accountSettingsModel = new AccountSettingsModel(currentUser);
 

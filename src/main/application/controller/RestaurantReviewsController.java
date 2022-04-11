@@ -7,7 +7,6 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -24,20 +23,11 @@ import main.application.model.RestaurantReviewsModel;
 import main.application.model.Review;
 import main.application.model.User;
 
-public class RestaurantReviewsController {
+public class RestaurantReviewsController extends AbstractController {
 	private static final int MIN_RATING = 1;
 	private static final int MAX_RATING = 5;
 
 	private RestaurantReviewsModel restaurantReviewModel;
-
-	@FXML
-	private Button NavHomeButton;
-	@FXML
-	private Button NavAccountSettingsButton;
-	@FXML
-	private Button NavCommunityButton;
-	@FXML
-	private Button NavRestaurantReviewsButton;
 
 	@FXML
 	private ListView<Restaurant> RestaurantsListView;
@@ -138,9 +128,8 @@ public class RestaurantReviewsController {
 	}
 
 	public void configure(User currentUser) {
+		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Restaurant Reviews");
-		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
-				NavRestaurantReviewsButton);
 
 		restaurantReviewModel = new RestaurantReviewsModel(currentUser);
 
@@ -207,12 +196,12 @@ public class RestaurantReviewsController {
 	@FXML
 	private void handleSubmitReview() {
 		Alert a = new Alert(AlertType.ERROR);
-		int rating = 0;
+		int rating;
 		String comment = CommentField.getText();
 		try {
 			rating = Integer.parseInt(RatingField.getText().strip());
 		} catch (NumberFormatException e) {
-			e.printStackTrace();
+			rating = 0;
 		}
 
 		if (rating < MIN_RATING || rating > MAX_RATING) {

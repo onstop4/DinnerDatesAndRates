@@ -14,18 +14,9 @@ import main.application.model.Following;
 import main.application.model.FollowingModel;
 import main.application.model.User;
 
-public class CommunityController {
+public class CommunityController extends AbstractController {
 	private User currentUser;
 	private FollowingModel followingModel;
-
-	@FXML
-	private Button NavHomeButton;
-	@FXML
-	private Button NavAccountSettingsButton;
-	@FXML
-	private Button NavCommunityButton;
-	@FXML
-	private Button NavRestaurantReviewsButton;
 
 	@FXML
 	private ListView<Following> FriendsListView;
@@ -54,10 +45,9 @@ public class CommunityController {
 	}
 
 	public void configure(User currentUser) {
+		super.configure(currentUser);
 		this.currentUser = currentUser;
 		SceneSwitcher.getPrimaryStage().setTitle("Community");
-		Navbar.configureAllNavButtons(currentUser, NavHomeButton, NavAccountSettingsButton, NavCommunityButton,
-				NavRestaurantReviewsButton);
 
 		followingModel = new FollowingModel(currentUser);
 

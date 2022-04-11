@@ -13,6 +13,18 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="867.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.application.controller.RestaurantReviewsController">
    <children>
+      <ButtonBar buttonOrder="U+L_HE+FBIX_NCYOA_R" layoutY="10.0" prefHeight="41.0" prefWidth="742.0">
+         <buttons>
+            <Button fx:id="NavHomeButton" mnemonicParsing="false" text="HOME" />
+            <Button fx:id="NavAccountSettingsButton" mnemonicParsing="false" text="ACCOUNT" />
+            <Button fx:id="NavCommunityButton" mnemonicParsing="false" text="COMMUNITY" />
+            <Button fx:id="NavRestaurantReviewsButton" mnemonicParsing="false" text="REVIEWS" />
+            <Button fx:id="NavSignOutButton" mnemonicParsing="false" prefWidth="205.0" text="SIGN OUT" />
+         </buttons>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </ButtonBar>
       <SplitPane dividerPositions="0.10615384615384615" layoutX="22.0" layoutY="80.0" orientation="VERTICAL" prefHeight="290.0" prefWidth="317.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="96.0" prefWidth="225.0">
@@ -67,14 +79,6 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <ButtonBar buttonOrder="U+L_HE+FBIX_NCYOA_R" layoutY="10.0" prefHeight="40.0" prefWidth="742.0">
-         <buttons>
-            <Button fx:id="NavHomeButton" mnemonicParsing="false" text="HOME" />
-            <Button fx:id="NavAccountSettingsButton" mnemonicParsing="false" text="ACCOUNT" />
-            <Button fx:id="NavCommunityButton" mnemonicParsing="false" text="COMMUNITY" />
-            <Button fx:id="NavRestaurantReviewsButton" mnemonicParsing="false" text="REVIEWS" />
-         </buttons>
-      </ButtonBar>
       <SplitPane dividerPositions="0.22839506172839505" layoutX="22.0" layoutY="673.0" orientation="VERTICAL" prefHeight="183.0" prefWidth="698.0">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
