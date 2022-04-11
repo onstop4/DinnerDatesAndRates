@@ -21,6 +21,7 @@ class Navbar {
 		configureNavHomeButton(navHomeButton, currentUser);
 		configureNavAccountSettingsButton(navAccountSettingsButton, currentUser);
 		configureNavCommunityButton(navCommunityButton, currentUser);
+		configureNavRestaurantReviewsButton(navRestaurantReviewsButton, currentUser);
 	}
 
 	/**
@@ -64,6 +65,21 @@ class Navbar {
 			@Override
 			public void handle(ActionEvent arg0) {
 				SceneSwitcher.switchToCommunity(currentUser);
+			}
+		});
+	}
+
+	/**
+	 * Configures button that will switch to the Restaurant Reviews scene.
+	 * 
+	 * @param button
+	 * @param currentUser
+	 */
+	static void configureNavRestaurantReviewsButton(Button button, User currentUser) {
+		button.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				SceneSwitcher.switchToRestaurantReviews(currentUser);
 			}
 		});
 	}

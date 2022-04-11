@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import main.application.controller.AccountSettingsController;
 import main.application.controller.CommunityController;
 import main.application.controller.HomeController;
+import main.application.controller.RestaurantReviewsController;
 import main.application.model.User;
 
 public class SceneSwitcher {
@@ -16,11 +17,13 @@ public class SceneSwitcher {
 	private static FXMLLoader homeLoader;
 	private static FXMLLoader accountSettingsLoader;
 	private static FXMLLoader communityLoader;
+	private static FXMLLoader restaurantReviewsLoader;
 
 	private static Scene signInScene;
 	private static Scene homeScene;
 	private static Scene accountSettingsScene;
 	private static Scene communityScene;
+	private static Scene restaurantReviewsScene;
 
 	public static void switchToSignIn() {
 		primaryStage.setScene(signInScene);
@@ -45,6 +48,13 @@ public class SceneSwitcher {
 		CommunityController controller = communityLoader.getController();
 		controller.configure(currentUser);
 		primaryStage.setScene(communityScene);
+		primaryStage.show();
+	}
+
+	public static void switchToRestaurantReviews(User currentUser) {
+		RestaurantReviewsController controller = restaurantReviewsLoader.getController();
+		controller.configure(currentUser);
+		primaryStage.setScene(restaurantReviewsScene);
 		primaryStage.show();
 	}
 
@@ -86,6 +96,15 @@ public class SceneSwitcher {
 		SceneSwitcher.communityLoader = communityLoader;
 		try {
 			communityScene = new Scene((Parent) communityLoader.load());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void setRestaurantReviewsLoader(FXMLLoader restaurantReviewsLoader) {
+		SceneSwitcher.restaurantReviewsLoader = restaurantReviewsLoader;
+		try {
+			restaurantReviewsScene = new Scene((Parent) restaurantReviewsLoader.load());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

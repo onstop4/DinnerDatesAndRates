@@ -15,7 +15,7 @@ import javafx.util.Callback;
 import main.application.SceneSwitcher;
 import main.application.model.Event;
 import main.application.model.EventsModel;
-import main.application.model.RestaurantTime;
+import main.application.model.Restaurant;
 import main.application.model.RestaurantTimeModel;
 import main.application.model.User;
 
@@ -35,7 +35,7 @@ public class HomeController {
 	@FXML
 	private ListView<Event> EventsListView;
 	@FXML
-	private ListView<RestaurantTime> RestaurantTimesListView;
+	private ListView<Restaurant> RestaurantTimesListView;
 
 	private static class EventCell extends ListCell<Event> {
 		HBox hbox = new HBox();
@@ -46,7 +46,7 @@ public class HomeController {
 
 		public EventCell(User currentUser) {
 			super();
-			hbox.getChildren().addAll(descriptionText, pane, button);
+			hbox.getChildren().setAll(descriptionText, pane, button);
 			HBox.setHgrow(pane, Priority.ALWAYS);
 			button.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
@@ -73,7 +73,7 @@ public class HomeController {
 		}
 	}
 
-	private static class RestaurantTimesCell extends ListCell<RestaurantTime> {
+	private static class RestaurantTimesCell extends ListCell<Restaurant> {
 		VBox vbox = new VBox();
 		Pane pane = new Pane();
 		Text nameText = new Text();
@@ -81,18 +81,18 @@ public class HomeController {
 
 		public RestaurantTimesCell() {
 			super();
-			vbox.getChildren().addAll(nameText, openCloseText);
+			vbox.getChildren().setAll(nameText, openCloseText);
 			HBox.setHgrow(pane, Priority.ALWAYS);
 		}
 
 		@Override
-		protected void updateItem(RestaurantTime item, boolean empty) {
+		protected void updateItem(Restaurant item, boolean empty) {
 			super.updateItem(item, empty);
 			setText(null);
 			if (empty) {
 				setGraphic(vbox);
 			} else {
-				nameText.setText(item.getRestaurantName());
+				nameText.setText(item.getName());
 				openCloseText.setText(item.getDayHoursFormatted());
 				setGraphic(vbox);
 			}
@@ -113,9 +113,9 @@ public class HomeController {
 		});
 
 		restaurantTimeModel = new RestaurantTimeModel();
-		RestaurantTimesListView.setCellFactory(new Callback<ListView<RestaurantTime>, ListCell<RestaurantTime>>() {
+		RestaurantTimesListView.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
 			@Override
-			public ListCell<RestaurantTime> call(ListView<RestaurantTime> param) {
+			public ListCell<Restaurant> call(ListView<Restaurant> param) {
 				return new RestaurantTimesCell();
 			}
 		});

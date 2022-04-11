@@ -106,7 +106,7 @@ public class AccountSettingsModel {
 
 			ResultSet rs = conn.createStatement().executeQuery(statement);
 			while (rs.next()) {
-				restaurants.add(new Restaurant(rs.getInt("restaurant_id"), rs.getString("name"), null));
+				restaurants.add(new Restaurant(rs.getInt("restaurant_id"), rs.getString("name")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
