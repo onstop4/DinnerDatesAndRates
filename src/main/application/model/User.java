@@ -49,12 +49,14 @@ public class User {
 		return null;
 	}
 
-	public static User create_user(String username, String password, String fullName) throws SQLException {
+	public static User create_student(String username, String password, String fullName, int year) throws SQLException {
 		byte[] salt = generateRandomSalt();
 		byte[] passwordBytes = hashPassword(password, salt);
 
 		if (passwordBytes != null) {
 			Connection conn = Database.getConnection();
+
+			// Creates new User.
 			String statement = "insert into User (username, password, salt, full_name) values (?, ?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(statement);
 
@@ -65,7 +67,17 @@ public class User {
 
 			stmt.executeUpdate();
 
-			return get_user(username, password);
+			User user = get_user(username, password);
+
+			// Creates new Student that references the User created above.
+			statement = "insert into Student (user_id, year) values (?, ?)";
+			stmt = conn.prepareStatement(statement);
+			stmt.setInt(1, user.getId());
+			stmt.setInt(2, year);
+
+			stmt.executeUpdate();
+
+			return user;
 		}
 
 		return null;

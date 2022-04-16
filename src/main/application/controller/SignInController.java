@@ -1,13 +1,15 @@
 package main.application.controller;
 
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.application.SceneSwitcher;
 import main.application.model.User;
@@ -25,30 +27,53 @@ public class SignInController {
 	@FXML
 	private TextField fullNameField;
 	@FXML
-	private Button switchModeButton;
+	private VBox yearBox;
 	@FXML
-	private Text errorText;
+	private TextField yearField;
+	@FXML
+	private Button switchModeButton;
 
-	public void initialize() {
+	public void configure() {
 		stage = SceneSwitcher.getPrimaryStage();
 		stage.setTitle("Sign in");
-		controlFullNameBox(false);
+
+		usernameField.setText("");
+		passwordField.setText("");
+		fullNameField.setText("");
+		yearField.setText("");
+
+		isRegistering = false;
+		controlRegisteringStatus(isRegistering);
 	}
 
-	private void controlFullNameBox(boolean state) {
-		fullNameBox.setVisible(state);
-		fullNameBox.setManaged(state);
+	private void controlRegisteringStatus(boolean isRegistering) {
+		fullNameBox.setVisible(isRegistering);
+		fullNameBox.setManaged(isRegistering);
+
+		yearBox.setVisible(isRegistering);
+		yearBox.setManaged(isRegistering);
+
+		if (isRegistering) {
+			stage.setTitle("Register");
+			switchModeButton.setText("Sign into an existing account");
+		} else {
+			stage.setTitle("Sign in");
+			switchModeButton.setText("Create a new account");
+		}
 	}
 
 	@FXML
 	private void handleSubmit(ActionEvent event) {
-		errorText.setText("");
+		Alert a = new Alert(AlertType.ERROR);
+
 		String username = usernameField.getText().strip();
 		String password = passwordField.getText();
 		String fullName = fullNameField.getText().strip();
 
 		if (username.isBlank() || password.isBlank() || (isRegistering && fullName.isBlank())) {
-			errorText.setText("Fields must not be left blank.");
+			a.setHeaderText("Bad Input");
+			a.setContentText("Fields must not be left blank.");
+			a.show();
 			return;
 		}
 
@@ -56,11 +81,13 @@ public class SignInController {
 			User currentUser;
 
 			if (isRegistering) {
-				currentUser = User.create_user(username, password, fullName);
+				currentUser = User.create_student(username, password, fullName, Integer.parseInt(yearField.getText()));
 			} else {
 				currentUser = User.get_user(username, password);
 				if (currentUser == null) {
-					errorText.setText("Incorrect username or password.");
+					a.setHeaderText("Bad Credentials");
+					a.setContentText("Incorrect username or password.");
+					a.show();
 					return;
 				}
 			}
@@ -68,29 +95,31 @@ public class SignInController {
 			if (currentUser != null) {
 				switchScene(currentUser);
 			}
-		} catch (java.sql.SQLIntegrityConstraintViolationException e) {
-			errorText.setText("Error creating account. Username might be taken.");
+		} catch (NumberFormatException e) {
+			a.setHeaderText("Bad Input");
+			a.setContentText("Please enter a valid integer for the \"Year\" field.");
+			a.show();
+		} catch (SQLIntegrityConstraintViolationException e) {
+			a.setHeaderText("Username Taken");
+			a.setContentText("Error creating account. Username might be taken.");
+			a.show();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			errorText.setText("Error communicating with database.");
+			a.setHeaderText("Database Communication Error");
+			a.setContentText("Error communicating with database.");
+			a.show();
 		}
 	}
 
 	@FXML
 	private void handleSwitchMode(ActionEvent event) {
-		errorText.setText("");
-
 		if (isRegistering) {
 			isRegistering = false;
-			stage.setTitle("Sign in");
-			controlFullNameBox(false);
-			switchModeButton.setText("Create a new account");
 		} else {
 			isRegistering = true;
-			stage.setTitle("Register");
-			controlFullNameBox(true);
-			switchModeButton.setText("Sign into an existing account");
 		}
+
+		controlRegisteringStatus(isRegistering);
 	}
 
 	private void switchScene(User currentUser) {

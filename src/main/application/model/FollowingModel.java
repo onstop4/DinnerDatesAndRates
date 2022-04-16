@@ -68,8 +68,7 @@ public class FollowingModel {
 
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				list.add(new User(rs.getInt("User.user_id"), rs.getString("User.username"),
-						rs.getString("User.full_name")));
+				list.add(new User(rs.getInt("User.user_id"), null, rs.getString("User.full_name")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

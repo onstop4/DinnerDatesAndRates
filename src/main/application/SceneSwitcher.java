@@ -10,10 +10,12 @@ import main.application.controller.AccountSettingsController;
 import main.application.controller.CommunityController;
 import main.application.controller.HomeController;
 import main.application.controller.RestaurantReviewsController;
+import main.application.controller.SignInController;
 import main.application.model.User;
 
 public class SceneSwitcher {
 	private static Stage primaryStage;
+	private static FXMLLoader signInLoader;
 	private static FXMLLoader homeLoader;
 	private static FXMLLoader accountSettingsLoader;
 	private static FXMLLoader communityLoader;
@@ -26,6 +28,8 @@ public class SceneSwitcher {
 	private static Scene restaurantReviewsScene;
 
 	public static void switchToSignIn() {
+		SignInController controller = signInLoader.getController();
+		controller.configure();
 		primaryStage.setScene(signInScene);
 		primaryStage.show();
 	}
@@ -67,6 +71,7 @@ public class SceneSwitcher {
 	}
 
 	static void setSignInLoader(FXMLLoader signInLoader) {
+		SceneSwitcher.signInLoader = signInLoader;
 		try {
 			signInScene = new Scene((Parent) signInLoader.load());
 		} catch (IOException e) {
