@@ -78,7 +78,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Button fx:id="AddFriendButton" layoutX="371.0" layoutY="860.0" mnemonicParsing="false" text="Add Friend" />
+      <Button styleClass="submitBtn" fx:id="AddFriendButton" layoutX="371.0" layoutY="860.0" mnemonicParsing="false" text="Add Friend" />
       <SplitPane dividerPositions="0.16569767441860464" layoutX="49.0" layoutY="349.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="247.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -97,7 +97,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Button fx:id="FoodPrefSubBtn" layoutX="183.0" layoutY="520.0" mnemonicParsing="false" text="Submit Prefernces">
+      <Button styleClass="submitBtn" fx:id="FoodPrefSubBtn" layoutX="183.0" layoutY="520.0" mnemonicParsing="false" text="Submit Prefernces">
          <font>
             <Font name="Serif Regular" size="13.0" />
          </font>
@@ -120,7 +120,7 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Button fx:id="ReserveBtn" layoutX="229.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Reserve" />
-      <Button fx:id="ReservationClearBtn" layoutX="183.0" layoutY="282.0" mnemonicParsing="false" text="Clear" />
+      <Button styleClass="clearReserveBtn" fx:id="ReserveBtn" layoutX="229.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Reserve" />
+      <Button styleClass="clearReserveBtn" fx:id="ReservationClearBtn" layoutX="183.0" layoutY="282.0" mnemonicParsing="false" text="Clear" />
    </children>
 </AnchorPane>

@@ -12,25 +12,25 @@
    <children>
       <VBox prefHeight="60.0" prefWidth="100.0" spacing="5.0">
          <children>
-            <Label text="Username" />
+            <Label styleClass="signInLabel" text="Username" />
             <TextField fx:id="usernameField" />
          </children>
       </VBox>
       <VBox prefHeight="60.0" prefWidth="560.0" spacing="5.0">
          <children>
-            <Label text="Password" />
+            <Label styleClass="signInLabel" text="Password" />
             <PasswordField fx:id="passwordField" />
          </children>
       </VBox>
       <VBox fx:id="fullNameBox" prefHeight="60.0" prefWidth="560.0" spacing="5.0">
          <children>
-            <Label text="Full Name" />
+            <Label styleClass="signInLabel" text="Full Name" />
             <TextField fx:id="fullNameField" />
          </children>
       </VBox>
       <VBox fx:id="yearBox" prefHeight="60.0" prefWidth="560.0" spacing="5.0">
          <children>
-            <Label text="Year" />
+            <Label styleClass="signInLabel" text="Year" />
             <TextField fx:id="yearField" />
          </children>
       </VBox>
