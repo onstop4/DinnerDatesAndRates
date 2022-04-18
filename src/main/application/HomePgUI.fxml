@@ -69,4 +69,7 @@
         </items>
       </SplitPane>
    </children>
+   <stylesheets>
+    <URL value="@application.css"/>
+  </stylesheets>
 </AnchorPane>

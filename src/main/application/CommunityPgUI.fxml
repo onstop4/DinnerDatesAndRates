@@ -123,4 +123,7 @@
       <Button styleClass="clearReserveBtn" fx:id="ReserveBtn" layoutX="229.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="64.0" text="Reserve" />
       <Button styleClass="clearReserveBtn" fx:id="ReservationClearBtn" layoutX="183.0" layoutY="282.0" mnemonicParsing="false" text="Clear" />
    </children>
+   <stylesheets>
+    <URL value="@application.css"/>
+  </stylesheets>
 </AnchorPane>
