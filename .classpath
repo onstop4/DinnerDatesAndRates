@@ -58,6 +58,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="/home/andrew/.opt/lib/mysql-connector-java-8.0.17.jar"/>
-	<classpathentry kind="lib" path="/home/andrew/.opt/lib/protobuf-java-3.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
