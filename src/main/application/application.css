@@ -1,66 +1,65 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-.root{
-    -fx-font-size: 10pt;
-    -fx-font-family: "Sans Serif";
-    -fx-background-color: "#7c100a";
+.root {
+  -fx-font-size: 10pt;
+  -fx-font-family: "Sans Serif";
+  -fx-background-color: "#b5726e";
 }
 
-.navBtn{
-	-fx-border-width: 1px;
-	-fx-border-color: “black”;
+.navBtn {
+  -fx-border-width: 1px;
+  -fx-border-color: "black";
 }
 
-.label{
-	-fx-font-color: “black”;	
-	-fx-font-size: “18pts”;
+.label {
+  -fx-font-color: "black";
+  -fx-font-size: 18pt;
 }
 
-.button{
-	-fx-font-size: 10pt;
-	-fx-background-color: "white";
-	-fx-border-color: black ;
-    -fx-border-width: 2 ; 
-    -fx-border-style: solid ;
-    
+.button {
+  -fx-font-size: 10pt;
+  -fx-background-color: "white";
+  -fx-border-color: black;
+  -fx-border-width: 2;
+  -fx-border-style: solid;
 }
 
-.AccountSettingsAnchorPane{
-	-fx-background-color: “white”; 
+.AccountSettingsAnchorPane {
+  -fx-background-color: "white";
 }
 
-.submitBtn{
-	-fx-border-color: black ;
-    -fx-border-width: 2 ; 
-    -fx-border-style: solid ;
-    -fx-border-radius: 4;
-}	
-
-.clearReserveBtn{
-	-fx-font-size: 12;
-	-fx-border-color: black ;
-    -fx-border-width: 2 ; 
-    -fx-border-style: solid ;
-    -fx-border-radius: 4;
+.submitBtn {
+  -fx-border-color: black;
+  -fx-border-width: 2;
+  -fx-border-style: solid;
+  -fx-border-radius: 4;
 }
 
-.label{
-	-fx-background-color: "white";
+.clearReserveBtn {
+  -fx-font-size: 12;
+  -fx-border-color: black;
+  -fx-border-width: 2;
+  -fx-border-style: solid;
+  -fx-border-radius: 4;
 }
 
-.pane{
-	-fx-background-color: "white";
-	
+.label {
+  -fx-background-color: "white";
 }
 
-.headerLabel{
-	-fx-border-color: black ;
-    -fx-border-width: 2 ; 
-    -fx-border-style: solid ;
-    -fx-border-radius: 4;
+.pane {
+  -fx-background-color: "white";
 }
 
-.signInLabel{
-	-fx-background-color: "#7c100a";
-	-fx-font-color: “white” ;	
-	-fx-font-size: “14pts”;
+.headerLabel {
+  -fx-border-color: black;
+  -fx-border-width: 2;
+  -fx-border-style: solid;
+  -fx-border-radius: 4;
 }
+
+.signInLabel {
+  -fx-background-color: "#b5726e";
+  -fx-font-color: "white";
+  -fx-font-size: 14pt;
+}
+

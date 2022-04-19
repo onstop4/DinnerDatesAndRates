@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -26,7 +27,7 @@
       </ButtonBar>
       <HBox layoutX="94.0" layoutY="70.0" prefHeight="41.0" prefWidth="418.0">
          <children>
-            <Label styelClass="headerLabel" alignment="CENTER" prefHeight="39.0" prefWidth="419.0" text="SJU Campus Dining" textAlignment="CENTER">
+            <Label styleClass="headerLabel" alignment="CENTER" prefHeight="39.0" prefWidth="419.0" text="SJU Campus Dining" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font></Label>

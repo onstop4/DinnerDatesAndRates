@@ -114,7 +114,7 @@ public class HomeController extends AbstractController {
 		refresh();
 	}
 
-	public void refresh() {
+	private void refresh() {
 		EventsListView.setItems(eventModel.getEvents());
 		RestaurantTimesListView.setItems(restaurantTimeModel.getRestaurantTimes());
 	}
