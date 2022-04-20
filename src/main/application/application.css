@@ -2,7 +2,9 @@
 .root {
   -fx-font-size: 10pt;
   -fx-font-family: "Sans Serif";
-  -fx-background-color: "#b5726e";
+  -fx-background-color: "#cd0114";
+  -fx-border-width: 3px;
+  -fx-border-color: "black";
 }
 
 .navBtn {
@@ -12,7 +14,7 @@
 
 .label {
   -fx-font-color: "black";
-  -fx-font-size: 18pt;
+  -fx-font-size: 12pt;
 }
 
 .button {
@@ -63,3 +65,6 @@
   -fx-font-size: 14pt;
 }
 
+.charLimitLabel{
+	-fx-font-size: 10pt;
+}
