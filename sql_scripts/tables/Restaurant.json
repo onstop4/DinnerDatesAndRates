@@ -1,0 +1,13 @@
+{
+"Restaurant": [
+	{
+		"restaurant_id" : 1,
+		"name" : "Freshens",
+		"description" : "Vegan Eatery"
+	},
+	{
+		"restaurant_id" : 2,
+		"name" : "Dunkin Donuts",
+		"description" : "Breakfast and Coffee Eatery"
+	}
+]}

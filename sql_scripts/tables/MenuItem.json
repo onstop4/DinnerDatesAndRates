@@ -1,0 +1,248 @@
+{
+"MenuItem": [
+	{
+		"menu_item_id" : 1,
+		"restaurant_id" : 1,
+		"name" : "Strawberry Smoothie ",
+		"description" : "Blended strawberry smoothie, toppings can be added if requested.",
+		"price" : 8.00
+	},
+	{
+		"menu_item_id" : 2,
+		"restaurant_id" : 1,
+		"name" : "Banana Smoothie",
+		"description" : "Blended banana smoothie, toppings can be added if requested.",
+		"price" : 8.00
+	},
+	{
+		"menu_item_id" : 3,
+		"restaurant_id" : 1,
+		"name" : "Blueberry Smoothie",
+		"description" : "Blended blueberry smoothie, toppings can be added if requested.",
+		"price" : 8.00
+	},
+	{
+		"menu_item_id" : 4,
+		"restaurant_id" : 1,
+		"name" : "Peach Smoothie",
+		"description" : "Blended peach smoothie, toppings can be added if requested.",
+		"price" : 8.00
+	},
+	{
+		"menu_item_id" : 5,
+		"restaurant_id" : 1,
+		"name" : "Vanilla Smoothie",
+		"description" : "Blended vanilla smoothie, toppings can be added if requested.",
+		"price" : 9.00
+	},
+	{
+		"menu_item_id" : 6,
+		"restaurant_id" : 1,
+		"name" : "Chocolate Smoothie",
+		"description" : "Blended chocolate smoothie, toppings can be added if requested.",
+		"price" : 9.00
+	},
+	{
+		"menu_item_id" : 7,
+		"restaurant_id" : 1,
+		"name" : "Strawberry Yogurt",
+		"description" : "Fresh strawberry yogurt, toppings can be added if requested.",
+		"price" : 7.00
+	},
+	{
+		"menu_item_id" : 8,
+		"restaurant_id" : 1,
+		"name" : "Pomegranate Yogurt",
+		"description" : "Fresh pomegranate yogurt, toppings can be added if requested.",
+		"price" : 7.00
+	},
+	{
+		"menu_item_id" : 9,
+		"restaurant_id" : 1,
+		"name" : "Vanilla Yogurt",
+		"description" : "Fresh vanilla yogurt, toppings can be added if requested.",
+		"price" : 7.00
+	},
+	{
+		"menu_item_id" : 10,
+		"restaurant_id" : 1,
+		"name" : "Chocolate Yogurt",
+		"description" : "Fresh chocolate yogurt, toppings can be added if requested.",
+		"price" : 7.00
+	},
+	{
+		"menu_item_id" : 11,
+		"restaurant_id" : 1,
+		"name" : "Coconut Yogurt",
+		"description" : "Fresh coconut yogurt, toppings can be added if requested.",
+		"price" : 7.00
+	},
+	{
+		"menu_item_id" : 12,
+		"restaurant_id" : 1,
+		"name" : "Waffle Cone",
+		"description" : "Ready made waffle cone, can be added to yogurt order",
+		"price" : 2.00
+	},
+	{
+		"menu_item_id" : 13,
+		"restaurant_id" : 1,
+		"name" : "Small Yogurt Cup",
+		"description" : "Size small yogurt cup.",
+		"price" : 1.50
+	},
+	{
+		"menu_item_id" : 14,
+		"restaurant_id" : 1,
+		"name" : "Medium Yogurt Cup",
+		"description" : "Size medium yogurt cup.",
+		"price" : 2.09
+	},
+	{
+		"menu_item_id" : 15,
+		"restaurant_id" : 1,
+		"name" : "Large Yogurt Cup",
+		"description" : "Size large yogurt cup.",
+		"price" : 2.33
+	},
+	{
+		"menu_item_id" : 16,
+		"restaurant_id" : 2,
+		"name" : "Brown Sugar Oatmeal",
+		"description" : "Serving of Brown Sugar Oatmeal, dried fruit may be added.",
+		"price" : 4.50
+	},
+	{
+		"menu_item_id" : 17,
+		"restaurant_id" : 2,
+		"name" : "Hashbrowns",
+		"description" : "Serving of seasoned hashbrowns, 9 pieces.",
+		"price" : 1.86
+	},
+	{
+		"menu_item_id" : 18,
+		"restaurant_id" : 2,
+		"name" : "Plain Oatmeal",
+		"description" : "Serving of Plain Oatmeal, dried fruit may be added.",
+		"price" : 4.50
+	},
+	{
+		"menu_item_id" : 19,
+		"restaurant_id" : 2,
+		"name" : "Silver Dollar Pancakes",
+		"description" : "Serving of silver dollar pancakes served with maple syrup, 10 pieces.",
+		"price" : 2.33
+	},
+	{
+		"menu_item_id" : 20,
+		"restaurant_id" : 2,
+		"name" : "Plain Bagel",
+		"description" : "Single plain bagel.",
+		"price" : 1.89
+	},
+	{
+		"menu_item_id" : 21,
+		"restaurant_id" : 2,
+		"name" : "Specialty Bagel",
+		"description" : "Single specialty bagel.  Choice of everything, onion, garlic, sesame, poppy, multigrain, or wheat.",
+		"price" : 2.10
+	},
+	{
+		"menu_item_id" : 22,
+		"restaurant_id" : 2,
+		"name" : "Bacon, Egg & Cheese Biscuit",
+		"description" : "Warm buttery biscuit with egg and bacon.",
+		"price" : 4.79
+	},
+	{
+		"menu_item_id" : 23,
+		"restaurant_id" : 2,
+		"name" : "Bacon, Egg & Cheese Croissant",
+		"description" : "Warm buttery croissant with egg and bacon.",
+		"price" : 5.79
+	},
+	{
+		"menu_item_id" : 24,
+		"restaurant_id" : 2,
+		"name" : "Bacon, Egg & Cheese English Muffin",
+		"description" : "Warm english muffin with egg and bacon.",
+		"price" : 4.59
+	},
+	{
+		"menu_item_id" : 25,
+		"restaurant_id" : 2,
+		"name" : "Big n' Toasted",
+		"description" : "Warm texas toast with egg and bacon.",
+		"price" : 6.33
+	},
+	{
+		"menu_item_id" : 26,
+		"restaurant_id" : 2,
+		"name" : "Egg & Cheese Bagel",
+		"description" : "Bagel with egg and cheese.",
+		"price" : 3.79
+	},
+	{
+		"menu_item_id" : 27,
+		"restaurant_id" : 2,
+		"name" : "Egg & Cheese Biscuit",
+		"description" : "Warm biscuit with egg and cheese.",
+		"price" : 4.39
+	},
+	{
+		"menu_item_id" : 28,
+		"restaurant_id" : 2,
+		"name" : "Egg & Cheese Croissant",
+		"description" : "Warm croissant with egg and cheese.",
+		"price" : 4.99
+	},
+	{
+		"menu_item_id" : 29,
+		"restaurant_id" : 2,
+		"name" : "Egg & Cheese English Muffin",
+		"description" : "Warm english muffin with egg and cheese.",
+		"price" : 4.49
+	},
+	{
+		"menu_item_id" : 30,
+		"restaurant_id" : 2,
+		"name" : "Fruit Coolatta Small",
+		"description" : "Refreshing small coolatta. Choice of orange, strawberry, or vanilla bean.",
+		"price" : 3.79
+	},
+	{
+		"menu_item_id" : 31,
+		"restaurant_id" : 2,
+		"name" : "Fruit Coolatta Medium",
+		"description" : "Refreshing medium coolatta. Choice of orange, strawberry, or vanilla bean.",
+		"price" : 4.39
+	},
+	{
+		"menu_item_id" : 32,
+		"restaurant_id" : 2,
+		"name" : "Fruit Coolatta Large",
+		"description" : "Refreshing large coolatta. Choice of orange, strawberry, or vanilla bean.",
+		"price" : 4.69
+	},
+	{
+		"menu_item_id" : 33,
+		"restaurant_id" : 2,
+		"name" : "Coffee Coolatta Small",
+		"description" : "Refreshing small coolatta. Choice of skim, cream, whole, or almond milk.",
+		"price" : 4.29
+	},
+	{
+		"menu_item_id" : 34,
+		"restaurant_id" : 2,
+		"name" : "Coffee Coolatta Medium",
+		"description" : "Refreshing medium coolatta. Choice of skim, cream, whole, or almond milk.",
+		"price" : 4.67
+	},
+	{
+		"menu_item_id" : 35,
+		"restaurant_id" : 2,
+		"name" : "Coffee Coolatta Large",
+		"description" : "Refreshing large coolatta. Choice of skim, cream, whole, or almond milk.",
+		"price" : 4.89
+	}
+]}
