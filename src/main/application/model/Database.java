@@ -10,20 +10,27 @@ public class Database {
 	private static final int port = 3306;
 
 	private static final String username = "root";
-	private static final String password = "12345";
-	
+	private static String password = "12345";
+
 	private static Connection conn;
 
-	public static Connection getConnection() throws SQLException{
+	public static Connection getConnection() throws SQLException {
 		try {
-		if (conn == null || conn.isClosed()) {
-			conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/dinnerdates", username, password);
-		}
+			if (conn == null || conn.isClosed()) {
+				conn = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/dinnerdates", username,
+						password);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw e;
 		}
-		
+
 		return conn;
+	}
+
+	public static void setPassword(String password) {
+		if (password != null) {
+			Database.password = password;
+		}
 	}
 }

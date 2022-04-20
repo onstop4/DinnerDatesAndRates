@@ -86,3 +86,7 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 
+
+# Settings file that might contain sensitive information
+**/settings.conf
+
