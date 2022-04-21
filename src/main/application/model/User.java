@@ -13,14 +13,24 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 public class User {
-	private int id;
-	private String username;
-	private String fullName;
+	private final int id;
+	private final String username;
+	private final String fullName;
+	private final UserType userType;
 
-	public User(int id, String username, String fullName) {
+	public enum UserType {
+		STUDENT, FACULTY;
+
+		public static UserType getUserType(int ordinal) {
+			return values()[ordinal];
+		}
+	}
+
+	public User(int id, String username, String fullName, UserType userType) {
 		this.id = id;
 		this.username = username;
 		this.fullName = fullName;
+		this.userType = userType;
 	}
 
 	public static User get_user(String username, String password) throws SQLException {
@@ -35,14 +45,15 @@ public class User {
 		if (passwordBytes != null) {
 			Connection conn = Database.getConnection();
 			PreparedStatement stmt = conn.prepareStatement(
-					"select User.user_id, User.username, User.full_name from User where lower(username) = lower(?) and password = ?");
+					"select User.user_id, User.username, User.full_name, User.user_type from User where lower(username) = lower(?) and password = ?");
 
 			stmt.setString(1, username);
 			stmt.setBytes(2, passwordBytes);
 
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				return new User(rs.getInt("user_id"), rs.getString("username"), rs.getString("full_name"));
+				return new User(rs.getInt("user_id"), rs.getString("username"), rs.getString("full_name"),
+						UserType.getUserType(rs.getInt("user_type")));
 			}
 		}
 
@@ -50,6 +61,40 @@ public class User {
 	}
 
 	public static User create_student(String username, String password, String fullName, int year) throws SQLException {
+		User user = create_user(username, password, fullName, UserType.STUDENT);
+		if (user != null) {
+			Connection conn = Database.getConnection();
+
+			// Creates new Student that references the User created above.
+			String statement = "insert into Student (user_id, year) values (?, ?)";
+			PreparedStatement stmt = conn.prepareStatement(statement);
+			stmt.setInt(1, user.getId());
+			stmt.setInt(2, year);
+
+			stmt.executeUpdate();
+		}
+
+		return user;
+	}
+
+	public static User create_faculty(String username, String password, String fullName) throws SQLException {
+		User user = create_user(username, password, fullName, UserType.FACULTY);
+		if (user != null) {
+			Connection conn = Database.getConnection();
+
+			// Creates new Student that references the User created above.
+			String statement = "insert into Faculty (user_id) values (?)";
+			PreparedStatement stmt = conn.prepareStatement(statement);
+			stmt.setInt(1, user.getId());
+
+			stmt.executeUpdate();
+		}
+
+		return user;
+	}
+
+	private static User create_user(String username, String password, String fullName, UserType userType)
+			throws SQLException {
 		byte[] salt = generateRandomSalt();
 		byte[] passwordBytes = hashPassword(password, salt);
 
@@ -57,27 +102,18 @@ public class User {
 			Connection conn = Database.getConnection();
 
 			// Creates new User.
-			String statement = "insert into User (username, password, salt, full_name) values (?, ?, ?, ?)";
+			String statement = "insert into User (username, password, salt, full_name, user_type) values (?, ?, ?, ?, ?)";
 			PreparedStatement stmt = conn.prepareStatement(statement);
 
 			stmt.setString(1, username);
 			stmt.setBytes(2, passwordBytes);
 			stmt.setBytes(3, salt);
 			stmt.setString(4, fullName);
+			stmt.setInt(5, userType.ordinal());
 
 			stmt.executeUpdate();
 
-			User user = get_user(username, password);
-
-			// Creates new Student that references the User created above.
-			statement = "insert into Student (user_id, year) values (?, ?)";
-			stmt = conn.prepareStatement(statement);
-			stmt.setInt(1, user.getId());
-			stmt.setInt(2, year);
-
-			stmt.executeUpdate();
-
-			return user;
+			return get_user(username, password);
 		}
 
 		return null;
@@ -120,14 +156,6 @@ public class User {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -136,8 +164,8 @@ public class User {
 		return fullName;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public UserType getUserType() {
+		return userType;
 	}
 
 	public boolean addAsFriend(User currentUser) {

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.application.model.User.UserType;
 
 public class FollowingModel {
 	private User currentUser;
@@ -60,7 +61,7 @@ public class FollowingModel {
 		ObservableList<User> list = FXCollections.observableArrayList();
 
 		try (Connection conn = Database.getConnection()) {
-			String statement = "select User.user_id, User.full_name from User inner join Student on User.user_id = Student.user_id where User.user_id not in (select to_id from Following where from_id = ?) and User.user_id != ?";
+			String statement = "select User.user_id, User.full_name, User.user_type from User inner join Student on User.user_id = Student.user_id where User.user_id not in (select to_id from Following where from_id = ?) and User.user_id != ?";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, currentUser.getId());
@@ -68,7 +69,8 @@ public class FollowingModel {
 
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				list.add(new User(rs.getInt("User.user_id"), null, rs.getString("User.full_name")));
+				list.add(new User(rs.getInt("User.user_id"), null, rs.getString("User.full_name"),
+						UserType.values()[rs.getInt("User.user_type")]));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

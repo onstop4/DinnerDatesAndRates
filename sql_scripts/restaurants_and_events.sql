@@ -1,12 +1,12 @@
 -- Create and use dinnerdates database
 
-CREATE DATABASE dinnerdates;
+CREATE DATABASE IF NOT EXISTS dinnerdates;
 USE dinnerdates;
 
 
 -- dinnerdates.Event definition
 
-CREATE TABLE `Event` (
+CREATE TABLE IF NOT EXISTS `Event` (
   `event_id` int NOT NULL AUTO_INCREMENT,
   `description` varchar(500) DEFAULT NULL,
   `event_date` date NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE `Event` (
 
 -- dinnerdates.Restaurant definition
 
-CREATE TABLE `Restaurant` (
+CREATE TABLE IF NOT EXISTS `Restaurant` (
   `restaurant_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
@@ -26,12 +26,13 @@ CREATE TABLE `Restaurant` (
 
 -- dinnerdates.`User` definition
 
-CREATE TABLE `User` (
+CREATE TABLE IF NOT EXISTS `User` (
   `user_id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varbinary(100) NOT NULL,
   `salt` binary(16) NOT NULL,
   `full_name` varchar(100) NOT NULL,
+  `user_type` tinyint NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `User_UN` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -39,7 +40,7 @@ CREATE TABLE `User` (
 
 -- dinnerdates.MenuItem definition
 
-CREATE TABLE `MenuItem` (
+CREATE TABLE IF NOT EXISTS `MenuItem` (
   `menu_item_id` int NOT NULL AUTO_INCREMENT,
   `restaurant_id` int NOT NULL,
   `name` varchar(200) NOT NULL,
@@ -53,7 +54,7 @@ CREATE TABLE `MenuItem` (
 
 -- dinnerdates.RestaurantHours definition
 
-CREATE TABLE `RestaurantHours` (
+CREATE TABLE IF NOT EXISTS `RestaurantHours` (
   `restaurant_hours_id` int NOT NULL AUTO_INCREMENT,
   `restaurant_id` int NOT NULL,
   `day_of_week` tinyint NOT NULL,
@@ -67,7 +68,7 @@ CREATE TABLE `RestaurantHours` (
 
 -- dinnerdates.Student definition
 
-CREATE TABLE `Student` (
+CREATE TABLE IF NOT EXISTS `Student` (
   `user_id` int NOT NULL,
   `year` int NOT NULL,
   `major` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
@@ -82,9 +83,24 @@ CREATE TABLE `Student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
+-- dinnerdates.FacultyMember definition
+
+CREATE TABLE IF NOT EXISTS `FacultyMember` (
+  `user_id` int NOT NULL,
+  `interest` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `favorite_restaurant` int DEFAULT NULL,
+  `preferred_food` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `availability` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`user_id`),
+  KEY `favorite_restaurant` (`favorite_restaurant`),
+  CONSTRAINT `FacultyMember_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `FacultyMember_ibfk_2` FOREIGN KEY (`favorite_restaurant`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE SET NULL ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 -- dinnerdates.EventAttendant definition
 
-CREATE TABLE `EventAttendant` (
+CREATE TABLE IF NOT EXISTS `EventAttendant` (
   `attendant_id` int NOT NULL,
   `event_id` int NOT NULL,
   PRIMARY KEY (`attendant_id`,`event_id`),
@@ -96,7 +112,7 @@ CREATE TABLE `EventAttendant` (
 
 -- dinnerdates.`Following` definition
 
-CREATE TABLE `Following` (
+CREATE TABLE IF NOT EXISTS `Following` (
   `from_id` int NOT NULL,
   `to_id` int NOT NULL,
   PRIMARY KEY (`from_id`,`to_id`),
@@ -108,7 +124,7 @@ CREATE TABLE `Following` (
 
 -- dinnerdates.Review definition
 
-CREATE TABLE `Review` (
+CREATE TABLE IF NOT EXISTS `Review` (
   `review_id` int NOT NULL AUTO_INCREMENT,
   `student_id` int NOT NULL,
   `menu_item_id` int NOT NULL,
