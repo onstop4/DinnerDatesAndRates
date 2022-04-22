@@ -244,5 +244,516 @@
 		"name" : "Coffee Coolatta Large",
 		"description" : "Refreshing large coolatta. Choice of skim, cream, whole, or almond milk.",
 		"price" : 4.89
+	},
+	{
+		"menu_item_id" : 36,
+		"restaurant_id" : 2,
+		"name" : "Danish",
+		"description" : "Fresh Danish, choice of cheese, apple cheese, or strawberry cheese.",
+		"price" : 3.89
+	},
+	{
+		"menu_item_id" : 37,
+		"restaurant_id" : 2,
+		"name" : "Plain Donut",
+		"description" : "Classic Dunkin plain donut.",
+		"price" : 2.29
+	},
+	{
+		"menu_item_id" : 38,
+		"restaurant_id" : 2,
+		"name" : "Specialty Donut",
+		"description" : "Choice of classic Dunkin specialty donuts, selection varies based on availability.",
+		"price" : 3.19
+	},
+	{
+		"menu_item_id" : 39,
+		"restaurant_id" : 2,
+		"name" : "Cappuccino",
+		"description" : "Small cappuccino.",
+		"price" : 4.26
+	},
+	{
+		"menu_item_id" : 40,
+		"restaurant_id" : 2,
+		"name" : "Caramel Mocha Latte",
+		"description" : "Small Caramel Mocha Latte",
+		"price" : 4.67
+	},
+	{
+		"menu_item_id" : 41,
+		"restaurant_id" : 2,
+		"name" : "Medium Caramel Mocha Latte",
+		"description" : "Medium Caramel Mocha Latte",
+		"price" : 5.26
+	},
+	{
+		"menu_item_id" : 42,
+		"restaurant_id" : 2,
+		"name" : "Large Caramel Mocha Latte",
+		"description" : "Large Caramel Mocha Latte",
+		"price" : 5.69
+	},
+	{
+		"menu_item_id" : 43,
+		"restaurant_id" : 2,
+		"name" : "Espressso",
+		"description" : "Fresh Espresso, choice of extra espresso shots.",
+		"price" : 4.47
+	},
+	{
+		"menu_item_id" : 44,
+		"restaurant_id" : 2,
+		"name" : "Small Iced Latte",
+		"description" : "Small iced latte. Choice of raspberry, lite, and swirl.  ",
+		"price" : 4.59
+	},
+	{
+		"menu_item_id" : 45,
+		"restaurant_id" : 2,
+		"name" : "Medium Iced Latte",
+		"description" : "Medium iced latte. Choice of raspberry, lite, and swirl.  ",
+		"price" : 5.12
+	},
+	{
+		"menu_item_id" : 46,
+		"restaurant_id" : 2,
+		"name" : "Large Iced Latte",
+		"description" : "Large iced latte. Choice of raspberry, lite, and swirl.  ",
+		"price" : 5.67
+	},
+	{
+		"menu_item_id" : 47,
+		"restaurant_id" : 2,
+		"name" : "Muffin",
+		"description" : "Classic Dunkin muffin.  Choice of corn, blueberry, chocolate chip, plain, and pumpkin.",
+		"price" : 4.29
+	},
+	{
+		"menu_item_id" : 48,
+		"restaurant_id" : 2,
+		"name" : "Munchkins",
+		"description" : "Claasic Dunkin munchkins.  Single quantity, choice is dependent on availability.",
+		"price" : 0.27
+	},
+	{
+		"menu_item_id" : 49,
+		"restaurant_id" : 2,
+		"name" : "Half-Dozen Munchkins",
+		"description" : "Claasic Dunkin munchkins.  Single quantity, choice is dependent on availability.",
+		"price" : 1.75
+	},
+	{
+		"menu_item_id" : 50,
+		"restaurant_id" : 2,
+		"name" : "Dozen Munchkins",
+		"description" : "Claasic Dunkin munchkins.  Single quantity, choice is dependent on availability.",
+		"price" : 3.10
+	},
+	{
+		"menu_item_id" : 51,
+		"restaurant_id" : 2,
+		"name" : "Brownie",
+		"description" : "Fresh brownie.",
+		"price" : 3.66
+	},
+	{
+		"menu_item_id" : 52,
+		"restaurant_id" : 3,
+		"name" : "Vegetables",
+		"description" : "Banana peppers, lettuce, tomatoes, jalepenos, green peppers, sweet onion, pickles, amd olives.",
+		"price" : 0.45
+	},
+	{
+		"menu_item_id" : 53,
+		"restaurant_id" : 3,
+		"name" : "Guacamole",
+		"description" : "Fresh Guacamole.",
+		"price" : 1.10
+	},
+	{
+		"menu_item_id" : 54,
+		"restaurant_id" : 3,
+		"name" : "Bacon",
+		"description" : "2 strips.",
+		"price" : 2.10
+	},
+	{
+		"menu_item_id" : 55,
+		"restaurant_id" : 3,
+		"name" : "Cheese",
+		"description" : "Choice of monterey blend, pepperjack, munster, swiss, sharp cheddar, and low fat options of each.",
+		"price" : 0.80
+	},
+	{
+		"menu_item_id" : 56,
+		"restaurant_id" : 3,
+		"name" : "Bread 6in",
+		"description" : "6in multigrain, artisan, italian , honey-oat, 9 grain wheat, cheddar, garlic herb, etc.",
+		"price" : 2.29
+	},
+	{
+		"menu_item_id" : 57,
+		"restaurant_id" : 3,
+		"name" : "Bread 12in",
+		"description" : "12in multigrain, artisan, italian , honey-oat, 9 grain wheat, cheddar, garlic herb, etc.",
+		"price" : 3.79
+	},
+	{
+		"menu_item_id" : 58,
+		"restaurant_id" : 3,
+		"name" : "Cookie ",
+		"description" : "Single cookie, choice of macadamian, chocolate chip, M&M, and sugar.",
+		"price" : 3.19
+	},
+	{
+		"menu_item_id" : 59,
+		"restaurant_id" : 3,
+		"name" : "BLT Sandwich",
+		"description" : "Bacon, lettuce, tomato 6in sub.",
+		"price" : 7.19
+	},
+	{
+		"menu_item_id" : 60,
+		"restaurant_id" : 3,
+		"name" : "Philly Cheesteak",
+		"description" : "Shredded beef and cheese melted on sub.",
+		"price" : 7.29
+	},
+	{
+		"menu_item_id" : 61,
+		"restaurant_id" : 3,
+		"name" : "BUffalo Chicken Sandwich",
+		"description" : "Buffalo Chicken with choice of toppings and extras.",
+		"price" : 7.69
+	},
+	{
+		"menu_item_id" : 62,
+		"restaurant_id" : 3,
+		"name" : "Turkey Jalapeno Melt",
+		"description" : "Turkey jalapeno melt on 6in sub with choice of toppings and extras.",
+		"price" : 7.49
+	},
+	{
+		"menu_item_id" : 63,
+		"restaurant_id" : 3,
+		"name" : "Tuna Sandwich",
+		"description" : "Cold tuna asandwich on 6in sub with choice of toppings and extras.",
+		"price" : 7.29
+	},
+	{
+		"menu_item_id" : 64,
+		"restaurant_id" : 3,
+		"name" : "Meatball Marinara",
+		"description" : "Meatball and marinara sub on 6in sub with choice of toppings and extras.",
+		"price" : 7.59
+	},
+	{
+		"menu_item_id" : 65,
+		"restaurant_id" : 3,
+		"name" : "Chipotle Chicken & Cheese",
+		"description" : "Chipotle chicken and cheese sandwich on 6in sub with choice of toppings and extras.",
+		"price" : 7.47
+	},
+	{
+		"menu_item_id" : 66,
+		"restaurant_id" : 3,
+		"name" : "Black Forest Ham Sandwich",
+		"description" : "Black forest ham sandwich on 6in sub with choice of toppings and extras.",
+		"price" : 6.99
+	},
+	{
+		"menu_item_id" : 67,
+		"restaurant_id" : 3,
+		"name" : "Roast beef Sandwich",
+		"description" : "Roast beef sandwich with choice of toppings and extras.",
+		"price" : 7.89
+	},
+	{
+		"menu_item_id" : 68,
+		"restaurant_id" : 3,
+		"name" : "Turkey Breast Sandwich",
+		"description" : "Turkey breast sandwich with choice of toppings and extras.",
+		"price" : 7.26
+	},
+	{
+		"menu_item_id" : 69,
+		"restaurant_id" : 3,
+		"name" : "Veggie Delite",
+		"description" : "Vegetarian option sandwich with choice of toppings and extras.",
+		"price" : 8.10
+	},
+	{
+		"menu_item_id" : 70,
+		"restaurant_id" : 3,
+		"name" : "Oven Roast Turkey Sandwich",
+		"description" : "Oven roast turkey sandwich with choice of toppings and extras.",
+		"price" : 7.89
+	},
+	{
+		"menu_item_id" : 71,
+		"restaurant_id" : 4,
+		"name" : "Jalapeno Cheeseburger",
+		"description" : "Jalapeno cheeseburger with cheese and toppings if requested.",
+		"price" : 5.69
+	},
+	{
+		"menu_item_id" : 72,
+		"restaurant_id" : 4,
+		"name" : "Bacon Cheeseburger",
+		"description" : "Bacon cheeseburger with cheese and extras if requested.",
+		"price" : 6.12
+	},
+	{
+		"menu_item_id" : 73,
+		"restaurant_id" : 4,
+		"name" : "Whopper",
+		"description" : "Classic Whopper burger.",
+		"price" : 4.19
+	},
+	{
+		"menu_item_id" : 74,
+		"restaurant_id" : 4,
+		"name" : "Double Whopper",
+		"description" : "Classic double Whopper",
+		"price" : 4.69
+	},
+	{
+		"menu_item_id" : 75,
+		"restaurant_id" : 4,
+		"name" : "Triple Whopper",
+		"description" : "Classic triple Whopper",
+		"price" : 5.11
+	},
+	{
+		"menu_item_id" : 76,
+		"restaurant_id" : 4,
+		"name" : "Jr. Whopper",
+		"description" : "Classic Jr. Whopper",
+		"price" : 3.12
+	},
+	{
+		"menu_item_id" : 77,
+		"restaurant_id" : 4,
+		"name" : "Big King",
+		"description" : "Big King burger with extras if requested.",
+		"price" : 6.39
+	},
+	{
+		"menu_item_id" : 78,
+		"restaurant_id" : 4,
+		"name" : "Double Cheeseburger",
+		"description" : "Double Cheeseburger with extras if requested.",
+		"price" : 5.16
+	},
+	{
+		"menu_item_id" : 79,
+		"restaurant_id" : 4,
+		"name" : "Bacon Double Cheeseburger",
+		"description" : "Bacon Double Cheeseburger with extras if requested.",
+		"price" : 5.87
+	},
+	{
+		"menu_item_id" : 80,
+		"restaurant_id" : 4,
+		"name" : "Redeo Burger",
+		"description" : "Rodeo Burger with extras in requested.",
+		"price" : 6.33
+	},
+	{
+		"menu_item_id" : 81,
+		"restaurant_id" : 4,
+		"name" : "Original Chicken Sandwich ",
+		"description" : "Classic Original Chicken Sandwich.",
+		"price" : 4.64
+	},
+	{
+		"menu_item_id" : 82,
+		"restaurant_id" : 4,
+		"name" : "Fiery Chicken Fries",
+		"description" : "6 count Chicken Fries.",
+		"price" : 3.99
+	},
+	{
+		"menu_item_id" : 83,
+		"restaurant_id" : 4,
+		"name" : "Tendercrisp Chicken Sandwich",
+		"description" : "Tendercrisp Chicken Sandwich with extras in requested.",
+		"price" : 4.89
+	},
+	{
+		"menu_item_id" : 84,
+		"restaurant_id" : 4,
+		"name" : "Tendergrill Chicken Sandwich",
+		"description" : "Tendergrill Chicken Sandwich",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 85,
+		"restaurant_id" : 4,
+		"name" : "4pc Chicken Nuggets",
+		"description" : "4pc Chicken Nuggets",
+		"price" : 1.89
+	},
+	{
+		"menu_item_id" : 86,
+		"restaurant_id" : 4,
+		"name" : "6pc Chicken Nuggets",
+		"description" : "6pc Chicken Nuggets",
+		"price" : 2.29
+	},
+	{
+		"menu_item_id" : 87,
+		"restaurant_id" : 4,
+		"name" : "10pc Chicken Nuggets",
+		"description" : "10pc Chicken Nuggets",
+		"price" : 2.79
+	},
+	{
+		"menu_item_id" : 88,
+		"restaurant_id" : 4,
+		"name" : "Big Fish ",
+		"description" : "FIsh fillet sandwich",
+		"price" : 4.98
+	},
+	{
+		"menu_item_id" : 89,
+		"restaurant_id" : 4,
+		"name" : "BK Veggie Burger",
+		"description" : "Beyond meat veggie burger with extras in requested.",
+		"price" : 6.46
+	},
+	{
+		"menu_item_id" : 90,
+		"restaurant_id" : 4,
+		"name" : "Fully Loaded Croissan'wich ",
+		"description" : "Fully loaded croissant breakfast sandwich",
+		"price" : 4.99
+	},
+	{
+		"menu_item_id" : 91,
+		"restaurant_id" : 4,
+		"name" : "Bacon, Egg & Cheese Croissan'wich ",
+		"description" : "Croissant brekfast sandwich with bacon, egg, and cheese.  Bacon can be substituted for ham or sausage.",
+		"price" : 4.69
+	},
+	{
+		"menu_item_id" : 92,
+		"restaurant_id" : 4,
+		"name" : "Egg & Cheese Croissan'wich ",
+		"description" : "Croissant brekfast sandwich with egg and cheese",
+		"price" : 4.29
+	},
+	{
+		"menu_item_id" : 93,
+		"restaurant_id" : 4,
+		"name" : "Sausage, Egg & Cheese Biscuit ",
+		"description" : "Sausage, egg, and cheese on a biscuit.  Sausage can be substituted for ham or bacon.",
+		"price" : 4.77
+	},
+	{
+		"menu_item_id" : 94,
+		"restaurant_id" : 4,
+		"name" : "Sausage, Egg & Cheese Muffin ",
+		"description" : "Sausage, egg, and cheese on a muffin.",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 95,
+		"restaurant_id" : 4,
+		"name" : "Sausage & Cheese Muffin ",
+		"description" : "Sausage and cheese on a muffin.",
+		"price" : 4.99
+	},
+	{
+		"menu_item_id" : 96,
+		"restaurant_id" : 4,
+		"name" : "Hashbrowns",
+		"description" : "Hashbrown",
+		"price" : 1.29
+	},
+	{
+		"menu_item_id" : 97,
+		"restaurant_id" : 4,
+		"name" : "3pc French Toast Sticks",
+		"description" : "French Toast Sticks",
+		"price" : 2.49
+	},
+	{
+		"menu_item_id" : 98,
+		"restaurant_id" : 4,
+		"name" : "6pc French Toast Sticks",
+		"description" : "French Toast Sticks",
+		"price" : 4.19
+	},
+	{
+		"menu_item_id" : 99,
+		"restaurant_id" : 4,
+		"name" : "Small French Fries",
+		"description" : "Size small French Fries.",
+		"price" : 2.79
+	},
+	{
+		"menu_item_id" : 100,
+		"restaurant_id" : 4,
+		"name" : "Medium French Fries",
+		"description" : "Size medium French Fries",
+		"price" : 3.69
+	},
+	{
+		"menu_item_id" : 101,
+		"restaurant_id" : 4,
+		"name" : "Large French Fries",
+		"description" : "Size large French Fries",
+		"price" : 4.46
+	},
+	{
+		"menu_item_id" : 102,
+		"restaurant_id" : 4,
+		"name" : "Onion Rings",
+		"description" : "Onion Rings",
+		"price" : 3.17
+	},
+	{
+		"menu_item_id" : 103,
+		"restaurant_id" : 4,
+		"name" : "Appoe Pie",
+		"description" : "Single serving Apple Pie",
+		"price" : 2.79
+	},
+	{
+		"menu_item_id" : 104,
+		"restaurant_id" : 4,
+		"name" : "Soft Serve Cone",
+		"description" : "If the machine is working you can have it...if",
+		"price" : 1.49
+	},
+	{
+		"menu_item_id" : 105,
+		"restaurant_id" : 4,
+		"name" : "Soft Serve Cup",
+		"description" : "Soft Serve ice cream cup. Vanilla or chocolate.",
+		"price" : 2.10
+	},
+	{
+		"menu_item_id" : 106,
+		"restaurant_id" : 4,
+		"name" : "Oreo Shake",
+		"description" : "Oreo milk shake",
+		"price" : 3.10
+	},
+	{
+		"menu_item_id" : 107,
+		"restaurant_id" : 4,
+		"name" : "Vanilla Shake",
+		"description" : "Vanilla milk shake",
+		"price" : 2.99
+	},
+	{
+		"menu_item_id" : 108,
+		"restaurant_id" : 4,
+		"name" : "Chocolate Shake",
+		"description" : "Chocolate milk shake",
+		"price" : 2.99
 	}
 ]}

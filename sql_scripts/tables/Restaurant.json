@@ -9,5 +9,15 @@
 		"restaurant_id" : 2,
 		"name" : "Dunkin Donuts",
 		"description" : "Breakfast and Coffee Eatery"
+	},
+	{
+		"restaurant_id" : 3,
+		"name" : "Subway",
+		"description" : "Sandwich eatery"
+	},
+	{
+		"restaurant_id" : 4,
+		"name" : "Burger King",
+		"description" : "Burger and fast food eastery."
 	}
 ]}
