@@ -10,17 +10,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.util.StringConverter;
 import main.application.SceneSwitcher;
-import main.application.model.AccountSettingsModel;
+import main.application.model.FacultyAccountSettingsModel;
 import main.application.model.Restaurant;
 import main.application.model.User;
 
-public class AccountSettingsController extends AbstractController {
-	private AccountSettingsModel accountSettingsModel;
+public class FacultyAccountSettingsController extends AbstractController {
+	private FacultyAccountSettingsModel facultyAccountSettingsModel;
 
-	@FXML
-	private TextField AcademicYearField;
-	@FXML
-	private TextField MajorField;
 	@FXML
 	private ListView<Restaurant> FavoriteRestaurantListView;
 	@FXML
@@ -34,19 +30,17 @@ public class AccountSettingsController extends AbstractController {
 		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Account Settings");
 
-		accountSettingsModel = new AccountSettingsModel(currentUser);
+		facultyAccountSettingsModel = new FacultyAccountSettingsModel(currentUser);
 
 		refresh();
 	}
 
 	private void refresh() {
-		AcademicYearField.setText(String.valueOf(accountSettingsModel.getAcademicYear()));
-		MajorField.setText(accountSettingsModel.getMajor());
-		FavoriteFoodsField.setText(accountSettingsModel.getFavoriteFoods());
-		AvailabilityField.setText(accountSettingsModel.getFavoriteEatingTime());
-		InterestsField.setText(accountSettingsModel.getInterests());
+		FavoriteFoodsField.setText(facultyAccountSettingsModel.getFavoriteFoods());
+		AvailabilityField.setText(facultyAccountSettingsModel.getFavoriteEatingTime());
+		InterestsField.setText(facultyAccountSettingsModel.getInterests());
 
-		ObservableList<Restaurant> restaurants = accountSettingsModel.getRestaurants();
+		ObservableList<Restaurant> restaurants = facultyAccountSettingsModel.getRestaurants();
 
 		FavoriteRestaurantListView.setItems(restaurants);
 		FavoriteRestaurantListView.setCellFactory(ComboBoxListCell.forListView(new StringConverter<Restaurant>() {
@@ -62,7 +56,7 @@ public class AccountSettingsController extends AbstractController {
 		}, restaurants));
 
 		// Selects favorite restaurant recorded in database.
-		int favoriteRestaurantId = accountSettingsModel.getFavoriteRestaurantId();
+		int favoriteRestaurantId = facultyAccountSettingsModel.getFavoriteRestaurantId();
 		if (favoriteRestaurantId > 0) {
 			IntStream.range(0, restaurants.size()).filter(i -> restaurants.get(i).getId() == favoriteRestaurantId)
 					.findFirst().ifPresent(i -> {
@@ -73,18 +67,16 @@ public class AccountSettingsController extends AbstractController {
 
 	@FXML
 	private void handleSubmitSettings() {
-		accountSettingsModel.setAcademicYear(Integer.parseInt(AcademicYearField.getText()));
-		accountSettingsModel.setMajor(MajorField.getText());
 		Restaurant favoriteRestaurant = FavoriteRestaurantListView.getSelectionModel().getSelectedItem();
 		int favoriteRestaurantId = 0;
 		if (favoriteRestaurant != null) {
 			favoriteRestaurantId = favoriteRestaurant.getId();
 		}
-		accountSettingsModel.setFavoriteRestaurantId(favoriteRestaurantId);
-		accountSettingsModel.setFavoriteFoods(FavoriteFoodsField.getText());
-		accountSettingsModel.setInterests(InterestsField.getText());
-		accountSettingsModel.setFavoriteEatingTime(AvailabilityField.getText());
+		facultyAccountSettingsModel.setFavoriteRestaurantId(favoriteRestaurantId);
+		facultyAccountSettingsModel.setFavoriteFoods(FavoriteFoodsField.getText());
+		facultyAccountSettingsModel.setInterests(InterestsField.getText());
+		facultyAccountSettingsModel.setFavoriteEatingTime(AvailabilityField.getText());
 
-		accountSettingsModel.saveSettings();
+		facultyAccountSettingsModel.saveSettings();
 	}
 }

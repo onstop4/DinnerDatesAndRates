@@ -17,6 +17,8 @@ public class Main extends Application {
 		SceneSwitcher.setSignInLoader(new FXMLLoader(getClass().getResource("SignInPgUI.fxml")));
 		SceneSwitcher.setHomeLoader(new FXMLLoader(getClass().getResource("HomePgUI.fxml")));
 		SceneSwitcher.setAccountSettingsLoader(new FXMLLoader(getClass().getResource("AccountSettingsPgUI.fxml")));
+		SceneSwitcher.setFacultyAccountSettingsLoader(
+				new FXMLLoader(getClass().getResource("FacultyAccountSettingsPgUI.fxml")));
 		SceneSwitcher.setCommunityLoader(new FXMLLoader(getClass().getResource("CommunityPgUI.fxml")));
 		SceneSwitcher.setRestaurantReviewsLoader(new FXMLLoader(getClass().getResource("RestaurantReviewsPgUI.fxml")));
 

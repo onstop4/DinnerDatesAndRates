@@ -9,23 +9,21 @@ import java.sql.Types;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class AccountSettingsModel {
+public class FacultyAccountSettingsModel {
 	private final User currentUser;
-	private int academicYear;
-	private String major;
 	private int favoriteRestaurantId;
 	private String favoriteFoods;
 	private String interests;
 	private String availability;
 
-	public AccountSettingsModel(User currentUser) {
+	public FacultyAccountSettingsModel(User currentUser) {
 		this.currentUser = currentUser;
 		updateObject();
 	}
 
 	private void updateObject() {
 		try (Connection conn = Database.getConnection()) {
-			String statement = "select year, major, interest, favorite_restaurant, preferred_food, availability from Student where user_id = ?";
+			String statement = "select interest, favorite_restaurant, preferred_food, availability from FacultyMember where user_id = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, currentUser.getId());
@@ -34,8 +32,6 @@ public class AccountSettingsModel {
 			if (!rs.next()) {
 				throw new NullPointerException();
 			}
-			academicYear = rs.getInt("year");
-			major = rs.getString("major");
 			interests = rs.getString("interest");
 			favoriteRestaurantId = rs.getInt("favorite_restaurant");
 			favoriteFoods = rs.getString("preferred_food");
@@ -49,22 +45,6 @@ public class AccountSettingsModel {
 				System.err.println("Cannot find student with id " + currentUser.getId());
 			}
 		}
-	}
-
-	public int getAcademicYear() {
-		return academicYear;
-	}
-
-	public void setAcademicYear(int academicYear) {
-		this.academicYear = academicYear;
-	}
-
-	public String getMajor() {
-		return major;
-	}
-
-	public void setMajor(String major) {
-		this.major = major;
 	}
 
 	public int getFavoriteRestaurantId() {
@@ -118,20 +98,18 @@ public class AccountSettingsModel {
 
 	public void saveSettings() {
 		try (Connection conn = Database.getConnection()) {
-			String statement = "update Student set year = ?, major = ?, interest = ?, favorite_restaurant = ?, preferred_food = ?, availability = ? where user_id = ?";
+			String statement = "update FacultyMember set interest = ?, favorite_restaurant = ?, preferred_food = ?, availability = ? where user_id = ?";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
-			stmt.setInt(1, academicYear);
-			stmt.setString(2, major);
-			stmt.setString(3, interests);
+			stmt.setString(1, interests);
 			if (favoriteRestaurantId != 0) {
-				stmt.setInt(4, favoriteRestaurantId);
+				stmt.setInt(2, favoriteRestaurantId);
 			} else {
-				stmt.setNull(4, Types.INTEGER);
+				stmt.setNull(2, Types.INTEGER);
 			}
-			stmt.setString(5, favoriteFoods);
-			stmt.setString(6, availability);
-			stmt.setInt(7, currentUser.getId());
+			stmt.setString(3, favoriteFoods);
+			stmt.setString(4, availability);
+			stmt.setInt(5, currentUser.getId());
 
 			stmt.executeUpdate();
 		} catch (SQLException e) {

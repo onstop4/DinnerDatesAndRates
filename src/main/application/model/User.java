@@ -83,7 +83,7 @@ public class User {
 			Connection conn = Database.getConnection();
 
 			// Creates new Student that references the User created above.
-			String statement = "insert into Faculty (user_id) values (?)";
+			String statement = "insert into FacultyMember (user_id) values (?)";
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, user.getId());
 

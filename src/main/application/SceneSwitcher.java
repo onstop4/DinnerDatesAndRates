@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.application.controller.AccountSettingsController;
 import main.application.controller.CommunityController;
+import main.application.controller.FacultyAccountSettingsController;
 import main.application.controller.HomeController;
 import main.application.controller.RestaurantReviewsController;
 import main.application.controller.SignInController;
@@ -18,12 +19,14 @@ public class SceneSwitcher {
 	private static FXMLLoader signInLoader;
 	private static FXMLLoader homeLoader;
 	private static FXMLLoader accountSettingsLoader;
+	private static FXMLLoader facultyAccountSettingsLoader;
 	private static FXMLLoader communityLoader;
 	private static FXMLLoader restaurantReviewsLoader;
 
 	private static Scene signInScene;
 	private static Scene homeScene;
 	private static Scene accountSettingsScene;
+	private static Scene facultyAccountSettingsScene;
 	private static Scene communityScene;
 	private static Scene restaurantReviewsScene;
 
@@ -42,10 +45,25 @@ public class SceneSwitcher {
 	}
 
 	public static void switchToAccountSettings(User currentUser) {
-		AccountSettingsController controller = accountSettingsLoader.getController();
-		controller.configure(currentUser);
-		primaryStage.setScene(accountSettingsScene);
-		primaryStage.show();
+		Scene scene = null;
+
+		// Switches to accountSettingsScene or facultyAccountSettingsScene based on
+		// whether the user is a student or a teacher, as indicated by the user's
+		// UserType.
+		if (currentUser.getUserType() == User.UserType.STUDENT) {
+			scene = accountSettingsScene;
+			AccountSettingsController controller = accountSettingsLoader.getController();
+			controller.configure(currentUser);
+		} else if (currentUser.getUserType() == User.UserType.FACULTY) {
+			scene = facultyAccountSettingsScene;
+			FacultyAccountSettingsController controller = facultyAccountSettingsLoader.getController();
+			controller.configure(currentUser);
+		}
+
+		if (scene != null) {
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		}
 	}
 
 	public static void switchToCommunity(User currentUser) {
@@ -92,6 +110,15 @@ public class SceneSwitcher {
 		SceneSwitcher.accountSettingsLoader = accountSettingsLoader;
 		try {
 			accountSettingsScene = new Scene((Parent) accountSettingsLoader.load());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	static void setFacultyAccountSettingsLoader(FXMLLoader facultyAccountSettingsLoader) {
+		SceneSwitcher.facultyAccountSettingsLoader = facultyAccountSettingsLoader;
+		try {
+			facultyAccountSettingsScene = new Scene((Parent) facultyAccountSettingsLoader.load());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
