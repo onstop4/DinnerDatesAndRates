@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import main.application.model.Database;
 
@@ -14,14 +13,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		SceneSwitcher.setPrimaryStage(primaryStage);
-		SceneSwitcher.setSignInLoader(new FXMLLoader(getClass().getResource("SignInPgUI.fxml")));
-		SceneSwitcher.setHomeLoader(new FXMLLoader(getClass().getResource("HomePgUI.fxml")));
-		SceneSwitcher.setAccountSettingsLoader(new FXMLLoader(getClass().getResource("AccountSettingsPgUI.fxml")));
-		SceneSwitcher.setFacultyAccountSettingsLoader(
-				new FXMLLoader(getClass().getResource("FacultyAccountSettingsPgUI.fxml")));
-		SceneSwitcher.setCommunityLoader(new FXMLLoader(getClass().getResource("CommunityPgUI.fxml")));
-		SceneSwitcher.setRestaurantReviewsLoader(new FXMLLoader(getClass().getResource("RestaurantReviewsPgUI.fxml")));
-
 		SceneSwitcher.switchToSignIn();
 	}
 

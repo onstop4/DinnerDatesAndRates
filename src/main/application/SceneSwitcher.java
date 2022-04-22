@@ -1,47 +1,65 @@
 package main.application;
 
 import java.io.IOException;
+import java.net.URL;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.application.controller.AccountSettingsController;
-import main.application.controller.CommunityController;
-import main.application.controller.FacultyAccountSettingsController;
-import main.application.controller.HomeController;
-import main.application.controller.RestaurantReviewsController;
+import main.application.controller.AbstractController;
 import main.application.controller.SignInController;
 import main.application.model.User;
 
 public class SceneSwitcher {
-	private static Stage primaryStage;
-	private static FXMLLoader signInLoader;
-	private static FXMLLoader homeLoader;
-	private static FXMLLoader accountSettingsLoader;
-	private static FXMLLoader facultyAccountSettingsLoader;
-	private static FXMLLoader communityLoader;
-	private static FXMLLoader restaurantReviewsLoader;
+	private static URL signInPage = SceneSwitcher.class.getResource("SignInPgUI.fxml");
+	private static URL homePage = SceneSwitcher.class.getResource("HomePgUI.fxml");
+	private static URL accountSettingsPage = SceneSwitcher.class.getResource("AccountSettingsPgUI.fxml");
+	private static URL facultyAccountSettingsPage = SceneSwitcher.class.getResource("FacultyAccountSettingsPgUI.fxml");
+	private static URL communityPage = SceneSwitcher.class.getResource("CommunityPgUI.fxml");
+	private static URL restaurantReviewsPage = SceneSwitcher.class.getResource("RestaurantReviewsPgUI.fxml");
 
-	private static Scene signInScene;
-	private static Scene homeScene;
-	private static Scene accountSettingsScene;
-	private static Scene facultyAccountSettingsScene;
-	private static Scene communityScene;
-	private static Scene restaurantReviewsScene;
+	private static Stage primaryStage;
+
+	private static Scene getSceneForSignedInUser(FXMLLoader loader, User currentUser) {
+		try {
+			Scene scene = getSceneFromLoader(loader);
+			AbstractController controller = loader.getController();
+			controller.configure(currentUser);
+			return scene;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	private static Scene getSceneFromLoader(FXMLLoader loader) throws IOException {
+		return new Scene((Parent) loader.load());
+	}
+
+	private static void switchToScene(Scene scene) {
+		if (scene != null) {
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} else {
+			System.err.println("Cannot switch to null scene");
+		}
+	}
 
 	public static void switchToSignIn() {
-		SignInController controller = signInLoader.getController();
-		controller.configure();
-		primaryStage.setScene(signInScene);
-		primaryStage.show();
+		try {
+			FXMLLoader loader = new FXMLLoader(signInPage);
+			Scene scene = getSceneFromLoader(loader);
+			SignInController controller = loader.getController();
+			controller.configure();
+			switchToScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public static void switchToHome(User currentUser) {
-		HomeController controller = homeLoader.getController();
-		controller.configure(currentUser);
-		primaryStage.setScene(homeScene);
-		primaryStage.show();
+		switchToScene(getSceneForSignedInUser(new FXMLLoader(homePage), currentUser));
 	}
 
 	public static void switchToAccountSettings(User currentUser) {
@@ -51,33 +69,20 @@ public class SceneSwitcher {
 		// whether the user is a student or a teacher, as indicated by the user's
 		// UserType.
 		if (currentUser.getUserType() == User.UserType.STUDENT) {
-			scene = accountSettingsScene;
-			AccountSettingsController controller = accountSettingsLoader.getController();
-			controller.configure(currentUser);
+			scene = getSceneForSignedInUser(new FXMLLoader(accountSettingsPage), currentUser);
 		} else if (currentUser.getUserType() == User.UserType.FACULTY) {
-			scene = facultyAccountSettingsScene;
-			FacultyAccountSettingsController controller = facultyAccountSettingsLoader.getController();
-			controller.configure(currentUser);
+			scene = getSceneForSignedInUser(new FXMLLoader(facultyAccountSettingsPage), currentUser);
 		}
 
-		if (scene != null) {
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		}
+		switchToScene(scene);
 	}
 
 	public static void switchToCommunity(User currentUser) {
-		CommunityController controller = communityLoader.getController();
-		controller.configure(currentUser);
-		primaryStage.setScene(communityScene);
-		primaryStage.show();
+		switchToScene(getSceneForSignedInUser(new FXMLLoader(communityPage), currentUser));
 	}
 
 	public static void switchToRestaurantReviews(User currentUser) {
-		RestaurantReviewsController controller = restaurantReviewsLoader.getController();
-		controller.configure(currentUser);
-		primaryStage.setScene(restaurantReviewsScene);
-		primaryStage.show();
+		switchToScene(getSceneForSignedInUser(new FXMLLoader(restaurantReviewsPage), currentUser));
 	}
 
 	public static Stage getPrimaryStage() {
@@ -86,59 +91,5 @@ public class SceneSwitcher {
 
 	static void setPrimaryStage(Stage primaryStage) {
 		SceneSwitcher.primaryStage = primaryStage;
-	}
-
-	static void setSignInLoader(FXMLLoader signInLoader) {
-		SceneSwitcher.signInLoader = signInLoader;
-		try {
-			signInScene = new Scene((Parent) signInLoader.load());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	static void setHomeLoader(FXMLLoader homeLoader) {
-		SceneSwitcher.homeLoader = homeLoader;
-		try {
-			homeScene = new Scene((Parent) homeLoader.load());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	static void setAccountSettingsLoader(FXMLLoader accountSettingsLoader) {
-		SceneSwitcher.accountSettingsLoader = accountSettingsLoader;
-		try {
-			accountSettingsScene = new Scene((Parent) accountSettingsLoader.load());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	static void setFacultyAccountSettingsLoader(FXMLLoader facultyAccountSettingsLoader) {
-		SceneSwitcher.facultyAccountSettingsLoader = facultyAccountSettingsLoader;
-		try {
-			facultyAccountSettingsScene = new Scene((Parent) facultyAccountSettingsLoader.load());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	static void setCommunityLoader(FXMLLoader communityLoader) {
-		SceneSwitcher.communityLoader = communityLoader;
-		try {
-			communityScene = new Scene((Parent) communityLoader.load());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	static void setRestaurantReviewsLoader(FXMLLoader restaurantReviewsLoader) {
-		SceneSwitcher.restaurantReviewsLoader = restaurantReviewsLoader;
-		try {
-			restaurantReviewsScene = new Scene((Parent) restaurantReviewsLoader.load());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 }
