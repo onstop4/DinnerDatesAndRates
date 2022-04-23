@@ -755,5 +755,656 @@
 		"name" : "Chocolate Shake",
 		"description" : "Chocolate milk shake",
 		"price" : 2.99
+	},
+	{
+		"menu_item_id" : 109,
+		"restaurant_id" : 5,
+		"name" : "Cafe Vanilla Frappuccino Small",
+		"description" : "Vanilla Frappuccino",
+		"price" : 4.69
+	},
+	{
+		"menu_item_id" : 110,
+		"restaurant_id" : 5,
+		"name" : "Cafe Vanilla Frappuccino Medium",
+		"description" : "Vanilla Frappuccino",
+		"price" : 5.49
+	},
+	{
+		"menu_item_id" : 111,
+		"restaurant_id" : 5,
+		"name" : "Cafe Vanilla Frappuccino Large",
+		"description" : "Vanilla Frappuccino",
+		"price" : 6.29
+	},
+	{
+		"menu_item_id" : 112,
+		"restaurant_id" : 5,
+		"name" : "Caramel Frappuccino Tall",
+		"description" : "Caramel Frappuccino",
+		"price" : 4.79
+	},
+	{
+		"menu_item_id" : 113,
+		"restaurant_id" : 5,
+		"name" : "Caramel Frappuccino Grande",
+		"description" : "Caramel Frappuccino",
+		"price" : 5.59
+	},
+	{
+		"menu_item_id" : 114,
+		"restaurant_id" : 5,
+		"name" : "Caramel Frappuccino Venti",
+		"description" : "Caramel Frappuccino",
+		"price" : 6.26
+	},
+	{
+		"menu_item_id" : 115,
+		"restaurant_id" : 5,
+		"name" : "Coffee Frappuccino Tall",
+		"description" : "Coffee Frappuccino",
+		"price" : 4.49
+	},
+	{
+		"menu_item_id" : 116,
+		"restaurant_id" : 5,
+		"name" : "Coffee Frappuccino Grande",
+		"description" : "Coffee Frappuccino",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 117,
+		"restaurant_id" : 5,
+		"name" : "Coffee Frappuccino Venti",
+		"description" : "Coffee Frappuccino",
+		"price" : 5.96
+	},
+	{
+		"menu_item_id" : 118,
+		"restaurant_id" : 5,
+		"name" : "Espresso Frappuccino Tall",
+		"description" : "Espresso Frappuccino",
+		"price" : 4.79
+	},
+	{
+		"menu_item_id" : 119,
+		"restaurant_id" : 5,
+		"name" : "Espresso Frappuccino Grande",
+		"description" : "Espresso Frappuccino",
+		"price" : 5.36
+	},
+	{
+		"menu_item_id" : 120,
+		"restaurant_id" : 5,
+		"name" : "Espresso Frappuccino Venti",
+		"description" : "Espresso Frappuccino",
+		"price" : 5.89
+	},
+	{
+		"menu_item_id" : 121,
+		"restaurant_id" : 5,
+		"name" : "Java Chip Frappuccino Tall",
+		"description" : "Java Chip Frappuccino",
+		"price" : 4.79
+	},
+	{
+		"menu_item_id" : 122,
+		"restaurant_id" : 5,
+		"name" : "Java Chip Frappuccino Grande",
+		"description" : "Java Chip Frappuccino",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 123,
+		"restaurant_id" : 5,
+		"name" : "Java Chip Frappuccino Venti",
+		"description" : "Java Chip Frappuccino",
+		"price" : 5.89
+	},
+	{
+		"menu_item_id" : 124,
+		"restaurant_id" : 5,
+		"name" : "Mocha Frappuccino Tall",
+		"description" : "Mocha Frappuccino",
+		"price" : 4.79
+	},
+	{
+		"menu_item_id" : 125,
+		"restaurant_id" : 5,
+		"name" : "Mocha Frappuccino Grande",
+		"description" : "Mocha Frappuccino",
+		"price" : 5.39
+	},
+	{
+		"menu_item_id" : 126,
+		"restaurant_id" : 5,
+		"name" : "Mocha Fraoouccino Venti",
+		"description" : "Mocha Frappuccino",
+		"price" : 5.99
+	},
+	{
+		"menu_item_id" : 127,
+		"restaurant_id" : 5,
+		"name" : "Peppermint Mocha Frappuccino Tall",
+		"description" : "Peppermint Mocha Frappuccino",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 128,
+		"restaurant_id" : 5,
+		"name" : "Peppermint Mocha Frappuccino Grande",
+		"description" : "Peppermint Mocha Frappuccino",
+		"price" : 5.89
+	},
+	{
+		"menu_item_id" : 129,
+		"restaurant_id" : 5,
+		"name" : "Peppermint Mocha Frappuccino Venti",
+		"description" : "Peppermint Mocha Frappuccino",
+		"price" : 6.29
+	},
+	{
+		"menu_item_id" : 130,
+		"restaurant_id" : 5,
+		"name" : "Tazo Chai Cream Frappuccino Tall",
+		"description" : "Chai Cream Frappuccinno",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 131,
+		"restaurant_id" : 5,
+		"name" : "Tazo Chai Cream Frappuccino Grande",
+		"description" : "Chai Cream Frappuccino",
+		"price" : 5.99
+	},
+	{
+		"menu_item_id" : 132,
+		"restaurant_id" : 5,
+		"name" : "Tazo Chai Cream Frappuccino Venti",
+		"description" : "Chai Cream Frappuccino",
+		"price" : 6.39
+	},
+	{
+		"menu_item_id" : 133,
+		"restaurant_id" : 5,
+		"name" : "Vanilla Bean Cream Frappuccino Tall",
+		"description" : "Vanilla Cream Frappuccino",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 134,
+		"restaurant_id" : 5,
+		"name" : "Vanilla Bean Cream Frappuccino Grande",
+		"description" : "Vanilla Cream Frappuccino",
+		"price" : 5.79
+	},
+	{
+		"menu_item_id" : 135,
+		"restaurant_id" : 5,
+		"name" : "Vanilla Bean Cream Frappuccino Venti",
+		"description" : "Vanilla Cream Frappuccino",
+		"price" : 6.29
+	},
+	{
+		"menu_item_id" : 136,
+		"restaurant_id" : 5,
+		"name" : "White Chocolate Cream Frappuccino Tall",
+		"description" : "Wht Chocolate Frappuccino",
+		"price" : 5.59
+	},
+	{
+		"menu_item_id" : 137,
+		"restaurant_id" : 5,
+		"name" : "White Chocolate Cream Frappuccino Grande",
+		"description" : "Wht Chocolate Frappuccino",
+		"price" : 6.19
+	},
+	{
+		"menu_item_id" : 138,
+		"restaurant_id" : 5,
+		"name" : "White Chocolate Cream Frappuccino Venti",
+		"description" : "Wht Chocolate Frappuccino",
+		"price" : 6.49
+	},
+	{
+		"menu_item_id" : 139,
+		"restaurant_id" : 5,
+		"name" : "White Chocolate Mocha Frappuccino Tall",
+		"description" : "Wht Chocolate Frappuccino",
+		"price" : 5.36
+	},
+	{
+		"menu_item_id" : 140,
+		"restaurant_id" : 5,
+		"name" : "White Chocolate Mocha Frappuccino Grande",
+		"description" : "Wht Chocolate Frappuccino",
+		"price" : 5.89
+	},
+	{
+		"menu_item_id" : 141,
+		"restaurant_id" : 5,
+		"name" : "White Chocolate Mocha Frappuccino Venti",
+		"description" : "Wht Chocolate Frappuccino",
+		"price" : 6.36
+	},
+	{
+		"menu_item_id" : 142,
+		"restaurant_id" : 5,
+		"name" : "Chai Cream Frappuccino Tall",
+		"description" : "Chai Cream Frappuccino",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 143,
+		"restaurant_id" : 5,
+		"name" : "Chai Cream Frappuccino Grande",
+		"description" : "Chai Cream Frappuccino ",
+		"price" : 5.89
+	},
+	{
+		"menu_item_id" : 144,
+		"restaurant_id" : 5,
+		"name" : "Chai Cream Frappuccino Venti",
+		"description" : "Chai Cream Frappuccino",
+		"price" : 6.29
+	},
+	{
+		"menu_item_id" : 145,
+		"restaurant_id" : 5,
+		"name" : "Green Tea Cream Frappuccino Tall",
+		"description" : "Green Tea Cream Frapp.",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 146,
+		"restaurant_id" : 5,
+		"name" : "Green Tea Cream Frappuccino Grande",
+		"description" : "Green Tea Cream Frapp.",
+		"price" : 5.79
+	},
+	{
+		"menu_item_id" : 147,
+		"restaurant_id" : 5,
+		"name" : "Green Tea Cream Frappuccino Venti",
+		"description" : "Green Tea Cream Frapp.",
+		"price" : 6.19
+	},
+	{
+		"menu_item_id" : 148,
+		"restaurant_id" : 5,
+		"name" : "8-Grain Role",
+		"description" : "Fresh grain role",
+		"price" : 3.79
+	},
+	{
+		"menu_item_id" : 149,
+		"restaurant_id" : 5,
+		"name" : "Apple Bran Muffin",
+		"description" : "Apple Bran Muffin",
+		"price" : 4.69
+	},
+	{
+		"menu_item_id" : 150,
+		"restaurant_id" : 5,
+		"name" : "Banana Nut Bread",
+		"description" : "Banana nut bread slice",
+		"price" : 4.19
+	},
+	{
+		"menu_item_id" : 151,
+		"restaurant_id" : 5,
+		"name" : "Blueberry Scone",
+		"description" : "Blueberry Scone ",
+		"price" : 4.39
+	},
+	{
+		"menu_item_id" : 152,
+		"restaurant_id" : 5,
+		"name" : "Blueberry Streusel Muffin ",
+		"description" : "Streusel Muffin",
+		"price" : 4.67
+	},
+	{
+		"menu_item_id" : 153,
+		"restaurant_id" : 5,
+		"name" : "Butter Croissant",
+		"description" : "Fresh croissant",
+		"price" : 4.79
+	},
+	{
+		"menu_item_id" : 154,
+		"restaurant_id" : 5,
+		"name" : "Cheese Danish",
+		"description" : "Fresh Cheese Danish",
+		"price" : 3.99
+	},
+	{
+		"menu_item_id" : 155,
+		"restaurant_id" : 5,
+		"name" : "Chocolate Chunk Cookie",
+		"description" : "Fresh Chocolate Chunk Cookie",
+		"price" : 3.69
+	},
+	{
+		"menu_item_id" : 156,
+		"restaurant_id" : 5,
+		"name" : "Chocolate Croissant",
+		"description" : "Fresh chocolate croissant",
+		"price" : 4.10
+	},
+	{
+		"menu_item_id" : 157,
+		"restaurant_id" : 5,
+		"name" : "Cinnamon Chip Scone",
+		"description" : "Fresh Scone",
+		"price" : 4.12
+	},
+	{
+		"menu_item_id" : 158,
+		"restaurant_id" : 5,
+		"name" : "Cranberry Orange Scone",
+		"description" : "Fresh Scone",
+		"price" : 4.12
+	},
+	{
+		"menu_item_id" : 159,
+		"restaurant_id" : 5,
+		"name" : "Double Chocolate Brownie",
+		"description" : "Chocolate Brownie",
+		"price" : 4.33
+	},
+	{
+		"menu_item_id" : 160,
+		"restaurant_id" : 5,
+		"name" : "Everything with Cheese Bagel",
+		"description" : "Specialty Bagel",
+		"price" : 3.39
+	},
+	{
+		"menu_item_id" : 161,
+		"restaurant_id" : 5,
+		"name" : "Ginger Mollasses Cookie",
+		"description" : "Specialty Cookie",
+		"price" : 3.67
+	},
+	{
+		"menu_item_id" : 162,
+		"restaurant_id" : 5,
+		"name" : "Holiday Gingerbread",
+		"description" : "Gingerbread",
+		"price" : 3.76
+	},
+	{
+		"menu_item_id" : 163,
+		"restaurant_id" : 5,
+		"name" : "Iced Lemon Pound Cake",
+		"description" : "Lemon pound cake",
+		"price" : 4.11
+	},
+	{
+		"menu_item_id" : 164,
+		"restaurant_id" : 5,
+		"name" : "Maple Oat Pecan Scone",
+		"description" : "Pecan Scone",
+		"price" : 4.39
+	},
+	{
+		"menu_item_id" : 165,
+		"restaurant_id" : 5,
+		"name" : "Multigrain Bagel",
+		"description" : "Specialty Bagel",
+		"price" : 3.39
+	},
+	{
+		"menu_item_id" : 166,
+		"restaurant_id" : 5,
+		"name" : "Oatmeal Cookie",
+		"description" : "Specialty Cookie",
+		"price" : 3.67
+	},
+	{
+		"menu_item_id" : 167,
+		"restaurant_id" : 5,
+		"name" : "Pumpkin Bread",
+		"description" : "Pumpkin Bread",
+		"price" : 4.11
+	},
+	{
+		"menu_item_id" : 168,
+		"restaurant_id" : 5,
+		"name" : "Pumpkin Scone",
+		"description" : "Fresh Scone",
+		"price" : 4.12
+	},
+	{
+		"menu_item_id" : 169,
+		"restaurant_id" : 5,
+		"name" : "Raspberry Scone",
+		"description" : "Fresh Scone",
+		"price" : 4.12
+	},
+	{
+		"menu_item_id" : 170,
+		"restaurant_id" : 5,
+		"name" : "Starbucks Classic Coffee Cake",
+		"description" : "Fresh Coffee Cake",
+		"price" : 4.11
+	},
+	{
+		"menu_item_id" : 171,
+		"restaurant_id" : 5,
+		"name" : "Zucchini Wlanut Muffin",
+		"description" : "Fresh Muffin",
+		"price" : 4.67
+	},
+	{
+		"menu_item_id" : 172,
+		"restaurant_id" : 5,
+		"name" : "Beef Sausage Croissant",
+		"description" : "Croissant with sausage",
+		"price" : 6.99
+	},
+	{
+		"menu_item_id" : 173,
+		"restaurant_id" : 5,
+		"name" : "Caramel Pecan Sticky Bun",
+		"description" : "Fresh sticky bun",
+		"price" : 6.11
+	},
+	{
+		"menu_item_id" : 174,
+		"restaurant_id" : 5,
+		"name" : "Carrot Cake Muffin with Pecan",
+		"description" : "Fresh Muffin",
+		"price" : 5.89
+	},
+	{
+		"menu_item_id" : 175,
+		"restaurant_id" : 5,
+		"name" : "Almond Croissant",
+		"description" : "Fresh almond croissant",
+		"price" : 5.47
+	},
+	{
+		"menu_item_id" : 176,
+		"restaurant_id" : 5,
+		"name" : "Cheesecake Brownie",
+		"description" : "Fresh Brownie",
+		"price" : 4.11
+	},
+	{
+		"menu_item_id" : 177,
+		"restaurant_id" : 5,
+		"name" : "Chololate Chip Cookie",
+		"description" : "Specialty Cookie",
+		"price" : 3.67
+	},
+	{
+		"menu_item_id" : 178,
+		"restaurant_id" : 5,
+		"name" : "Flourless Chewy Chocolate Cookie",
+		"description" : "Gluten Free Cookie",
+		"price" : 4.29
+	},
+	{
+		"menu_item_id" : 179,
+		"restaurant_id" : 5,
+		"name" : "Gingerbread Loaf",
+		"description" : "Fresh gingerbread loaf",
+		"price" : 4.29
+	},
+	{
+		"menu_item_id" : 180,
+		"restaurant_id" : 5,
+		"name" : "Ham and Cheese Savory Square",
+		"description" : "Flaky pastry with ham, Swiss cheese and bechamel sauce",
+		"price" : 6.67
+	},
+	{
+		"menu_item_id" : 181,
+		"restaurant_id" : 5,
+		"name" : "Michigan Cherry Oat Bar",
+		"description" : "Fresh cherry oat bar",
+		"price" : 4.99
+	},
+	{
+		"menu_item_id" : 182,
+		"restaurant_id" : 5,
+		"name" : "Pecan Tart",
+		"description" : "Fresh Tart",
+		"price" : 3.89
+	},
+	{
+		"menu_item_id" : 183,
+		"restaurant_id" : 5,
+		"name" : "Pumpkin Cream Chesse Muffin",
+		"description" : "Specialty seasonal muffin",
+		"price" : 4.99
+	},
+	{
+		"menu_item_id" : 184,
+		"restaurant_id" : 5,
+		"name" : "Tomato and Cheese Savory Square",
+		"description" : "Tomato, Swiss cheese and herbs in a flaky pastry",
+		"price" : 6.67
+	},
+	{
+		"menu_item_id" : 185,
+		"restaurant_id" : 5,
+		"name" : "Washington Apple Pound Cake",
+		"description" : "Fresh apple pound cake",
+		"price" : 4.99
+	},
+	{
+		"menu_item_id" : 186,
+		"restaurant_id" : 5,
+		"name" : "Wheat Spinach Savory Square\t",
+		"description" : "Wheat pastry with spinach, shallots and bechamel sauce",
+		"price" : 6.67
+	},
+	{
+		"menu_item_id" : 187,
+		"restaurant_id" : 5,
+		"name" : "Cheese & Fruit Bistro Box",
+		"description" : "Cheese & Fruit Bistro Box\n\nBrie, Gouda, two-year aged Cheddar cheeses, nine-grain crackers, apples, dried cranberries and roasted almonds",
+		"price" : 7.12
+	},
+	{
+		"menu_item_id" : 188,
+		"restaurant_id" : 5,
+		"name" : "Chipotle Chicken Wraps",
+		"description" : "Whole wheat tortillas, white chicken strips, pepper jack cheese, lime-cilantro slaw, and tomato avocado salsa, plus a dark chocolate",
+		"price" : 7.11
+	},
+	{
+		"menu_item_id" : 189,
+		"restaurant_id" : 5,
+		"name" : "Protein Bistro Box",
+		"description" : "A hard‐boiled cage free egg, sliced tart apples, grapes, and white Cheddar cheese served with multigrain muesli bread and honeyed peanut butter.",
+		"price" : 6.89
+	},
+	{
+		"menu_item_id" : 190,
+		"restaurant_id" : 5,
+		"name" : "Featured Dark Roast Tall",
+		"description" : "Featured Dark Roast",
+		"price" : 4.27
+	},
+	{
+		"menu_item_id" : 191,
+		"restaurant_id" : 5,
+		"name" : "Featured Dark Roast Grande",
+		"description" : "Featured Dark Roast",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 192,
+		"restaurant_id" : 5,
+		"name" : "Featured Drak Roast Venti",
+		"description" : "Featured Dark Roast",
+		"price" : 5.99
+	},
+	{
+		"menu_item_id" : 193,
+		"restaurant_id" : 5,
+		"name" : "Cafe Misto Tall",
+		"description" : "Brewed coffee and steamed 2% milk",
+		"price" : 4.39
+	},
+	{
+		"menu_item_id" : 194,
+		"restaurant_id" : 5,
+		"name" : "Cafe Misto Grande",
+		"description" : "Brewed coffee and steamed 2% milk",
+		"price" : 5.39
+	},
+	{
+		"menu_item_id" : 195,
+		"restaurant_id" : 5,
+		"name" : "Cafe Misto Venti",
+		"description" : "Brewed coffee and steamed 2% milk",
+		"price" : 6.19
+	},
+	{
+		"menu_item_id" : 196,
+		"restaurant_id" : 5,
+		"name" : "Decaf Pike Place Roast Tall",
+		"description" : "A smooth, balanced brew from a specialty blend of decaffeinated coffees",
+		"price" : 4.27
+	},
+	{
+		"menu_item_id" : 197,
+		"restaurant_id" : 5,
+		"name" : "Decaf Pike Place Roast Grande",
+		"description" : "A smooth, balanced brew from a specialty blend of decaffeinated coffees",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 198,
+		"restaurant_id" : 5,
+		"name" : "Decaf Pike Place Roast Venti",
+		"description" : "A smooth, balanced brew from a specialty blend of decaffeinated coffees",
+		"price" : 5.99
+	},
+	{
+		"menu_item_id" : 199,
+		"restaurant_id" : 5,
+		"name" : "Iced Coffee Tall",
+		"description" : "Freshly brewed Starbucks Iced Coffee Blend served chilled and slightly sweetened on ice",
+		"price" : 4.27
+	},
+	{
+		"menu_item_id" : 200,
+		"restaurant_id" : 5,
+		"name" : "Iced Coffee Grande",
+		"description" : "Freshly brewed Starbucks Iced Coffee Blend served chilled and slightly sweetened on ice",
+		"price" : 5.29
+	},
+	{
+		"menu_item_id" : 201,
+		"restaurant_id" : 5,
+		"name" : "Iced Coffee Venti",
+		"description" : "Freshly brewed Starbucks Iced Coffee Blend served chilled and slightly sweetened on ice",
+		"price" : 5.99
 	}
 ]}

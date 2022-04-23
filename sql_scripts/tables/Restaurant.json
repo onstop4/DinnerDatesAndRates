@@ -19,5 +19,10 @@
 		"restaurant_id" : 4,
 		"name" : "Burger King",
 		"description" : "Burger and fast food eastery."
+	},
+	{
+		"restaurant_id" : 5,
+		"name" : "Starbucks",
+		"description" : "Coffee Cafe'"
 	}
 ]}
