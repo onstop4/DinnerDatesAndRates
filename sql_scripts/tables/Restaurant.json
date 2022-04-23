@@ -24,5 +24,15 @@
 		"restaurant_id" : 5,
 		"name" : "Starbucks",
 		"description" : "Coffee Cafe'"
+	},
+	{
+		"restaurant_id" : 6,
+		"name" : "Law School Cafe'",
+		"description" : "On Campus Dining Hall"
+	},
+	{
+		"restaurant_id" : 7,
+		"name" : "Montgoris",
+		"description" : "On Campus Dining Hall"
 	}
 ]}
