@@ -1,0 +1,372 @@
+menu_item_id,restaurant_id,name,description,price
+1,1,Strawberry Smoothie ,"Blended strawberry smoothie, toppings can be added if requested.",8.0
+2,1,Banana Smoothie,"Blended banana smoothie, toppings can be added if requested.",8.0
+3,1,Blueberry Smoothie,"Blended blueberry smoothie, toppings can be added if requested.",8.0
+4,1,Peach Smoothie,"Blended peach smoothie, toppings can be added if requested.",8.0
+5,1,Vanilla Smoothie,"Blended vanilla smoothie, toppings can be added if requested.",9.0
+6,1,Chocolate Smoothie,"Blended chocolate smoothie, toppings can be added if requested.",9.0
+7,1,Strawberry Yogurt,"Fresh strawberry yogurt, toppings can be added if requested.",7.0
+8,1,Pomegranate Yogurt,"Fresh pomegranate yogurt, toppings can be added if requested.",7.0
+9,1,Vanilla Yogurt,"Fresh vanilla yogurt, toppings can be added if requested.",7.0
+10,1,Chocolate Yogurt,"Fresh chocolate yogurt, toppings can be added if requested.",7.0
+11,1,Coconut Yogurt,"Fresh coconut yogurt, toppings can be added if requested.",7.0
+12,1,Waffle Cone,"Ready made waffle cone, can be added to yogurt order",2.0
+13,1,Small Yogurt Cup,Size small yogurt cup.,1.5
+14,1,Medium Yogurt Cup,Size medium yogurt cup.,2.09
+15,1,Large Yogurt Cup,Size large yogurt cup.,2.33
+16,2,Brown Sugar Oatmeal,"Serving of Brown Sugar Oatmeal, dried fruit may be added.",4.5
+17,2,Hashbrowns,"Serving of seasoned hashbrowns, 9 pieces.",1.86
+18,2,Plain Oatmeal,"Serving of Plain Oatmeal, dried fruit may be added.",4.5
+19,2,Silver Dollar Pancakes,"Serving of silver dollar pancakes served with maple syrup, 10 pieces.",2.33
+20,2,Plain Bagel,Single plain bagel.,1.89
+21,2,Specialty Bagel,"Single specialty bagel.  Choice of everything, onion, garlic, sesame, poppy, multigrain, or wheat.",2.1
+22,2,"Bacon, Egg & Cheese Biscuit",Warm buttery biscuit with egg and bacon.,4.79
+23,2,"Bacon, Egg & Cheese Croissant",Warm buttery croissant with egg and bacon.,5.79
+24,2,"Bacon, Egg & Cheese English Muffin",Warm english muffin with egg and bacon.,4.59
+25,2,Big n' Toasted,Warm texas toast with egg and bacon.,6.33
+26,2,Egg & Cheese Bagel,Bagel with egg and cheese.,3.79
+27,2,Egg & Cheese Biscuit,Warm biscuit with egg and cheese.,4.39
+28,2,Egg & Cheese Croissant,Warm croissant with egg and cheese.,4.99
+29,2,Egg & Cheese English Muffin,Warm english muffin with egg and cheese.,4.49
+30,2,Fruit Coolatta Small,"Refreshing small coolatta. Choice of orange, strawberry, or vanilla bean.",3.79
+31,2,Fruit Coolatta Medium,"Refreshing medium coolatta. Choice of orange, strawberry, or vanilla bean.",4.39
+32,2,Fruit Coolatta Large,"Refreshing large coolatta. Choice of orange, strawberry, or vanilla bean.",4.69
+33,2,Coffee Coolatta Small,"Refreshing small coolatta. Choice of skim, cream, whole, or almond milk.",4.29
+34,2,Coffee Coolatta Medium,"Refreshing medium coolatta. Choice of skim, cream, whole, or almond milk.",4.67
+35,2,Coffee Coolatta Large,"Refreshing large coolatta. Choice of skim, cream, whole, or almond milk.",4.89
+36,2,Danish,"Fresh Danish, choice of cheese, apple cheese, or strawberry cheese.",3.89
+37,2,Plain Donut,Classic Dunkin plain donut.,2.29
+38,2,Specialty Donut,"Choice of classic Dunkin specialty donuts, selection varies based on availability.",3.19
+39,2,Cappuccino,Small cappuccino.,4.26
+40,2,Caramel Mocha Latte,Small Caramel Mocha Latte,4.67
+41,2,Medium Caramel Mocha Latte,Medium Caramel Mocha Latte,5.26
+42,2,Large Caramel Mocha Latte,Large Caramel Mocha Latte,5.69
+43,2,Espressso,"Fresh Espresso, choice of extra espresso shots.",4.47
+44,2,Small Iced Latte,"Small iced latte. Choice of raspberry, lite, and swirl.  ",4.59
+45,2,Medium Iced Latte,"Medium iced latte. Choice of raspberry, lite, and swirl.  ",5.12
+46,2,Large Iced Latte,"Large iced latte. Choice of raspberry, lite, and swirl.  ",5.67
+47,2,Muffin,"Classic Dunkin muffin.  Choice of corn, blueberry, chocolate chip, plain, and pumpkin.",4.29
+48,2,Munchkins,"Claasic Dunkin munchkins.  Single quantity, choice is dependent on availability.",0.27
+49,2,Half-Dozen Munchkins,"Claasic Dunkin munchkins.  Single quantity, choice is dependent on availability.",1.75
+50,2,Dozen Munchkins,"Claasic Dunkin munchkins.  Single quantity, choice is dependent on availability.",3.1
+51,2,Brownie,Fresh brownie.,3.66
+52,3,Vegetables,"Banana peppers, lettuce, tomatoes, jalepenos, green peppers, sweet onion, pickles, amd olives.",0.45
+53,3,Guacamole,Fresh Guacamole.,1.1
+54,3,Bacon,2 strips.,2.1
+55,3,Cheese,"Choice of monterey blend, pepperjack, munster, swiss, sharp cheddar, and low fat options of each.",0.8
+56,3,Bread 6in,"6in multigrain, artisan, italian , honey-oat, 9 grain wheat, cheddar, garlic herb, etc.",2.29
+57,3,Bread 12in,"12in multigrain, artisan, italian , honey-oat, 9 grain wheat, cheddar, garlic herb, etc.",3.79
+58,3,Cookie ,"Single cookie, choice of macadamian, chocolate chip, M&M, and sugar.",3.19
+59,3,BLT Sandwich,"Bacon, lettuce, tomato 6in sub.",7.19
+60,3,Philly Cheesteak,Shredded beef and cheese melted on sub.,7.29
+61,3,BUffalo Chicken Sandwich,Buffalo Chicken with choice of toppings and extras.,7.69
+62,3,Turkey Jalapeno Melt,Turkey jalapeno melt on 6in sub with choice of toppings and extras.,7.49
+63,3,Tuna Sandwich,Cold tuna asandwich on 6in sub with choice of toppings and extras.,7.29
+64,3,Meatball Marinara,Meatball and marinara sub on 6in sub with choice of toppings and extras.,7.59
+65,3,Chipotle Chicken & Cheese,Chipotle chicken and cheese sandwich on 6in sub with choice of toppings and extras.,7.47
+66,3,Black Forest Ham Sandwich,Black forest ham sandwich on 6in sub with choice of toppings and extras.,6.99
+67,3,Roast beef Sandwich,Roast beef sandwich with choice of toppings and extras.,7.89
+68,3,Turkey Breast Sandwich,Turkey breast sandwich with choice of toppings and extras.,7.26
+69,3,Veggie Delite,Vegetarian option sandwich with choice of toppings and extras.,8.1
+70,3,Oven Roast Turkey Sandwich,Oven roast turkey sandwich with choice of toppings and extras.,7.89
+71,4,Jalapeno Cheeseburger,Jalapeno cheeseburger with cheese and toppings if requested.,5.69
+72,4,Bacon Cheeseburger,Bacon cheeseburger with cheese and extras if requested.,6.12
+73,4,Whopper,Classic Whopper burger.,4.19
+74,4,Double Whopper,Classic double Whopper,4.69
+75,4,Triple Whopper,Classic triple Whopper,5.11
+76,4,Jr. Whopper,Classic Jr. Whopper,3.12
+77,4,Big King,Big King burger with extras if requested.,6.39
+78,4,Double Cheeseburger,Double Cheeseburger with extras if requested.,5.16
+79,4,Bacon Double Cheeseburger,Bacon Double Cheeseburger with extras if requested.,5.87
+80,4,Redeo Burger,Rodeo Burger with extras in requested.,6.33
+81,4,Original Chicken Sandwich ,Classic Original Chicken Sandwich.,4.64
+82,4,Fiery Chicken Fries,6 count Chicken Fries.,3.99
+83,4,Tendercrisp Chicken Sandwich,Tendercrisp Chicken Sandwich with extras in requested.,4.89
+84,4,Tendergrill Chicken Sandwich,Tendergrill Chicken Sandwich,5.29
+85,4,4pc Chicken Nuggets,4pc Chicken Nuggets,1.89
+86,4,6pc Chicken Nuggets,6pc Chicken Nuggets,2.29
+87,4,10pc Chicken Nuggets,10pc Chicken Nuggets,2.79
+88,4,Big Fish ,FIsh fillet sandwich,4.98
+89,4,BK Veggie Burger,Beyond meat veggie burger with extras in requested.,6.46
+90,4,Fully Loaded Croissan'wich ,Fully loaded croissant breakfast sandwich,4.99
+91,4,"Bacon, Egg & Cheese Croissan'wich ","Croissant brekfast sandwich with bacon, egg, and cheese.  Bacon can be substituted for ham or sausage.",4.69
+92,4,Egg & Cheese Croissan'wich ,Croissant brekfast sandwich with egg and cheese,4.29
+93,4,"Sausage, Egg & Cheese Biscuit ","Sausage, egg, and cheese on a biscuit.  Sausage can be substituted for ham or bacon.",4.77
+94,4,"Sausage, Egg & Cheese Muffin ","Sausage, egg, and cheese on a muffin.",5.29
+95,4,Sausage & Cheese Muffin ,Sausage and cheese on a muffin.,4.99
+96,4,Hashbrowns,Hashbrown,1.29
+97,4,3pc French Toast Sticks,French Toast Sticks,2.49
+98,4,6pc French Toast Sticks,French Toast Sticks,4.19
+99,4,Small French Fries,Size small French Fries.,2.79
+100,4,Medium French Fries,Size medium French Fries,3.69
+101,4,Large French Fries,Size large French Fries,4.46
+102,4,Onion Rings,Onion Rings,3.17
+103,4,Apple Pie,Single serving Apple Pie,2.79
+104,4,Soft Serve Cone,If the machine is working you can have it...if,1.49
+105,4,Soft Serve Cup,Soft Serve ice cream cup. Vanilla or chocolate.,2.1
+106,4,Oreo Shake,Oreo milk shake,3.1
+107,4,Vanilla Shake,Vanilla milk shake,2.99
+108,4,Chocolate Shake,Chocolate milk shake,2.99
+109,5,Cafe Vanilla Frappuccino Small,Vanilla Frappuccino,4.69
+110,5,Cafe Vanilla Frappuccino Medium,Vanilla Frappuccino,5.49
+111,5,Cafe Vanilla Frappuccino Large,Vanilla Frappuccino,6.29
+112,5,Caramel Frappuccino Tall,Caramel Frappuccino,4.79
+113,5,Caramel Frappuccino Grande,Caramel Frappuccino,5.59
+114,5,Caramel Frappuccino Venti,Caramel Frappuccino,6.26
+115,5,Coffee Frappuccino Tall,Coffee Frappuccino,4.49
+116,5,Coffee Frappuccino Grande,Coffee Frappuccino,5.29
+117,5,Coffee Frappuccino Venti,Coffee Frappuccino,5.96
+118,5,Espresso Frappuccino Tall,Espresso Frappuccino,4.79
+119,5,Espresso Frappuccino Grande,Espresso Frappuccino,5.36
+120,5,Espresso Frappuccino Venti,Espresso Frappuccino,5.89
+121,5,Java Chip Frappuccino Tall,Java Chip Frappuccino,4.79
+122,5,Java Chip Frappuccino Grande,Java Chip Frappuccino,5.29
+123,5,Java Chip Frappuccino Venti,Java Chip Frappuccino,5.89
+124,5,Mocha Frappuccino Tall,Mocha Frappuccino,4.79
+125,5,Mocha Frappuccino Grande,Mocha Frappuccino,5.39
+126,5,Mocha Fraoouccino Venti,Mocha Frappuccino,5.99
+127,5,Peppermint Mocha Frappuccino Tall,Peppermint Mocha Frappuccino,5.29
+128,5,Peppermint Mocha Frappuccino Grande,Peppermint Mocha Frappuccino,5.89
+129,5,Peppermint Mocha Frappuccino Venti,Peppermint Mocha Frappuccino,6.29
+130,5,Tazo Chai Cream Frappuccino Tall,Chai Cream Frappuccinno,5.29
+131,5,Tazo Chai Cream Frappuccino Grande,Chai Cream Frappuccino,5.99
+132,5,Tazo Chai Cream Frappuccino Venti,Chai Cream Frappuccino,6.39
+133,5,Vanilla Bean Cream Frappuccino Tall,Vanilla Cream Frappuccino,5.29
+134,5,Vanilla Bean Cream Frappuccino Grande,Vanilla Cream Frappuccino,5.79
+135,5,Vanilla Bean Cream Frappuccino Venti,Vanilla Cream Frappuccino,6.29
+136,5,White Chocolate Cream Frappuccino Tall,Wht Chocolate Frappuccino,5.59
+137,5,White Chocolate Cream Frappuccino Grande,Wht Chocolate Frappuccino,6.19
+138,5,White Chocolate Cream Frappuccino Venti,Wht Chocolate Frappuccino,6.49
+139,5,White Chocolate Mocha Frappuccino Tall,Wht Chocolate Frappuccino,5.36
+140,5,White Chocolate Mocha Frappuccino Grande,Wht Chocolate Frappuccino,5.89
+141,5,White Chocolate Mocha Frappuccino Venti,Wht Chocolate Frappuccino,6.36
+142,5,Chai Cream Frappuccino Tall,Chai Cream Frappuccino,5.29
+143,5,Chai Cream Frappuccino Grande,Chai Cream Frappuccino ,5.89
+144,5,Chai Cream Frappuccino Venti,Chai Cream Frappuccino,6.29
+145,5,Green Tea Cream Frappuccino Tall,Green Tea Cream Frapp.,5.29
+146,5,Green Tea Cream Frappuccino Grande,Green Tea Cream Frapp.,5.79
+147,5,Green Tea Cream Frappuccino Venti,Green Tea Cream Frapp.,6.19
+148,5,8-Grain Role,Fresh grain role,3.79
+149,5,Apple Bran Muffin,Apple Bran Muffin,4.69
+150,5,Banana Nut Bread,Banana nut bread slice,4.19
+151,5,Blueberry Scone,Blueberry Scone ,4.39
+152,5,Blueberry Streusel Muffin ,Streusel Muffin,4.67
+153,5,Butter Croissant,Fresh croissant,4.79
+154,5,Cheese Danish,Fresh Cheese Danish,3.99
+155,5,Chocolate Chunk Cookie,Fresh Chocolate Chunk Cookie,3.69
+156,5,Chocolate Croissant,Fresh chocolate croissant,4.1
+157,5,Cinnamon Chip Scone,Fresh Scone,4.12
+158,5,Cranberry Orange Scone,Fresh Scone,4.12
+159,5,Double Chocolate Brownie,Chocolate Brownie,4.33
+160,5,Everything with Cheese Bagel,Specialty Bagel,3.39
+161,5,Ginger Mollasses Cookie,Specialty Cookie,3.67
+162,5,Holiday Gingerbread,Gingerbread,3.76
+163,5,Iced Lemon Pound Cake,Lemon pound cake,4.11
+164,5,Maple Oat Pecan Scone,Pecan Scone,4.39
+165,5,Multigrain Bagel,Specialty Bagel,3.39
+166,5,Oatmeal Cookie,Specialty Cookie,3.67
+167,5,Pumpkin Bread,Pumpkin Bread,4.11
+168,5,Pumpkin Scone,Fresh Scone,4.12
+169,5,Raspberry Scone,Fresh Scone,4.12
+170,5,Starbucks Classic Coffee Cake,Fresh Coffee Cake,4.11
+171,5,Zucchini Wlanut Muffin,Fresh Muffin,4.67
+172,5,Beef Sausage Croissant,Croissant with sausage,6.99
+173,5,Caramel Pecan Sticky Bun,Fresh sticky bun,6.11
+174,5,Carrot Cake Muffin with Pecan,Fresh Muffin,5.89
+175,5,Almond Croissant,Fresh almond croissant,5.47
+176,5,Cheesecake Brownie,Fresh Brownie,4.11
+177,5,Chololate Chip Cookie,Specialty Cookie,3.67
+178,5,Flourless Chewy Chocolate Cookie,Gluten Free Cookie,4.29
+179,5,Gingerbread Loaf,Fresh gingerbread loaf,4.29
+180,5,Ham and Cheese Savory Square,"Flaky pastry with ham, Swiss cheese and bechamel sauce",6.67
+181,5,Michigan Cherry Oat Bar,Fresh cherry oat bar,4.99
+182,5,Pecan Tart,Fresh Tart,3.89
+183,5,Pumpkin Cream Chesse Muffin,Specialty seasonal muffin,4.99
+184,5,Tomato and Cheese Savory Square,"Tomato, Swiss cheese and herbs in a flaky pastry",6.67
+185,5,Washington Apple Pound Cake,Fresh apple pound cake,4.99
+186,5,Wheat Spinach Savory Square	,"Wheat pastry with spinach, shallots and bechamel sauce",6.67
+187,5,Cheese & Fruit Bistro Box,"Cheese & Fruit Bistro Box
+
+Brie, Gouda, two-year aged Cheddar cheeses, nine-grain crackers, apples, dried cranberries and roasted almonds",7.12
+188,5,Chipotle Chicken Wraps,"Whole wheat tortillas, white chicken strips, pepper jack cheese, lime-cilantro slaw, and tomato avocado salsa, plus a dark chocolate",7.11
+189,5,Protein Bistro Box,"A hard‐boiled cage free egg, sliced tart apples, grapes, and white Cheddar cheese served with multigrain muesli bread and honeyed peanut butter.",6.89
+190,5,Featured Dark Roast Tall,Featured Dark Roast,4.27
+191,5,Featured Dark Roast Grande,Featured Dark Roast,5.29
+192,5,Featured Drak Roast Venti,Featured Dark Roast,5.99
+193,5,Cafe Misto Tall,Brewed coffee and steamed 2% milk,4.39
+194,5,Cafe Misto Grande,Brewed coffee and steamed 2% milk,5.39
+195,5,Cafe Misto Venti,Brewed coffee and steamed 2% milk,6.19
+196,5,Decaf Pike Place Roast Tall,"A smooth, balanced brew from a specialty blend of decaffeinated coffees",4.27
+197,5,Decaf Pike Place Roast Grande,"A smooth, balanced brew from a specialty blend of decaffeinated coffees",5.29
+198,5,Decaf Pike Place Roast Venti,"A smooth, balanced brew from a specialty blend of decaffeinated coffees",5.99
+199,5,Iced Coffee Tall,Freshly brewed Starbucks Iced Coffee Blend served chilled and slightly sweetened on ice,4.27
+200,5,Iced Coffee Grande,Freshly brewed Starbucks Iced Coffee Blend served chilled and slightly sweetened on ice,5.29
+201,5,Iced Coffee Venti,Freshly brewed Starbucks Iced Coffee Blend served chilled and slightly sweetened on ice,5.99
+202,5,Pike Place Roast Tall,A smooth balanced brew from a specialty roast of blended coffees,4.27
+203,5,Pike Place Roast Grande,A smooth balanced brew from a specialty roast of blended coffees,5.29
+204,5,Pike Place Roast Venti,A smooth balanced brew from a specialty roast of blended coffees,5.99
+205,5,Hot Chocolate tall,"Steamed 2% milk with vanilla and mocha flavored syrups, topped with sweetened whipped cream and chocolate flavored drizzle",4.49
+206,5,Hot Chocolate Grande,"Steamed 2% milk with vanilla and mocha flavored syrups, topped with sweetened whipped cream and chocolate flavored drizzle",5.12
+207,5,Hot Chocolate Venti,"Steamed 2% milk with vanilla and mocha flavored syrups, topped with sweetened whipped cream and chocolate flavored drizzle",6.22
+208,5,Peppermint Hot Chocolate Tall,"Steamed 2% milk with peppermint, mocha and vanilla flavored syrups, sweetened whipped cream and dark chocolate curls",4.49
+209,5,Peppermint Hot Chocolate Grande,"Steamed 2% milk with peppermint, mocha and vanilla flavored syrups, sweetened whipped cream and dark chocolate curls",5.12
+210,5,Peppermint Hot Chocolate Venti,"Steamed 2% milk with peppermint, mocha and vanilla flavored syrups, sweetened whipped cream and dark chocolate curls",6.22
+211,5,Salted Caramel Hot Chocolate,"Steamed 2% milk, mocha sauce, toffee nut and vanilla syrups, topped with sweetened whipped cream, caramel sauce",4.49
+212,5,Salted Caramel Hot Chocolate,"Steamed 2% milk, mocha sauce, toffee nut and vanilla syrups, topped with sweetened whipped cream, caramel sauce",5.12
+213,5,Salted Caramel Hot Chocolate,"Steamed 2% milk, mocha sauce, toffee nut and vanilla syrups, topped with sweetened whipped cream, caramel sauce",6.22
+214,6,Ratatouille with chicken,"Pan seared chicken breast with fresh eggplant, yellow squash, zucchini squash, red onions, tomatoes, and red and green bell peppers",7.99
+215,6,Spicy Potato Wedges,Crispy wedges of potato.,4.99
+216,6,Broccoli & Mushroom,Broccoli & Mushroom,6.99
+217,6,Stuffed Shells Florentine,A pasta favorite with marinara and alfredo sauce,7.99
+218,6,Roast Beef with Au Jus,Seasoned and slow roasted beef cooked to perfection and served with Au Jus.,8.99
+219,6,"Broccoli, Carrots and Cauliflower","Broccoli, Carrots and Cauliflower Medley",5.99
+221,7,Churrasco Pork,Churrasco Pork,0.0
+222,7,Cilantro Rice,Herb infused brown rice,0.0
+223,7,Roasted Chimichurri Cauliflower,"Cauliflower roasted with fresh herbs, spices and lemon",0.0
+224,7,Double Chocolate Chip Cookie,Double Chocolate Chip Cookie,0.0
+225,7,Peanut Butter Cheerio Bar,A tasty treat made with Cheerios,0.0
+226,7,Pineapple Coconut Cinnamon Roll,"Delicious twist on pineapple upside down made with cinnamon roll, topped with coconut",0.0
+227,7,Chopped Romaine Lettuce,Chopped Romaine Lettuce,0.0
+228,7,Spring Mix,Spring Mix,0.0
+229,7,Chopped Iceberg Lettuce,Chopped Iceberg Lettuce,0.0
+230,7,Grilled Herbed Chicken,Seasoned with fresh basil and oregano,0.0
+231,7,Cottage Cheese,Creamy and delicious.,0.0
+232,7,Mandarin Orange Sections,Tangy and delicious.,0.0
+233,7,Sliced Cucumber,Sliced Cucumber,0.0
+234,7,Cherry Tomatoes,Cherry Tomatoes,0.0
+235,7,Garbanzo Beans,Garbanzo Beans,0.0
+236,7,Fresh Carrots,Fresh Carrots,0.0
+237,7,Sliced Red Onion,Sliced Red Onion,0.0
+238,7,Sunflower Seeds,Sunflower Seeds,0.0
+239,7,Shredded Cheddar Cheese,Shredded Cheddar Cheese,0.0
+240,7,Ranch Dressing,Scratch Made Ranch Dressing Using Upcycled Vegetables from Matriark Foods,0.0
+241,7,Blue Cheese Dressing,Blue Cheese Dressing,0.0
+242,7,Caesar Dressing,Caesar Dressing,0.0
+243,7,Fat Free Raspberry Dressing,Fat Free Raspberry Dressing,0.0
+244,7,Fat Free Italian Dressing,Fat Free Italian Dressing,0.0
+245,7,Honey Mustard Dressing,With a touch of clover honey and tangy mustard,0.0
+246,7,Balsamic Vinaigrette Dressing,Balsamic Vinaigrette Dressing,0.0
+247,7,Extra Virgin Olive Oil,Extra Virgin Olive Oil,0.0
+248,7,Balsamic Vinegar,Balsamic Vinegar,0.0
+249,7,Marinated Tofu,Extra Firm Tofu Marinated with Sesame Ginger Vinaigrette,0.0
+250,7,Chicken in Marinade,Simple marinade adds moisture to chicken before stir frying,0.0
+251,7,Pork in Marinade,"Pork in Marinade
+
+Simple marinade adds moisture to pork before stir frying",0.0
+252,7,Blanched Broccoli,Blanched Broccoli,0.0
+253,7,Sliced Mushrooms,Sliced Mushrooms,0.0
+254,7,Sliced Green Bell Pepper,Sliced Green Bell Pepper,0.0
+255,7,Edamame,Edamame,0.0
+256,7,Sliced Bok Choy,Sliced Bok Choy,0.0
+257,7,Grated Ginger Root,Grated Ginger Root,0.0
+258,7,Fresh Chopped Garlic,Fresh Chopped Garlic,0.0
+259,7,Furikake,Furikake,0.0
+260,7,Sriracha Hot Chili Sauce,Sriracha Hot Chili Sauce,0.0
+261,7,Sambal Oelek Chili Sauce,,0.0
+262,7,Udon Noodles,Udon Noodles,0.0
+263,7,Jasmine Rice,Jasmine Rice,0.0
+264,7,BBQ Pulled Pork,Pulled Pork Seasoned with a bbq spice rub,0.0
+265,7,Lentils with Sweet Potato and Spinach,Lentils with Sweet Potato and Spinach,0.0
+266,7,Cheddar Grits,Cheesy Grites,0.0
+267,7,Honey Lemon Carrots,"Fresh Steamed Carrots Tossed with Butter, Honey & Fresh Lemon",0.0
+268,7,Sauteed Spiced Zucchini,Lightly sauteed and steamed with a hint of nutmeg,0.0
+269,7,Lemon Pepper Rotisserie Chicken,A simple combination of lemon zest and black pepper,0.0
+270,7,Fried Fish,Fried Fish,0.0
+271,7,Broccoli Tofu Stir Fry,"Broccoli, carrots, red onion and tofu stir fry with teriyaki glaze",0.0
+272,7,Beef Patty,Beef Patty,0.0
+273,7,Wheat Hamburger Bun,Wheat Hamburger Bun,0.0
+274,7,"Hot Dog
+","Hot Dog
+",0.0
+275,7,Grilled Chicken,"Boneless chicken breast, grilled to perfection.",0.0
+276,7,Sliced Tomatoes,Sliced Tomatoes,0.0
+277,7,Omelet Bar,Omelet Bar,0.0
+278,7,Eggs,Eggs,0.0
+279,7,Egg Whites,Egg Whites,0.0
+280,7,Chopped Spinach,Chopped Spinach,0.0
+281,7,Chopped Broccoli,Chopped Broccoli,0.0
+282,7,Chopped Tomatoes,Chopped Tomatoes,0.0
+283,7,Chopped Tomatoes,Chopped Tomatoes,0.0
+284,7,Sliced Mushrooms,Sliced Mushrooms,0.0
+285,7,Chopped Green Bell Pepper,Chopped Green Bell Pepper,0.0
+286,7,Shredded Sharp Cheddar Cheese,Shredded Sharp Cheddar Cheese,0.0
+287,7,Crumbled Feta Cheese,Crumbled Feta Cheese,0.0
+288,7,Diced Ham,Diced Ham,0.0
+289,7,Pork Sausage Link,Pork Sausage Link,0.0
+290,7,Diced Bacon,Diced Bacon,0.0
+291,7,Sausage and Escarole Soup,"Italian sausage, escarole, tomato and fresh herbs simmered in a chicken broth",0.0
+292,7,Tuscan Tomato Soup with Tortellini,"Tomato, spinach, vegetables, tortellini, and fresh herbs",0.0
+293,7,Dinner Roll,Dinner Roll,0.0
+294,7,Roasted Pork Cuban Sandwich,Roasted Pork Cuban Sandwich,0.0
+295,7,Sauteed Mushrooms,Sauteed button mushrooms with garlic,0.0
+296,7,Yellow Squash with Red Pepper,Lightly sauteed and seasoned,0.0
+297,7,Grilled Vegetables,Grilled Vegetables,0.0
+298,7,Whole Wheat Kaiser Bun,Whole Wheat Kaiser Bun,0.0
+299,7,Multigrain Bread,Multigrain Bread,0.0
+300,7,Whole Wheat Bread,Whole Wheat Bread,0.0
+301,7,White Bread,White Bread,0.0
+302,7,"10"" Flour Tortilla","10"" Flour Tortilla",0.0
+303,7,"10"" Whole Wheat Flour Tortilla","10"" Whole Wheat Flour Tortilla",0.0
+304,7,Thinly Sliced Deli Turkey Breast,Thinly Sliced Deli Turkey Breast,0.0
+305,7,Thinly Sliced Smoked Ham,Thinly Sliced Smoked Ham,0.0
+306,7,Sliced Genoa Salami,Sliced Genoa Salami,0.0
+307,7,American Cheese Slice,American Cheese Slice,0.0
+308,7,Cheddar Cheese Slice,Cheddar Cheese Slice,0.0
+309,7,Sliced American Swiss Cheese,Sliced American Swiss Cheese,0.0
+310,7,House Fried Potato Chips,House Fried Potato Chips,0.0
+311,7,Italian Hero,"Italian meats and cheese on a baguette with tomatoes, peppers, basil and balsamic vinegar",0.0
+312,7,Cheese Pizza,Traditional pizza with just pizza sauce and mozzarella cheese,0.0
+313,7,Carmelized Onion Zucchini Pizza,Carmelized Onion Zucchini Pizza,0.0
+314,7,White Pizza,White Pizza,0.0
+315,7,Crushed Red Pepper,Crushed Red Pepper,0.0
+316,7,Dried Oregano,Dried Oregano,0.0
+317,7,Grated Parmesan Cheese,Grated Parmesan Cheese,0.0
+318,7,Pepperoni Pizza,Crispy Pepperoni Pizza,0.0
+319,7,Vegetable Calzone,Vegetable Calzone,0.0
+320,7,Bolognese Sauce with Mushrooms,"Beef, pork and mushroom tomato sauce",0.0
+321,7,Avoiding Gluten Barilla Penne,Simply cooked penne,0.0
+322,7,Roasted Vegetable Medley,Roasted Vegetable Medley,0.0
+323,7,Double Chocolate Chip Cookie,Double Chocolate Chip Cookie,0.0
+324,7,Peanut Butter Cheerio Bar,Peanut Butter Cheerio Bar,0.0
+325,7,Pineapple Coconut Cinnamon Roll,"Delicious twist on pineapple upside down made with cinnamon roll, topped with coconut",0.0
+326,7,"Cheesecake, Vanilla Sauce and Coconut",Cheesecake with Coconut and Vanilla Sauce,0.0
+327,7,Grilled Herbed Chicken,Seasoned with fresh basil and oregano,0.0
+328,7,Sweet and Sour Pork,Cantonese Style Sweet and Sour Pork,0.0
+329,7,Kung Pao Breaded Cauliflower,Breaded cauliflower fried and tossed in Kung Pao sauce,0.0
+330,7,Ginger Garlic Green Beans,Simple green beans with a touch of garlic and ginger,0.0
+331,7,Edamame and Onions,Edamame and Onions,0.0
+332,7,Vegetable Spring Roll,Vegetable Spring Roll,0.0
+333,7,Char Grilled Teriyaki Chicken,Marinated in soy sauce and teriyaki glaze,0.0
+334,7,Thai Tofu,"seared tofu marinated in basil with cilantro, ginger, mint, garlic, lime and chili",0.0
+335,7,Sesame Ginger Fish,Cooked in a light sesame glaze,0.0
+336,7,Stir Fry,Stir Fry,0.0
+337,7,Thai Basil Shrimp Stir Fry,"Shrimp stir fried with peppers, tomatoes and Thai basil.",0.0
+338,7,Orange Beef and Broccoli Stir Fry,Orange Beef and Broccoli Stir Fry,0.0
+339,7,Rice Noodles,Rice Noodles,0.0
+340,7,Vegetable Fried Rice,"Vegetable Fried rice with eggs, edamame, and hoisin sauce",0.0
+341,7,Sausage and Escarole Soup,"Italian sausage, escarole, tomato and fresh herbs simmered in a chicken broth",0.0
+342,7,Tuscan Tomato Soup with Tortellini,"Tomato, spinach, vegetables, tortellini, and fresh herbs",0.0
+343,7,Dinner Roll,Dinner Roll,0.0
+344,7,Hot Diggity Dog! Frito Pie Dog,Hot Diggity Dog! Frito Pie Dog,0.0
+345,7,Sauteed Mushrooms,Sauteed button mushrooms with garlic,0.0
+346,7,Yellow Squash with Red Pepper,Lightly sauteed and seasoned,0.0
+347,7,"Buffalo Wings
+","Buffalo Wings
+",0.0
+348,7,Pancakes,Pancakes,0.0
+349,7,Sausage Link,Sausage Link,0.0
+350,7,Tater Tots,Oven Baked Tater Tots,0.0
+351,7,French Toast Sticks,Served with maple flavored syrup,0.0
+352,7,Chocolate Milkshake,Chocolate Milkshake,0.0
+353,7,Cookies and Cream Milkshake,Cookies and Cream Milkshake,0.0
+354,7,Vanilla Milkshake,Vanilla Milkshake,0.0
+355,7,Mini Raspberry Crown Danish,Mini Raspberry Crown Danish,0.0
+356,7,Lemon Poppy Seed Quick Bread,Fresh Baked Lemon Poppy Seed Quick Bread,0.0
+357,7,Tofu Mushroom Scramble,Tofu Mushroom Scramble,0.0
+358,7,Biscuits and Sausage Gravy,Biscuits and Sausage Gravy,0.0
+359,7,Turkey Bacon,Turkey Bacon,0.0
+360,7,Fried Hash Brown Patty,Fried Hash Brown Patty,0.0
+361,7,Roasted Mushroom Mix,Roasted Mushroom Mix,0.0
+362,7,Mixed Berry Chia Oatmeal,"Oatmeal with fresh strawberries, raspberries, blackberries, blueberries and chia seeds",0.0
+363,7,Meatless Vegetarian Sausage Patty,Meatless Vegetarian Sausage Patty,0.0
+364,7,Pepper and Onion Tofu Scramble,"Vegan spin on scrambled eggs made with tofu, veggies, nutritional yeast, turmeric, and curry powder",0.0
