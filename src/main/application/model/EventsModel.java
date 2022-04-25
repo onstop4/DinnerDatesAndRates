@@ -21,7 +21,7 @@ public class EventsModel {
 		ObservableList<Event> list = FXCollections.observableArrayList();
 
 		try (Connection conn = Database.getConnection()) {
-			String statement = "select Event.event_id, Event.description, Event.event_date, EventAttendant.attendant_id from Event left outer join EventAttendant on Event.event_id = EventAttendant.event_id and EventAttendant.attendant_id = ? where Event.event_date > ? order by Event.event_date";
+			String statement = "select Event.event_id, Event.description, Event.event_date, EventAttendant.attendant_id from Event left outer join EventAttendant on Event.event_id = EventAttendant.event_id and EventAttendant.attendant_id = ? where Event.event_date >= ? order by Event.event_date";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, currentUser.getId());

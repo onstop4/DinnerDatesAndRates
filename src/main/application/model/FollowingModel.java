@@ -60,6 +60,10 @@ public class FollowingModel {
 	public ObservableList<User> getOtherUsers() {
 		ObservableList<User> list = FXCollections.observableArrayList();
 
+		if (currentUser.getUserType() == User.UserType.FACULTY) {
+			return list;
+		}
+
 		try (Connection conn = Database.getConnection()) {
 			String statement = "select User.user_id, User.full_name, User.user_type from User inner join Student on User.user_id = Student.user_id where User.user_id not in (select to_id from Following where from_id = ?) and User.user_id != ?";
 
