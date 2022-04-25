@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
@@ -62,7 +62,7 @@
             </AnchorPane>
          </items>
       </SplitPane>
-      <SplitPane dividerPositions="0.17574257425742573" layoutX="22.0" layoutY="403.0" orientation="VERTICAL" prefHeight="254.0" prefWidth="698.0">
+      <SplitPane dividerPositions="0.17574257425742573" layoutX="22.0" layoutY="403.0" orientation="VERTICAL" prefHeight="195.0" prefWidth="698.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -73,14 +73,14 @@
                   </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="187.0" prefWidth="454.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="159.0" prefWidth="696.0">
                <children>
-                  <ListView fx:id="ReviewsListView" prefHeight="205.0" prefWidth="698.0" />
+                  <ListView fx:id="ReviewsListView" prefHeight="146.0" prefWidth="698.0" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <SplitPane styleClass="pane" dividerPositions="0.22839506172839505" layoutX="22.0" layoutY="673.0" orientation="VERTICAL" prefHeight="183.0" prefWidth="698.0">
+      <SplitPane dividerPositions="0.22839506172839505" layoutX="22.0" layoutY="608.0" orientation="VERTICAL" prefHeight="195.0" prefWidth="698.0" styleClass="pane">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
@@ -111,6 +111,6 @@
       </SplitPane>
    </children>
    <stylesheets>
-    <URL value="@application.css"/>
+    <URL value="@application.css" />
   </stylesheets>
 </AnchorPane>
