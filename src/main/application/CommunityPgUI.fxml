@@ -7,10 +7,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.application.controller.CommunityController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.application.controller.CommunityController">
    <children>
       <ButtonBar buttonOrder="U+L_HE+FBIX_NCYOA_R" layoutY="10.0" prefHeight="41.0" prefWidth="602.0">
          <buttons>
@@ -24,25 +26,25 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </ButtonBar>
-      <SplitPane dividerPositions="0.11956521739130435" layoutX="49.0" layoutY="93.0" orientation="VERTICAL" prefHeight="232.0" prefWidth="265.0">
+      <SplitPane dividerPositions="0.14095744680851063" layoutX="14.0" layoutY="93.0" orientation="VERTICAL" prefHeight="184.0" prefWidth="238.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="158.0">
                <children>
-                  <Label alignment="CENTER" layoutX="-3.0" layoutY="-2.0" prefHeight="26.0" prefWidth="265.0" text="Friends" textAlignment="CENTER">
+                  <Label alignment="CENTER" layoutX="-3.0" layoutY="-2.0" prefHeight="26.0" prefWidth="238.0" text="Friends" textAlignment="CENTER">
                      <font>
                         <Font name="Serif Regular" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="199.0" prefWidth="224.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="155.0" prefWidth="212.0">
                <children>
-                  <ListView fx:id="FriendsListView" layoutX="1.0" layoutY="-1.0" prefHeight="206.0" prefWidth="263.0" />
+                  <ListView fx:id="FriendsListView" layoutX="1.0" layoutY="-1.0" prefHeight="162.0" prefWidth="234.0" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <SplitPane dividerPositions="0.11956521739130435" layoutX="351.0" layoutY="93.0" orientation="VERTICAL" prefHeight="232.0" prefWidth="236.0">
+      <SplitPane dividerPositions="0.15159574468085107" layoutX="14.0" layoutY="283.0" orientation="VERTICAL" prefHeight="184.0" prefWidth="236.0">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="158.0">
                <children>
@@ -53,32 +55,79 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="186.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="152.0" prefWidth="212.0">
                <children>
-                  <ListView fx:id="FollowingListView" layoutX="1.0" layoutY="-1.0" prefHeight="206.0" prefWidth="234.0" />
+                  <ListView fx:id="FollowingListView" layoutX="1.0" layoutY="-1.0" prefHeight="151.0" prefWidth="234.0" />
                </children>
             </AnchorPane>
          </items>
       </SplitPane>
-      <SplitPane dividerPositions="0.10474308300395258" layoutX="49.0" layoutY="368.0" orientation="VERTICAL" prefHeight="255.0" prefWidth="459.0">
+      <SplitPane dividerPositions="0.16257668711656442" layoutX="14.0" layoutY="473.0" orientation="VERTICAL" prefHeight="165.0" prefWidth="238.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="37.0" prefWidth="441.0">
                <children>
-                  <Label alignment="CENTER" layoutY="4.0" prefHeight="20.0" prefWidth="416.0" text="Add Friends">
+                  <Label alignment="CENTER" layoutY="-2.0" prefHeight="26.0" prefWidth="236.0" text="Add Friends">
                      <font>
                         <Font name="Serif Regular" size="18.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="176.0" prefWidth="441.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="223.0" prefWidth="351.0">
                <children>
-                  <ListView fx:id="AddFriendsListView" layoutX="-1.0" layoutY="-4.0" prefHeight="230.0" prefWidth="457.0" />
+                  <ListView fx:id="AddFriendsListView" layoutX="-1.0" layoutY="-4.0" prefHeight="143.0" prefWidth="236.0" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <Button fx:id="AddFriendButton" layoutX="413.0" layoutY="635.0" mnemonicParsing="false" styleClass="submitBtn" text="Add Friend" />
+      <SplitPane dividerPositions="0.159375" layoutX="274.0" layoutY="93.0" orientation="VERTICAL" prefHeight="162.0" prefWidth="311.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="309.0" text="Select Friend" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="274.0">
+               <children>
+                  <ListView fx:id="SelectFriendListview" prefHeight="131.0" prefWidth="309.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.153125" layoutX="272.0" layoutY="265.0" orientation="VERTICAL" prefHeight="162.0" prefWidth="313.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="311.0" text="Messages" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="128.0" prefWidth="232.0">
+               <children>
+                  <ListView fx:id="MessagesListview" layoutY="1.0" prefHeight="131.0" prefWidth="311.0" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+      <SplitPane dividerPositions="0.13144329896907217" layoutX="272.0" layoutY="442.0" orientation="VERTICAL" prefHeight="196.0" prefWidth="313.0">
+         <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="328.0" text="Write a Direct Message" textAlignment="CENTER" />
+               </children>
+            </AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="116.0" prefWidth="281.0">
+               <children>
+                  <VBox layoutX="-1.0" prefHeight="165.0" prefWidth="313.0">
+                     <children>
+                        <TextField fx:id="MessengerTf" prefHeight="166.0" prefWidth="313.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+      <Button fx:id="AddFriendButton1" layoutX="536.0" layoutY="638.0" mnemonicParsing="false" styleClass="submitBtn" text="Send" />
+      <Button fx:id="AddFriendButton" layoutX="168.0" layoutY="638.0" mnemonicParsing="false" styleClass="submitBtn" text="Add Friend" />
    </children>
    <stylesheets>
     <URL value="@application.css" />
