@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `EventAttendant` (
   `event_id` int NOT NULL,
   PRIMARY KEY (`attendant_id`,`event_id`),
   KEY `EventAttendant_ibfk_2` (`event_id`),
-  CONSTRAINT `EventAttendant_ibfk_1` FOREIGN KEY (`attendant_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `EventAttendant_ibfk_1` FOREIGN KEY (`attendant_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `EventAttendant_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -117,8 +117,8 @@ CREATE TABLE IF NOT EXISTS `Following` (
   `to_id` int NOT NULL,
   PRIMARY KEY (`from_id`,`to_id`),
   KEY `Following_ibfk_2` (`to_id`),
-  CONSTRAINT `Following_ibfk_1` FOREIGN KEY (`from_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `Following_ibfk_2` FOREIGN KEY (`to_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+  CONSTRAINT `Following_ibfk_1` FOREIGN KEY (`from_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `Following_ibfk_2` FOREIGN KEY (`to_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -126,15 +126,15 @@ CREATE TABLE IF NOT EXISTS `Following` (
 
 CREATE TABLE IF NOT EXISTS `Review` (
   `review_id` int NOT NULL AUTO_INCREMENT,
-  `student_id` int NOT NULL,
+  `user_id` int NOT NULL,
   `menu_item_id` int NOT NULL,
   `rating` int NOT NULL,
   `comment` varchar(200) DEFAULT NULL,
   `date_submitted` date NOT NULL,
   PRIMARY KEY (`review_id`),
-  KEY `Review_ibfk_1` (`student_id`),
+  KEY `Review_ibfk_1` (`user_id`),
   KEY `Review_ibfk_2` (`menu_item_id`),
-  CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `Student` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `Review_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `Review_ibfk_2` FOREIGN KEY (`menu_item_id`) REFERENCES `MenuItem` (`menu_item_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

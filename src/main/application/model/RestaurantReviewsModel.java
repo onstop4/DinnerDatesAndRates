@@ -59,7 +59,7 @@ public class RestaurantReviewsModel {
 		ObservableList<Review> list = FXCollections.observableArrayList();
 
 		try (Connection conn = Database.getConnection()) {
-			String statement = "select Review.review_id, User.full_name, Review.rating, Review.comment, Review.date_submitted from Review inner join User on Review.student_id = User.user_id where Review.menu_item_id = ? order by Review.date_submitted desc";
+			String statement = "select Review.review_id, User.full_name, Review.rating, Review.comment, Review.date_submitted from Review inner join User on Review.user_id = User.user_id where Review.menu_item_id = ? order by Review.date_submitted desc";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, menuItemId);
@@ -79,7 +79,7 @@ public class RestaurantReviewsModel {
 
 	public void submitReview(int menuItemId, int rating, String comment) {
 		try (Connection conn = Database.getConnection()) {
-			String statement = "insert into Review (student_id, menu_item_id, rating, comment, date_submitted) values (?, ?, ?, ?, ?)";
+			String statement = "insert into Review (user_id, menu_item_id, rating, comment, date_submitted) values (?, ?, ?, ?, ?)";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, currentUser.getId());
