@@ -11,9 +11,12 @@ directory_path = os.path.join(
 
 
 def write_csv_to_file(contents, file):
-    writer = csv.writer(file, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow(list(contents[0].keys()))
-    writer.writerows(list(value.values()) for value in contents)
+    if len(contents) > 0:
+        writer = csv.writer(
+            file, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
+        )
+        writer.writerow(list(contents[0].keys()))
+        writer.writerows(list(value.values()) for value in contents)
 
 
 for filename in os.listdir(directory_path):
@@ -24,6 +27,5 @@ for filename in os.listdir(directory_path):
             contents = json.load(file)
 
         contents = list(contents.values())[0]
-        if len(contents) > 0:
-            with open(os.path.splitext(file_path)[0] + ".csv", "w") as file:
-                write_csv_to_file(contents, file)
+        with open(os.path.splitext(file_path)[0] + ".csv", "w") as file:
+            write_csv_to_file(contents, file)
