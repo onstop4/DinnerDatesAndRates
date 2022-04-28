@@ -26,8 +26,10 @@ public class FollowingModel {
 
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				list.add(new Following(currentUser.getId(), currentUser.getFullName(), rs.getInt("Following.to_id"),
-						rs.getString("User.full_name")));
+				list.add(new Following(
+						new User(currentUser.getId(), null, currentUser.getFullName(), currentUser.getUserType()),
+						new User(rs.getInt("Following.to_id"), null, rs.getString("User.full_name"),
+								currentUser.getUserType())));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -47,8 +49,10 @@ public class FollowingModel {
 
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				list.add(new Following(rs.getInt("Following.from_id"), rs.getString("User.full_name"),
-						currentUser.getId(), currentUser.getFullName()));
+				list.add(new Following(
+						new User(rs.getInt("Following.from_id"), null, rs.getString("User.full_name"),
+								currentUser.getUserType()),
+						new User(currentUser.getId(), null, currentUser.getFullName(), currentUser.getUserType())));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -78,5 +82,19 @@ public class FollowingModel {
 		}
 
 		return list;
+	}
+
+	public void unfriend(User otherUser) {
+		try (Connection conn = Database.getConnection()) {
+			String statement = "delete from Following where from_id = ? and to_id = ?";
+
+			PreparedStatement stmt = conn.prepareStatement(statement);
+			stmt.setInt(1, currentUser.getId());
+			stmt.setInt(2, otherUser.getId());
+
+			stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

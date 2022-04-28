@@ -82,7 +82,7 @@ public class HomeController extends AbstractController {
 			super.updateItem(item, empty);
 			setText(null);
 			if (empty) {
-				setGraphic(vbox);
+				setGraphic(null);
 			} else {
 				nameText.setText(item.getName());
 				openCloseText.setText(item.getDayHoursFormatted());

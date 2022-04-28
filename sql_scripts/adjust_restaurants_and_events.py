@@ -7,6 +7,8 @@ FILENAME = "restaurants_and_events.sql"
 CREATE_TABLE_REGEX = "CREATE TABLE(?! IF NOT EXISTS)"
 CREATE_TABLE_SUBST = "CREATE TABLE IF NOT EXISTS"
 
+AUTO_INCREMENT_REGEX = r" AUTO_INCREMENT=\d+"
+
 BEGINNING = """-- Create and use dinnerdates database
 
 CREATE DATABASE IF NOT EXISTS dinnerdates;
@@ -24,6 +26,8 @@ with open(file_path, "r+") as file:
         contents = BEGINNING + contents
 
     contents = re.sub(CREATE_TABLE_REGEX, CREATE_TABLE_SUBST, contents, 0)
+
+    contents = re.sub(AUTO_INCREMENT_REGEX, "", contents, 0)
 
     file.seek(0)
     file.write(contents)

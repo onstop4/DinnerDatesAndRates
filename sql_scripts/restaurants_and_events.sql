@@ -38,48 +38,15 @@ CREATE TABLE IF NOT EXISTS `User` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
--- dinnerdates.MenuItem definition
+-- dinnerdates.EventAttendant definition
 
-CREATE TABLE IF NOT EXISTS `MenuItem` (
-  `menu_item_id` int NOT NULL AUTO_INCREMENT,
-  `restaurant_id` int NOT NULL,
-  `name` varchar(200) NOT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `price` decimal(15,2) NOT NULL,
-  PRIMARY KEY (`menu_item_id`),
-  KEY `MenuItem_ibfk_1` (`restaurant_id`),
-  CONSTRAINT `MenuItem_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- dinnerdates.RestaurantHours definition
-
-CREATE TABLE IF NOT EXISTS `RestaurantHours` (
-  `restaurant_hours_id` int NOT NULL AUTO_INCREMENT,
-  `restaurant_id` int NOT NULL,
-  `day_of_week` tinyint NOT NULL,
-  `opening_time` time NOT NULL,
-  `closing_time` time NOT NULL,
-  PRIMARY KEY (`restaurant_hours_id`),
-  KEY `RestaurantHours_ibfk_1` (`restaurant_id`),
-  CONSTRAINT `RestaurantHours_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- dinnerdates.Student definition
-
-CREATE TABLE IF NOT EXISTS `Student` (
-  `user_id` int NOT NULL,
-  `year` int NOT NULL,
-  `major` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `interest` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `favorite_restaurant` int DEFAULT NULL,
-  `preferred_food` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  `availability` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
-  PRIMARY KEY (`user_id`),
-  KEY `Student_ibfk_2` (`favorite_restaurant`),
-  CONSTRAINT `Student_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `Student_ibfk_2` FOREIGN KEY (`favorite_restaurant`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE SET NULL ON UPDATE RESTRICT
+CREATE TABLE IF NOT EXISTS `EventAttendant` (
+  `attendant_id` int NOT NULL,
+  `event_id` int NOT NULL,
+  PRIMARY KEY (`attendant_id`,`event_id`),
+  KEY `EventAttendant_ibfk_2` (`event_id`),
+  CONSTRAINT `EventAttendant_ibfk_1` FOREIGN KEY (`attendant_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `EventAttendant_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -98,18 +65,6 @@ CREATE TABLE IF NOT EXISTS `FacultyMember` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
--- dinnerdates.EventAttendant definition
-
-CREATE TABLE IF NOT EXISTS `EventAttendant` (
-  `attendant_id` int NOT NULL,
-  `event_id` int NOT NULL,
-  PRIMARY KEY (`attendant_id`,`event_id`),
-  KEY `EventAttendant_ibfk_2` (`event_id`),
-  CONSTRAINT `EventAttendant_ibfk_1` FOREIGN KEY (`attendant_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
-  CONSTRAINT `EventAttendant_ibfk_2` FOREIGN KEY (`event_id`) REFERENCES `Event` (`event_id`) ON DELETE CASCADE ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
 -- dinnerdates.`Following` definition
 
 CREATE TABLE IF NOT EXISTS `Following` (
@@ -119,6 +74,50 @@ CREATE TABLE IF NOT EXISTS `Following` (
   KEY `Following_ibfk_2` (`to_id`),
   CONSTRAINT `Following_ibfk_1` FOREIGN KEY (`from_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `Following_ibfk_2` FOREIGN KEY (`to_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- dinnerdates.MenuItem definition
+
+CREATE TABLE IF NOT EXISTS `MenuItem` (
+  `menu_item_id` int NOT NULL AUTO_INCREMENT,
+  `restaurant_id` int NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `price` decimal(15,2) NOT NULL,
+  PRIMARY KEY (`menu_item_id`),
+  KEY `MenuItem_ibfk_1` (`restaurant_id`),
+  CONSTRAINT `MenuItem_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- dinnerdates.Message definition
+
+CREATE TABLE IF NOT EXISTS `Message` (
+  `message_id` int NOT NULL AUTO_INCREMENT,
+  `sender_id` int NOT NULL,
+  `recipient_id` int NOT NULL,
+  `content` varchar(500) NOT NULL,
+  `time_sent` timestamp NOT NULL,
+  PRIMARY KEY (`message_id`),
+  KEY `sender_id` (`sender_id`),
+  KEY `recipient_id` (`recipient_id`),
+  CONSTRAINT `Message_ibfk_1` FOREIGN KEY (`sender_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `Message_ibfk_2` FOREIGN KEY (`recipient_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- dinnerdates.RestaurantHours definition
+
+CREATE TABLE IF NOT EXISTS `RestaurantHours` (
+  `restaurant_hours_id` int NOT NULL AUTO_INCREMENT,
+  `restaurant_id` int NOT NULL,
+  `day_of_week` tinyint NOT NULL,
+  `opening_time` time NOT NULL,
+  `closing_time` time NOT NULL,
+  PRIMARY KEY (`restaurant_hours_id`),
+  KEY `RestaurantHours_ibfk_1` (`restaurant_id`),
+  CONSTRAINT `RestaurantHours_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -138,3 +137,19 @@ CREATE TABLE IF NOT EXISTS `Review` (
   CONSTRAINT `Review_ibfk_2` FOREIGN KEY (`menu_item_id`) REFERENCES `MenuItem` (`menu_item_id`) ON DELETE CASCADE ON UPDATE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
+-- dinnerdates.Student definition
+
+CREATE TABLE IF NOT EXISTS `Student` (
+  `user_id` int NOT NULL,
+  `year` int NOT NULL,
+  `major` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `interest` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `favorite_restaurant` int DEFAULT NULL,
+  `preferred_food` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  `availability` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`user_id`),
+  KEY `Student_ibfk_2` (`favorite_restaurant`),
+  CONSTRAINT `Student_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `User` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `Student_ibfk_2` FOREIGN KEY (`favorite_restaurant`) REFERENCES `Restaurant` (`restaurant_id`) ON DELETE SET NULL ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

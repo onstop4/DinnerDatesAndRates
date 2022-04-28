@@ -26,7 +26,7 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </ButtonBar>
-      <SplitPane dividerPositions="0.14095744680851063" layoutX="14.0" layoutY="93.0" orientation="VERTICAL" prefHeight="184.0" prefWidth="238.0">
+      <SplitPane dividerPositions="0.18439716312056736" layoutX="14.0" layoutY="93.0" orientation="VERTICAL" prefHeight="143.0" prefWidth="238.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="30.0" prefWidth="158.0">
                <children>
@@ -84,12 +84,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="309.0" text="Select Friend" textAlignment="CENTER" />
+                  <Label alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="309.0" text="Existing Conversations" textAlignment="CENTER" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="274.0">
                <children>
-                  <ListView fx:id="SelectFriendListview" prefHeight="131.0" prefWidth="309.0" />
+                  <ListView fx:id="SelectConversationListView" prefHeight="131.0" prefWidth="309.0" />
                </children>
             </AnchorPane>
         </items>
@@ -98,12 +98,12 @@
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="311.0" text="Messages" textAlignment="CENTER" />
+                  <Label fx:id="MessagesHeaderText" alignment="CENTER" layoutX="1.0" prefHeight="24.0" prefWidth="311.0" text="Messages" textAlignment="CENTER" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="128.0" prefWidth="232.0">
                <children>
-                  <ListView fx:id="MessagesListview" layoutY="1.0" prefHeight="131.0" prefWidth="311.0" />
+                  <ListView fx:id="MessagesListView" layoutY="1.0" prefHeight="131.0" prefWidth="311.0" />
                </children>
             </AnchorPane>
          </items>
@@ -119,15 +119,17 @@
                <children>
                   <VBox layoutX="-1.0" prefHeight="165.0" prefWidth="313.0">
                      <children>
-                        <TextField fx:id="MessengerTf" prefHeight="166.0" prefWidth="313.0" />
+                        <TextField fx:id="MessageField" prefHeight="166.0" prefWidth="313.0" />
                      </children>
                   </VBox>
                </children>
             </AnchorPane>
          </items>
       </SplitPane>
-      <Button fx:id="AddFriendButton1" layoutX="536.0" layoutY="638.0" mnemonicParsing="false" styleClass="submitBtn" text="Send" />
-      <Button fx:id="AddFriendButton" layoutX="168.0" layoutY="638.0" mnemonicParsing="false" styleClass="submitBtn" text="Add Friend" />
+      <Button layoutX="536.0" layoutY="638.0" mnemonicParsing="false" onAction="#handleSubmitMessage" styleClass="submitBtn" text="Send" />
+      <Button layoutX="168.0" layoutY="638.0" mnemonicParsing="false" onAction="#handleAddFriend" styleClass="submitBtn" text="Add Friend" />
+      <Button layoutX="17.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleStartConversation" text="Start Conversation" />
+      <Button layoutX="169.0" layoutY="246.0" mnemonicParsing="false" onAction="#handleUnfriend" text="Unfriend" />
    </children>
    <stylesheets>
     <URL value="@application.css" />
