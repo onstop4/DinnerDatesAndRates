@@ -56,7 +56,7 @@ public class HomeController extends AbstractController {
 				setGraphic(null);
 			} else {
 				this.item = item;
-				descriptionText.setText(item.getDescription());
+				descriptionText.setText(item.getDescription() + "\n" + item.getWhenWillOccurFormatted());
 				if (item.willAttend()) {
 					button.setDisable(true);
 				}
