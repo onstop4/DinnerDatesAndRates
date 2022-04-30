@@ -2,8 +2,6 @@ package main.application.controller;
 
 import java.text.DecimalFormat;
 
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -23,8 +21,10 @@ import main.application.model.RestaurantReviewsModel;
 import main.application.model.Review;
 import main.application.model.User;
 
+/**
+ * Allows user to read and write reviews for the menu items of restaurants.
+ */
 public class RestaurantReviewsController extends AbstractController {
-	private static final int MIN_RATING = 1;
 	private static final int MAX_RATING = 5;
 
 	private RestaurantReviewsModel restaurantReviewModel;
@@ -127,6 +127,10 @@ public class RestaurantReviewsController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Configures controller.
+	 */
+	@Override
 	public void configure(User currentUser) {
 		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Restaurant Reviews");
@@ -139,23 +143,11 @@ public class RestaurantReviewsController extends AbstractController {
 				return new RestaurantCell();
 			}
 		});
-		RestaurantsListView.setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event arg0) {
-				refreshMenuListView();
-			}
-		});
 
 		MenuListView.setCellFactory(new Callback<ListView<MenuItem>, ListCell<MenuItem>>() {
 			@Override
 			public ListCell<MenuItem> call(ListView<MenuItem> arg0) {
 				return new MenuCell();
-			}
-		});
-		MenuListView.setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event arg0) {
-				refreshReviewsListView();
 			}
 		});
 
@@ -169,16 +161,25 @@ public class RestaurantReviewsController extends AbstractController {
 		refresh();
 	}
 
+	/**
+	 * Refreshes list of restaurants, list of menu items, and list of reviews.
+	 */
 	private void refresh() {
 		refreshRestaurantsListView();
 		refreshMenuListView();
 		refreshReviewsListView();
 	}
 
+	/**
+	 * Refreshes list of restaurants.
+	 */
 	private void refreshRestaurantsListView() {
 		RestaurantsListView.setItems(restaurantReviewModel.getRestaurants());
 	}
 
+	/**
+	 * Gets list of menu items of selected restaurant.
+	 */
 	private void refreshMenuListView() {
 		Restaurant selectedRestaurant = RestaurantsListView.getSelectionModel().getSelectedItem();
 		if (selectedRestaurant != null) {
@@ -186,6 +187,9 @@ public class RestaurantReviewsController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Gets list of menu items of selected menu item.
+	 */
 	private void refreshReviewsListView() {
 		MenuItem selectedMenuItem = MenuListView.getSelectionModel().getSelectedItem();
 		if (selectedMenuItem != null) {
@@ -193,24 +197,47 @@ public class RestaurantReviewsController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Refreshes list of menu items.
+	 */
+	@FXML
+	private void handleSelectRestaurant() {
+		refreshMenuListView();
+	}
+
+	/**
+	 * Refreshes list of reviews.
+	 */
+	@FXML
+	private void handleSelectMenuItem() {
+		refreshReviewsListView();
+	}
+
+	/**
+	 * Submits new review if rating is set properly. If rating is not an integer
+	 * between 1 and MAX_RATING, an error message will be shown.
+	 */
 	@FXML
 	private void handleSubmitReview() {
-		Alert a = new Alert(AlertType.ERROR);
-		int rating;
-		String comment = CommentField.getText();
-		try {
-			rating = Integer.parseInt(RatingField.getText().strip());
-		} catch (NumberFormatException e) {
-			rating = 0;
-		}
+		MenuItem menuItem = MenuListView.getSelectionModel().getSelectedItem();
 
-		if (rating < MIN_RATING || rating > MAX_RATING) {
-			a.setHeaderText("Rating is not an integer between 1 and 5.");
-			a.show();
-		} else {
-			int menuItemId = MenuListView.getSelectionModel().getSelectedItem().getId();
-			restaurantReviewModel.submitReview(menuItemId, rating, comment);
-			refreshReviewsListView();
+		if (menuItem != null) {
+			Alert a = new Alert(AlertType.ERROR);
+			int rating;
+			String comment = CommentField.getText();
+			try {
+				rating = Integer.parseInt(RatingField.getText().strip());
+			} catch (NumberFormatException e) {
+				rating = 0;
+			}
+
+			if (rating < 1 || rating > MAX_RATING) {
+				a.setHeaderText("Rating must be an integer between 1 and 5.");
+				a.show();
+			} else {
+				restaurantReviewModel.submitReview(menuItem.getId(), rating, comment);
+				refreshReviewsListView();
+			}
 		}
 	}
 }

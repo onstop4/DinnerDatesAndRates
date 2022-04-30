@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import main.application.SceneSwitcher;
 import main.application.model.User;
 
+/**
+ * Allows user to sign-in or register for a new account.
+ */
 public class SignInController {
 	private Stage stage;
 	private boolean isRegistering;
@@ -46,16 +49,24 @@ public class SignInController {
 	@FXML
 	private ToggleGroup UserTypeToggleGroup;
 
+	/**
+	 * Sets up radio buttons for selecting either "Student" or "Faculty" when
+	 * registering.
+	 */
 	public void initialize() {
 		UserTypeStudentRadioButton.setUserData("Student");
 		UserTypeFacultyRadioButton.setUserData("Faculty");
 
 		UserTypeToggleGroup.selectedToggleProperty().addListener((observable, oldToggle, newToggle) -> {
 			isRegisteringFaculty = isRegistering && "Faculty".equals(newToggle.getUserData());
-			controlUserTypeStatus(isRegisteringFaculty);
+			controlUserTypeStatus();
 		});
 	}
 
+	/**
+	 * Configures controller. Clears all fields and sets up the UI so that user is
+	 * signing in by default.
+	 */
 	public void configure() {
 		stage = SceneSwitcher.getPrimaryStage();
 		stage.setTitle("Sign in");
@@ -69,11 +80,15 @@ public class SignInController {
 
 		isRegistering = false;
 		isRegisteringFaculty = false;
-		controlRegisteringStatus(isRegistering);
-		controlUserTypeStatus(isRegisteringFaculty);
+		controlRegisteringStatus();
+		controlUserTypeStatus();
 	}
 
-	private void controlRegisteringStatus(boolean isRegistering) {
+	/**
+	 * Changes UI elements depending on whether the user is currently signing-in or
+	 * registering.
+	 */
+	private void controlRegisteringStatus() {
 		RegistrationBox.setVisible(isRegistering);
 		RegistrationBox.setManaged(isRegistering);
 
@@ -86,11 +101,23 @@ public class SignInController {
 		}
 	}
 
-	private void controlUserTypeStatus(boolean isRegisteringFaculty) {
+	/**
+	 * Changes UI elements depending on whether the user is currently registering as
+	 * a student or as a faculty member.
+	 */
+	private void controlUserTypeStatus() {
 		YearBox.setVisible(!isRegisteringFaculty);
 		YearBox.setManaged(!isRegisteringFaculty);
 	}
 
+	/**
+	 * Signs in using credentials or registers new user (using credentials) and then
+	 * signs in. Displays error message if any field is left blank, if user
+	 * credentials are bad, if username already exists, or if the "Year" field is
+	 * not an integer.
+	 * 
+	 * @param event
+	 */
 	@FXML
 	private void handleSubmit(ActionEvent event) {
 		Alert a = new Alert(AlertType.ERROR);
@@ -147,13 +174,20 @@ public class SignInController {
 		}
 	}
 
+	/**
+	 * Alters UI from sign-in mode to registration mode (or vice-versa).
+	 */
 	@FXML
-	private void handleSwitchMode(ActionEvent event) {
+	private void handleSwitchMode() {
 		isRegistering = !isRegistering;
-
-		controlRegisteringStatus(isRegistering);
+		controlRegisteringStatus();
 	}
 
+	/**
+	 * Switches to Home page.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	private void switchScene(User currentUser) {
 		SceneSwitcher.switchToHome(currentUser);
 	}

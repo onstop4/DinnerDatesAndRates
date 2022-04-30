@@ -11,6 +11,10 @@ import main.application.controller.AbstractController;
 import main.application.controller.SignInController;
 import main.application.model.User;
 
+/**
+ * Provides methods to access the stage or to switch to a different scene.
+ * Scenes are loaded on every switch.
+ */
 public class SceneSwitcher {
 	private static URL signInPage = SceneSwitcher.class.getResource("SignInPgUI.fxml");
 	private static URL homePage = SceneSwitcher.class.getResource("HomePgUI.fxml");
@@ -21,6 +25,25 @@ public class SceneSwitcher {
 
 	private static Stage primaryStage;
 
+	/**
+	 * Loads and returns scene from FXMLLoader object.
+	 * 
+	 * @param loader
+	 * @return
+	 * @throws IOException
+	 */
+	private static Scene getSceneFromLoader(FXMLLoader loader) throws IOException {
+		return new Scene((Parent) loader.load());
+	}
+
+	/**
+	 * Loads and returns scene (specifically for signed-in users) from FXMLLoader
+	 * object. Configures controller in the process.
+	 * 
+	 * @param loader
+	 * @param currentUser signed-in user
+	 * @return
+	 */
 	private static Scene getSceneForSignedInUser(FXMLLoader loader, User currentUser) {
 		try {
 			Scene scene = getSceneFromLoader(loader);
@@ -33,10 +56,11 @@ public class SceneSwitcher {
 		}
 	}
 
-	private static Scene getSceneFromLoader(FXMLLoader loader) throws IOException {
-		return new Scene((Parent) loader.load());
-	}
-
+	/**
+	 * Switches to scene.
+	 * 
+	 * @param scene
+	 */
 	private static void switchToScene(Scene scene) {
 		if (scene != null) {
 			primaryStage.setScene(scene);
@@ -46,6 +70,9 @@ public class SceneSwitcher {
 		}
 	}
 
+	/**
+	 * Switches to Sign-In page.
+	 */
 	public static void switchToSignIn() {
 		try {
 			FXMLLoader loader = new FXMLLoader(signInPage);
@@ -58,10 +85,20 @@ public class SceneSwitcher {
 		}
 	}
 
+	/**
+	 * Switches to Home page.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public static void switchToHome(User currentUser) {
 		switchToScene(getSceneForSignedInUser(new FXMLLoader(homePage), currentUser));
 	}
 
+	/**
+	 * Switches to Account Settings page.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public static void switchToAccountSettings(User currentUser) {
 		Scene scene = null;
 
@@ -77,18 +114,38 @@ public class SceneSwitcher {
 		switchToScene(scene);
 	}
 
+	/**
+	 * Switches to Community page.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public static void switchToCommunity(User currentUser) {
 		switchToScene(getSceneForSignedInUser(new FXMLLoader(communityPage), currentUser));
 	}
 
+	/**
+	 * Switches to Restaurant Reviews page.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public static void switchToRestaurantReviews(User currentUser) {
 		switchToScene(getSceneForSignedInUser(new FXMLLoader(restaurantReviewsPage), currentUser));
 	}
 
+	/**
+	 * Returns primary stage.
+	 * 
+	 * @return primary stage
+	 */
 	public static Stage getPrimaryStage() {
 		return primaryStage;
 	}
 
+	/**
+	 * Sets primary stage.
+	 * 
+	 * @param primaryStage
+	 */
 	static void setPrimaryStage(Stage primaryStage) {
 		SceneSwitcher.primaryStage = primaryStage;
 	}

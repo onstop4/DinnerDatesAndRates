@@ -12,13 +12,26 @@ import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Assists in querying and creating new messages.
+ */
 public class MessagingModel {
 	private User currentUser;
 
+	/**
+	 * Constructs new object.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public MessagingModel(User currentUser) {
 		this.currentUser = currentUser;
 	}
 
+	/**
+	 * Returns list of conversations.
+	 * 
+	 * @return
+	 */
 	public ObservableList<Conversation> getConversations() {
 		ObservableList<Conversation> list = FXCollections.observableArrayList();
 		Set<Integer> foundUserIds = new HashSet<>();
@@ -60,6 +73,12 @@ public class MessagingModel {
 		return list;
 	}
 
+	/**
+	 * Returns list of messages in conversation with other user.
+	 * 
+	 * @param otherUser
+	 * @return
+	 */
 	public ObservableList<Message> getMessagesOfConversation(User otherUser) {
 		ObservableList<Message> list = FXCollections.observableArrayList();
 
@@ -92,6 +111,12 @@ public class MessagingModel {
 		return list;
 	}
 
+	/**
+	 * Adds new message from current user to target user to database.
+	 * 
+	 * @param targetUser
+	 * @param message
+	 */
 	public void submitMessage(User targetUser, String message) {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "insert into Message (sender_id, recipient_id, content, time_sent) values (?, ?, ?, ?)";

@@ -9,6 +9,9 @@ import java.sql.Types;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Assists in querying and updating account settings for faculty members.
+ */
 public class FacultyAccountSettingsModel {
 	private final User currentUser;
 	private int favoriteRestaurantId;
@@ -16,11 +19,20 @@ public class FacultyAccountSettingsModel {
 	private String interests;
 	private String availability;
 
+	/**
+	 * Constructs new objects and initializes instance variables with values from
+	 * database.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public FacultyAccountSettingsModel(User currentUser) {
 		this.currentUser = currentUser;
 		updateObject();
 	}
 
+	/**
+	 * Sets instance variables using values from database.
+	 */
 	private void updateObject() {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "select interest, favorite_restaurant, preferred_food, availability from FacultyMember where user_id = ?";
@@ -47,38 +59,83 @@ public class FacultyAccountSettingsModel {
 		}
 	}
 
+	/**
+	 * Returns favorite restaurant id.
+	 * 
+	 * @return
+	 */
 	public int getFavoriteRestaurantId() {
 		return favoriteRestaurantId;
 	}
 
+	/**
+	 * Sets favorite restaurant id.
+	 * 
+	 * @param favoriteRestaurantId
+	 */
 	public void setFavoriteRestaurantId(int favoriteRestaurantId) {
 		this.favoriteRestaurantId = favoriteRestaurantId;
 	}
 
+	/**
+	 * Returns favorite foods.
+	 * 
+	 * @return
+	 */
 	public String getFavoriteFoods() {
 		return favoriteFoods;
 	}
 
+	/**
+	 * Sets favorite foods.
+	 * 
+	 * @param favoriteFoods
+	 */
 	public void setFavoriteFoods(String favoriteFoods) {
 		this.favoriteFoods = favoriteFoods;
 	}
 
+	/**
+	 * Returns interests.
+	 * 
+	 * @return
+	 */
 	public String getInterests() {
 		return interests;
 	}
 
+	/**
+	 * Sets interests.
+	 * 
+	 * @param interests
+	 */
 	public void setInterests(String interests) {
 		this.interests = interests;
 	}
 
+	/**
+	 * Returns favorite eating time.
+	 * 
+	 * @return
+	 */
 	public String getFavoriteEatingTime() {
 		return availability;
 	}
 
+	/**
+	 * Sets favorite eating time.
+	 * 
+	 * @param favoriteEatingTime
+	 */
 	public void setFavoriteEatingTime(String favoriteEatingTime) {
 		this.availability = favoriteEatingTime;
 	}
 
+	/**
+	 * Returns list of restaurants.
+	 * 
+	 * @return
+	 */
 	public ObservableList<Restaurant> getRestaurants() {
 		ObservableList<Restaurant> restaurants = FXCollections.observableArrayList();
 
@@ -96,6 +153,9 @@ public class FacultyAccountSettingsModel {
 		return restaurants;
 	}
 
+	/**
+	 * Saves values of instance variables to database.
+	 */
 	public void saveSettings() {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "update FacultyMember set interest = ?, favorite_restaurant = ?, preferred_food = ?, availability = ? where user_id = ?";

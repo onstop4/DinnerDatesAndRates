@@ -19,6 +19,9 @@ import main.application.model.Restaurant;
 import main.application.model.RestaurantTimeModel;
 import main.application.model.User;
 
+/**
+ * Lists events and restaurant hours for today.
+ */
 public class HomeController extends AbstractController {
 	private EventsModel eventModel;
 	private RestaurantTimeModel restaurantTimeModel;
@@ -28,6 +31,10 @@ public class HomeController extends AbstractController {
 	@FXML
 	private ListView<Restaurant> RestaurantTimesListView;
 
+	/**
+	 * Cell in EventsListView. Includes event description and date, as well as a
+	 * button that will confirm that the user will attend the event.
+	 */
 	private static class EventCell extends ListCell<Event> {
 		HBox hbox = new HBox();
 		Text descriptionText = new Text("");
@@ -65,6 +72,10 @@ public class HomeController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Cell in RestaurantTimesListView. Includes name of restaurant and when it
+	 * opens and closes.
+	 */
 	private static class RestaurantTimesCell extends ListCell<Restaurant> {
 		VBox vbox = new VBox();
 		Pane pane = new Pane();
@@ -91,6 +102,10 @@ public class HomeController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Configures controller.
+	 */
+	@Override
 	public void configure(User currentUser) {
 		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Home");
@@ -114,6 +129,9 @@ public class HomeController extends AbstractController {
 		refresh();
 	}
 
+	/**
+	 * Refreshes lists.
+	 */
 	private void refresh() {
 		EventsListView.setItems(eventModel.getEvents());
 		RestaurantTimesListView.setItems(restaurantTimeModel.getRestaurantTimes());

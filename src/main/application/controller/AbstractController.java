@@ -7,6 +7,10 @@ import javafx.scene.control.Button;
 import main.application.SceneSwitcher;
 import main.application.model.User;
 
+/**
+ * Provides some functionality for signed-in users, such as allowing them to
+ * switch to a different page.
+ */
 public abstract class AbstractController {
 	@FXML
 	private Button NavHomeButton;
@@ -19,6 +23,11 @@ public abstract class AbstractController {
 	@FXML
 	private Button NavSignOutButton;
 
+	/**
+	 * Configures all navigation buttons to switch to different pages when clicked.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public void configure(User currentUser) {
 		NavHomeButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override

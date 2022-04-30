@@ -14,6 +14,10 @@ import main.application.model.FacultyAccountSettingsModel;
 import main.application.model.Restaurant;
 import main.application.model.User;
 
+/**
+ * Allows faculty members to change values in the database associated with their
+ * account.
+ */
 public class FacultyAccountSettingsController extends AbstractController {
 	private FacultyAccountSettingsModel facultyAccountSettingsModel;
 
@@ -26,6 +30,10 @@ public class FacultyAccountSettingsController extends AbstractController {
 	@FXML
 	private TextArea InterestsField;
 
+	/**
+	 * Configures controller.
+	 */
+	@Override
 	public void configure(User currentUser) {
 		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Account Settings");
@@ -35,6 +43,9 @@ public class FacultyAccountSettingsController extends AbstractController {
 		refresh();
 	}
 
+	/**
+	 * Sets all fields to their associated values in the database.
+	 */
 	private void refresh() {
 		FavoriteFoodsField.setText(facultyAccountSettingsModel.getFavoriteFoods());
 		AvailabilityField.setText(facultyAccountSettingsModel.getFavoriteEatingTime());
@@ -65,6 +76,9 @@ public class FacultyAccountSettingsController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Updates database values using values from fields.
+	 */
 	@FXML
 	private void handleSubmitSettings() {
 		Restaurant favoriteRestaurant = FavoriteRestaurantListView.getSelectionModel().getSelectedItem();

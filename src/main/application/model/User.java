@@ -12,6 +12,9 @@ import java.sql.SQLException;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
+/**
+ * Queries and creates users in the database. Stores user info.
+ */
 public class User {
 	private final int id;
 	private final String username;
@@ -21,11 +24,25 @@ public class User {
 	public enum UserType {
 		STUDENT, FACULTY;
 
+		/**
+		 * Returns user type from ordinal.
+		 * 
+		 * @param ordinal
+		 * @return
+		 */
 		public static UserType getUserType(int ordinal) {
 			return values()[ordinal];
 		}
 	}
 
+	/**
+	 * Constructs new object.
+	 * 
+	 * @param id       id of user
+	 * @param username username of user
+	 * @param fullName full name of user
+	 * @param userType user type of user
+	 */
 	public User(int id, String username, String fullName, UserType userType) {
 		this.id = id;
 		this.username = username;
@@ -33,6 +50,14 @@ public class User {
 		this.userType = userType;
 	}
 
+	/**
+	 * Returns User object from provided credentials.
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 * @throws SQLException
+	 */
 	public static User get_user(String username, String password) throws SQLException {
 		byte[] salt = getSalt(username);
 
@@ -60,6 +85,17 @@ public class User {
 		return null;
 	}
 
+	/**
+	 * Returns User object from provided credentials after creating user in
+	 * database. Will indicate in database that user is a student.
+	 * 
+	 * @param username
+	 * @param password
+	 * @param fullName
+	 * @param year
+	 * @return
+	 * @throws SQLException
+	 */
 	public static User create_student(String username, String password, String fullName, int year) throws SQLException {
 		User user = create_user(username, password, fullName, UserType.STUDENT);
 		if (user != null) {
@@ -77,6 +113,16 @@ public class User {
 		return user;
 	}
 
+	/**
+	 * Returns User object from provided credentials after creating user in
+	 * database. Will indicate in database that user is a faculty member.
+	 * 
+	 * @param username
+	 * @param password
+	 * @param fullName
+	 * @return
+	 * @throws SQLException
+	 */
 	public static User create_faculty(String username, String password, String fullName) throws SQLException {
 		User user = create_user(username, password, fullName, UserType.FACULTY);
 		if (user != null) {
@@ -93,6 +139,17 @@ public class User {
 		return user;
 	}
 
+	/**
+	 * Returns User object from provided credentials after creating user in
+	 * database.
+	 * 
+	 * @param username
+	 * @param password
+	 * @param fullName
+	 * @param userType
+	 * @return
+	 * @throws SQLException
+	 */
 	private static User create_user(String username, String password, String fullName, UserType userType)
 			throws SQLException {
 		byte[] salt = generateRandomSalt();
@@ -119,6 +176,11 @@ public class User {
 		return null;
 	}
 
+	/**
+	 * Returns random salt.
+	 * 
+	 * @return
+	 */
 	private static byte[] generateRandomSalt() {
 		SecureRandom random = new SecureRandom();
 		byte[] salt = new byte[16];
@@ -126,6 +188,13 @@ public class User {
 		return salt;
 	}
 
+	/**
+	 * Returns salt associated with username in database.
+	 * 
+	 * @param username
+	 * @return
+	 * @throws SQLException
+	 */
 	private static byte[] getSalt(String username) throws SQLException {
 		Connection conn = Database.getConnection();
 		String statement = "select salt from User where username = ?";
@@ -140,6 +209,13 @@ public class User {
 		return null;
 	}
 
+	/**
+	 * Hashes password using salt.
+	 * 
+	 * @param password
+	 * @param salt
+	 * @return
+	 */
 	private static byte[] hashPassword(String password, byte[] salt) {
 		try {
 			KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
@@ -152,23 +228,48 @@ public class User {
 		}
 	}
 
+	/**
+	 * Returns id of user.
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Returns username of user.
+	 * 
+	 * @return
+	 */
 	public String getUsername() {
 		return username;
 	}
 
+	/**
+	 * Returns full name of user.
+	 * 
+	 * @return
+	 */
 	public String getFullName() {
 		return fullName;
 	}
 
+	/**
+	 * Returns user type of user.
+	 * 
+	 * @return
+	 */
 	public UserType getUserType() {
 		return userType;
 	}
 
-	public boolean addAsFriend(User currentUser) {
+	/**
+	 * Adds user as friend of current user to the database.
+	 * 
+	 * @param currentUser
+	 */
+	public void addAsFriend(User currentUser) {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "insert into Following (from_id, to_id) values (?, ?)";
 
@@ -177,10 +278,8 @@ public class User {
 			stmt.setInt(2, id);
 
 			stmt.executeUpdate();
-			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
 		}
 	}
 }

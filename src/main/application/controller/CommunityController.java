@@ -1,13 +1,10 @@
 package main.application.controller;
 
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.VBox;
@@ -22,6 +19,12 @@ import main.application.model.Message;
 import main.application.model.MessagingModel;
 import main.application.model.User;
 
+/**
+ * Allows users to add others as friends (as long as their friends are of the
+ * same user type), unfriend people, chat with friends, and see who is following
+ * them. In the code below, a friend is someone who the current user is
+ * following, and a follower is someone following the current user.
+ */
 public class CommunityController extends AbstractController {
 	private User currentUser;
 	private FollowingModel followingModel;
@@ -43,6 +46,10 @@ public class CommunityController extends AbstractController {
 	@FXML
 	private TextField MessageField;
 
+	/**
+	 * Converts Following object to String to be used in FriendsListView and
+	 * FollowingListView.
+	 */
 	private class FollowingConverter extends StringConverter<Following> {
 		@Override
 		public Following fromString(String arg0) {
@@ -60,6 +67,25 @@ public class CommunityController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Converts Following object to String to be used in AddFriendsListView.
+	 */
+	private class UserConverter extends StringConverter<User> {
+		@Override
+		public User fromString(String arg0) {
+			return null;
+		}
+
+		@Override
+		public String toString(User otherUser) {
+			return otherUser.getFullName();
+		}
+	}
+
+	/**
+	 * Cell in SelectConversationListView. Includes full name of user involved in
+	 * conversation as well as the last time a messages was sent or received.
+	 */
 	private class ConversationCell extends ListCell<Conversation> {
 		VBox vbox = new VBox();
 		Text otherUsernameText = new Text();
@@ -83,6 +109,10 @@ public class CommunityController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Cell in MessagesListView. Includes the sender of the message, the time that
+	 * the message was sent, and the content of the message.
+	 */
 	private class MessageCell extends ListCell<Message> {
 		VBox vbox = new VBox();
 		Text senderUsernameText = new Text();
@@ -108,6 +138,10 @@ public class CommunityController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Configures controller.
+	 */
+	@Override
 	public void configure(User currentUser) {
 		super.configure(currentUser);
 		this.currentUser = currentUser;
@@ -122,16 +156,7 @@ public class CommunityController extends AbstractController {
 				return new ConversationCell();
 			}
 		});
-		SelectConversationListView.setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event arg0) {
-				Conversation selectedConversation = SelectConversationListView.getSelectionModel().getSelectedItem();
-				if (selectedConversation != null) {
-					otherUserInConversation = selectedConversation.getOtherUser();
-					refreshMessagesListView();
-				}
-			}
-		});
+
 		MessagesListView.setCellFactory(new Callback<ListView<Message>, ListCell<Message>>() {
 			@Override
 			public ListCell<Message> call(ListView<Message> arg0) {
@@ -142,6 +167,10 @@ public class CommunityController extends AbstractController {
 		refresh();
 	}
 
+	/**
+	 * Refreshes all data. Gets lists of friends, followers, and other users. Also
+	 * refreshes conversation and message lists and clears text fields.
+	 */
 	private void refresh() {
 		otherUserInConversation = null;
 		SelectConversationListView.getItems().clear();
@@ -157,26 +186,24 @@ public class CommunityController extends AbstractController {
 		FollowingListView.setItems(following);
 		FollowingListView.setCellFactory(ComboBoxListCell.forListView(new FollowingConverter(), following));
 		AddFriendsListView.setItems(potentialFriends);
-		AddFriendsListView.setCellFactory(ComboBoxListCell.forListView(new StringConverter<User>() {
-			@Override
-			public User fromString(String arg0) {
-				return null;
-			}
-
-			@Override
-			public String toString(User otherUser) {
-				return otherUser.getFullName();
-			}
-		}, potentialFriends));
+		AddFriendsListView.setCellFactory(ComboBoxListCell.forListView(new UserConverter(), potentialFriends));
 
 		refreshConversationsListView();
 		refreshMessagesListView();
 	}
 
+	/**
+	 * Refreshes list of conversations.
+	 */
 	private void refreshConversationsListView() {
 		SelectConversationListView.setItems(messagingModel.getConversations());
 	}
 
+	/**
+	 * Refreshes list of messages to/from a specific user. If no user is currently
+	 * selected, clears list of messages. Also clears text field and sets header
+	 * text appropriately.
+	 */
 	private void refreshMessagesListView() {
 		MessageField.clear();
 		if (otherUserInConversation != null) {
@@ -189,14 +216,21 @@ public class CommunityController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Adds selected friend.
+	 */
 	@FXML
 	private void handleAddFriend() {
-		MultipleSelectionModel<User> selectionModel = AddFriendsListView.getSelectionModel();
-		if (selectionModel.getSelectedItem().addAsFriend(currentUser)) {
+		User user = AddFriendsListView.getSelectionModel().getSelectedItem();
+		if (user != null) {
+			user.addAsFriend(currentUser);
 			refresh();
 		}
 	}
 
+	/**
+	 * Unfriends selected friend.
+	 */
 	@FXML
 	private void handleUnfriend() {
 		Following friend = FriendsListView.getSelectionModel().getSelectedItem();
@@ -206,6 +240,9 @@ public class CommunityController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Either starts conversation with selected friend or
+	 */
 	@FXML
 	private void handleStartConversation() {
 		Following friend = FriendsListView.getSelectionModel().getSelectedItem();
@@ -215,6 +252,23 @@ public class CommunityController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Indicates that current user is now chatting with user associated with
+	 * selected conversation. Also fetches list of messages associated with selected
+	 * conversation.
+	 */
+	@FXML
+	private void handleSelectConversation() {
+		Conversation selectedConversation = SelectConversationListView.getSelectionModel().getSelectedItem();
+		if (selectedConversation != null) {
+			otherUserInConversation = selectedConversation.getOtherUser();
+			refreshMessagesListView();
+		}
+	}
+
+	/**
+	 * Submits new message from contents of text field.
+	 */
 	@FXML
 	private void handleSubmitMessage() {
 		if (otherUserInConversation != null) {

@@ -10,7 +10,16 @@ import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Assists in querying restaurant times.
+ */
 public class RestaurantTimeModel {
+	/**
+	 * Returns list of times when restaurants open and close. Only restaurants that
+	 * are open today are included.
+	 * 
+	 * @return
+	 */
 	public ObservableList<Restaurant> getRestaurantTimes() {
 		ObservableList<Restaurant> times = FXCollections.observableArrayList();
 

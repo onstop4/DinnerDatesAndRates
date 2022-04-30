@@ -10,13 +10,26 @@ import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Assists in querying and updating restaurants, menu items, and reviews.
+ */
 public class RestaurantReviewsModel {
 	private final User currentUser;
 
+	/**
+	 * Constructs new object.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public RestaurantReviewsModel(User currentUser) {
 		this.currentUser = currentUser;
 	}
 
+	/**
+	 * Returns list of restaurants
+	 * 
+	 * @return
+	 */
 	public ObservableList<Restaurant> getRestaurants() {
 		ObservableList<Restaurant> list = FXCollections.observableArrayList();
 
@@ -34,6 +47,12 @@ public class RestaurantReviewsModel {
 		return list;
 	}
 
+	/**
+	 * Returns list of menu items of restaurant.
+	 * 
+	 * @param restaurantId
+	 * @return
+	 */
 	public ObservableList<MenuItem> getMenuOfRestaurant(int restaurantId) {
 		ObservableList<MenuItem> list = FXCollections.observableArrayList();
 
@@ -55,6 +74,12 @@ public class RestaurantReviewsModel {
 		return list;
 	}
 
+	/**
+	 * Returns list of reviews of menu item.
+	 * 
+	 * @param menuItemId
+	 * @return
+	 */
 	public ObservableList<Review> getReviewsOfMenuItem(int menuItemId) {
 		ObservableList<Review> list = FXCollections.observableArrayList();
 
@@ -77,6 +102,13 @@ public class RestaurantReviewsModel {
 		return list;
 	}
 
+	/**
+	 * Adds new review of menu item to database.
+	 * 
+	 * @param menuItemId
+	 * @param rating
+	 * @param comment
+	 */
 	public void submitReview(int menuItemId, int rating, String comment) {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "insert into Review (user_id, menu_item_id, rating, comment, date_submitted) values (?, ?, ?, ?, ?)";

@@ -89,7 +89,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="105.0" prefWidth="274.0">
                <children>
-                  <ListView fx:id="SelectConversationListView" prefHeight="131.0" prefWidth="309.0" />
+                  <ListView fx:id="SelectConversationListView" onMouseClicked="#handleSelectConversation" prefHeight="131.0" prefWidth="309.0" />
                </children>
             </AnchorPane>
         </items>

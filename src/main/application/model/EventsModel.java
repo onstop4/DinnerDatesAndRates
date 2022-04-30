@@ -10,13 +10,26 @@ import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Assists in querying and updating events.
+ */
 public class EventsModel {
 	private final User currentUser;
 
+	/**
+	 * Constructs new object.
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public EventsModel(User currentUser) {
 		this.currentUser = currentUser;
 	}
 
+	/**
+	 * Returns list of events.
+	 * 
+	 * @return
+	 */
 	public ObservableList<Event> getEvents() {
 		ObservableList<Event> list = FXCollections.observableArrayList();
 

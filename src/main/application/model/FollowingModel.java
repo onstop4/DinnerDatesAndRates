@@ -4,17 +4,31 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.application.model.User.UserType;
 
+/**
+ * Assists in querying and updating info on followings to/from the current user.
+ */
 public class FollowingModel {
 	private User currentUser;
 
+	/**
+	 * Constructs new object
+	 * 
+	 * @param currentUser signed-in user
+	 */
 	public FollowingModel(User currentUser) {
 		this.currentUser = currentUser;
 	}
 
+	/**
+	 * Returns list of friends of current user.
+	 * 
+	 * @return
+	 */
 	public ObservableList<Following> getFriends() {
 		ObservableList<Following> list = FXCollections.observableArrayList();
 
@@ -38,6 +52,11 @@ public class FollowingModel {
 		return list;
 	}
 
+	/**
+	 * Returns list of users following current user.
+	 * 
+	 * @return
+	 */
 	public ObservableList<Following> getFollowing() {
 		ObservableList<Following> list = FXCollections.observableArrayList();
 
@@ -61,6 +80,12 @@ public class FollowingModel {
 		return list;
 	}
 
+	/**
+	 * Returns list of all users (of same user type) who are not friends of current
+	 * user.
+	 * 
+	 * @return
+	 */
 	public ObservableList<User> getOtherUsers() {
 		ObservableList<User> list = FXCollections.observableArrayList();
 
@@ -84,6 +109,11 @@ public class FollowingModel {
 		return list;
 	}
 
+	/**
+	 * Deletes database row indicating the current user is friends of other user.
+	 * 
+	 * @param otherUser user being unfriended
+	 */
 	public void unfriend(User otherUser) {
 		try (Connection conn = Database.getConnection()) {
 			String statement = "delete from Following where from_id = ? and to_id = ?";

@@ -39,7 +39,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ListView fx:id="RestaurantsListView" prefHeight="254.0" prefWidth="315.0" />
+                  <ListView fx:id="RestaurantsListView" onMouseClicked="#handleSelectRestaurant" prefHeight="254.0" prefWidth="315.0" />
                </children>
             </AnchorPane>
         </items>
@@ -57,7 +57,7 @@
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ListView fx:id="MenuListView" prefHeight="254.0" prefWidth="315.0" />
+                  <ListView fx:id="MenuListView" onMouseClicked="#handleSelectMenuItem" prefHeight="254.0" prefWidth="315.0" />
                </children>
             </AnchorPane>
          </items>

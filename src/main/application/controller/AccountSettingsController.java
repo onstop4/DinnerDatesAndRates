@@ -14,6 +14,10 @@ import main.application.model.AccountSettingsModel;
 import main.application.model.Restaurant;
 import main.application.model.User;
 
+/**
+ * Allows students to change values in the database associated with their
+ * account.
+ */
 public class AccountSettingsController extends AbstractController {
 	private AccountSettingsModel accountSettingsModel;
 
@@ -30,6 +34,10 @@ public class AccountSettingsController extends AbstractController {
 	@FXML
 	private TextArea InterestsField;
 
+	/**
+	 * Configures controller.
+	 */
+	@Override
 	public void configure(User currentUser) {
 		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Account Settings");
@@ -39,6 +47,9 @@ public class AccountSettingsController extends AbstractController {
 		refresh();
 	}
 
+	/**
+	 * Sets all fields to their associated values in the database.
+	 */
 	private void refresh() {
 		AcademicYearField.setText(String.valueOf(accountSettingsModel.getAcademicYear()));
 		MajorField.setText(accountSettingsModel.getMajor());
@@ -71,6 +82,9 @@ public class AccountSettingsController extends AbstractController {
 		}
 	}
 
+	/**
+	 * Updates database values using values from fields.
+	 */
 	@FXML
 	private void handleSubmitSettings() {
 		accountSettingsModel.setAcademicYear(Integer.parseInt(AcademicYearField.getText()));
