@@ -2,7 +2,7 @@
 .root {
   -fx-font-size: 10pt;
   -fx-font-family: "Sans Serif";
-  -fx-background-color: "#cd0114";
+  -fx-background-color: "#303030";
   -fx-border-width: 3px;
   -fx-border-color: "black";
 }
@@ -60,7 +60,6 @@
 }
 
 .signInLabel {
-  -fx-background-color: "#b5726e";
   -fx-font-color: "white";
   -fx-font-size: 14pt;
 }
