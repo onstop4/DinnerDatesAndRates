@@ -324,39 +324,42 @@ public class CommunityController extends AbstractController {
 	private void updateSelectedUserInfoTextArea(User selectedUser) {
 		StringBuilder sb = new StringBuilder(String.format("Information about %s%n%n", selectedUser.getFullName()));
 
+		int favoriteRestaurantId;
+		String favoriteFoods;
+		String interests;
+		String availability;
+
 		if (selectedUser.getUserType() == User.UserType.STUDENT) {
 			AccountSettingsModel settings = new AccountSettingsModel(selectedUser);
 			int academicYear = settings.getAcademicYear();
 			String major = settings.getMajor();
-			int favoriteRestaurantId = settings.getFavoriteRestaurantId();
-			String favoriteFoods = settings.getFavoriteFoods();
-			String interests = settings.getInterests();
-			String availability = settings.getAvailability();
+			favoriteRestaurantId = settings.getFavoriteRestaurantId();
+			favoriteFoods = settings.getFavoriteFoods();
+			interests = settings.getInterests();
+			availability = settings.getAvailability();
 
 			sb.append(String.format("Academic Year: %d%nMajor: %s%n", academicYear, major));
-
-			if (favoriteRestaurantId != 0) {
-				Restaurant favoriteRestaurant = restaurants.get(favoriteRestaurantId - 1);
-				sb.append(String.format("Favorite Restaurant: %s%n", favoriteRestaurant.getName()));
-			}
-
-			sb.append(String.format("Favorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
-					interests));
 		} else if (selectedUser.getUserType() == User.UserType.FACULTY) {
 			FacultyAccountSettingsModel settings = new FacultyAccountSettingsModel(selectedUser);
-			int favoriteRestaurantId = settings.getFavoriteRestaurantId();
-			String favoriteFoods = settings.getFavoriteFoods();
-			String interests = settings.getInterests();
-			String availability = settings.getAvailability();
-
-			if (favoriteRestaurantId != 0) {
-				Restaurant favoriteRestaurant = restaurants.get(favoriteRestaurantId - 1);
-				sb.append(String.format("Favorite Restaurant: %s%n", favoriteRestaurant.getName()));
-			}
-
-			sb.append(String.format("Favorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
-					interests));
+			favoriteRestaurantId = settings.getFavoriteRestaurantId();
+			favoriteFoods = settings.getFavoriteFoods();
+			interests = settings.getInterests();
+			availability = settings.getAvailability();
+		} else {
+			return;
 		}
+
+		sb.append("Favorite restaurant: ");
+
+		if (favoriteRestaurantId != 0) {
+			Restaurant favoriteRestaurant = restaurants.get(favoriteRestaurantId - 1);
+			sb.append(favoriteRestaurant.getName());
+		} else {
+			sb.append("No favorite restaurant");
+		}
+
+		sb.append(String.format("%nFavorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
+				interests));
 
 		SelectedUserInfoTextArea.setText(sb.toString());
 	}

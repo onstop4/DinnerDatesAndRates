@@ -16,7 +16,7 @@ import main.application.SceneSwitcher;
 import main.application.model.Event;
 import main.application.model.EventsModel;
 import main.application.model.Restaurant;
-import main.application.model.RestaurantTimeModel;
+import main.application.model.RestaurantReviewsModel;
 import main.application.model.User;
 
 /**
@@ -24,7 +24,7 @@ import main.application.model.User;
  */
 public class HomeController extends AbstractController {
 	private EventsModel eventModel;
-	private RestaurantTimeModel restaurantTimeModel;
+	private RestaurantReviewsModel restaurantTimeModel;
 
 	@FXML
 	private ListView<Event> EventsListView;
@@ -118,7 +118,7 @@ public class HomeController extends AbstractController {
 			}
 		});
 
-		restaurantTimeModel = new RestaurantTimeModel();
+		restaurantTimeModel = new RestaurantReviewsModel(currentUser);
 		RestaurantTimesListView.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
 			@Override
 			public ListCell<Restaurant> call(ListView<Restaurant> param) {

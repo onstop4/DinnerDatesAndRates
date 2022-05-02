@@ -60,6 +60,7 @@ public class AccountSettingsController extends AbstractController {
 		InterestsField.setText(accountSettingsModel.getInterests());
 
 		ObservableList<Restaurant> restaurants = accountSettingsModel.getRestaurants();
+		restaurants.add(0, null);
 
 		FavoriteRestaurantListView.setItems(restaurants);
 		FavoriteRestaurantListView.setCellFactory(ComboBoxListCell.forListView(new StringConverter<Restaurant>() {
@@ -70,18 +71,26 @@ public class AccountSettingsController extends AbstractController {
 
 			@Override
 			public String toString(Restaurant restaurant) {
+				if (restaurant == null) {
+					return "-- No favorite restaurant --";
+				}
 				return restaurant.getName();
 			}
 		}, restaurants));
 
-		// Selects favorite restaurant recorded in database.
+		// Selects favorite restaurant recorded in database. Selects the first item ("--
+		// No favorite restaurant --") if database value is null (which JDBC translates
+		// to 0).
 		int favoriteRestaurantId = accountSettingsModel.getFavoriteRestaurantId();
 		if (favoriteRestaurantId > 0) {
-			IntStream.range(0, restaurants.size()).filter(i -> restaurants.get(i).getId() == favoriteRestaurantId)
+			IntStream.range(1, restaurants.size()).filter(i -> restaurants.get(i).getId() == favoriteRestaurantId)
 					.findFirst().ifPresent(i -> {
 						FavoriteRestaurantListView.getSelectionModel().select(i);
 					});
+		} else {
+			FavoriteRestaurantListView.getSelectionModel().select(0);
 		}
+
 	}
 
 	/**
