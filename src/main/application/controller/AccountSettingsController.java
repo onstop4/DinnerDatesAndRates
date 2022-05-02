@@ -4,6 +4,8 @@ import java.util.stream.IntStream;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -87,18 +89,25 @@ public class AccountSettingsController extends AbstractController {
 	 */
 	@FXML
 	private void handleSubmitSettings() {
-		accountSettingsModel.setAcademicYear(Integer.parseInt(AcademicYearField.getText()));
-		accountSettingsModel.setMajor(MajorField.getText());
-		Restaurant favoriteRestaurant = FavoriteRestaurantListView.getSelectionModel().getSelectedItem();
-		int favoriteRestaurantId = 0;
-		if (favoriteRestaurant != null) {
-			favoriteRestaurantId = favoriteRestaurant.getId();
-		}
-		accountSettingsModel.setFavoriteRestaurantId(favoriteRestaurantId);
-		accountSettingsModel.setFavoriteFoods(FavoriteFoodsField.getText());
-		accountSettingsModel.setInterests(InterestsField.getText());
-		accountSettingsModel.setFavoriteEatingTime(AvailabilityField.getText());
+		try {
+			accountSettingsModel.setAcademicYear(Integer.parseInt(AcademicYearField.getText()));
+			accountSettingsModel.setMajor(MajorField.getText());
+			Restaurant favoriteRestaurant = FavoriteRestaurantListView.getSelectionModel().getSelectedItem();
+			int favoriteRestaurantId = 0;
+			if (favoriteRestaurant != null) {
+				favoriteRestaurantId = favoriteRestaurant.getId();
+			}
+			accountSettingsModel.setFavoriteRestaurantId(favoriteRestaurantId);
+			accountSettingsModel.setFavoriteFoods(FavoriteFoodsField.getText());
+			accountSettingsModel.setInterests(InterestsField.getText());
+			accountSettingsModel.setFavoriteEatingTime(AvailabilityField.getText());
 
-		accountSettingsModel.saveSettings();
+			accountSettingsModel.saveSettings();
+		} catch (NumberFormatException e) {
+			Alert a = new Alert(AlertType.ERROR);
+			a.setHeaderText("Bad Input");
+			a.setContentText("Please enter a valid integer for the \"Year\" field.");
+			a.show();
+		}
 	}
 }

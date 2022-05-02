@@ -135,6 +135,24 @@ public class AccountSettingsModel {
 	}
 
 	/**
+	 * Returns availability.
+	 * 
+	 * @return
+	 */
+	public String getAvailability() {
+		return availability;
+	}
+
+	/**
+	 * Sets availability.
+	 * 
+	 * @param availability availability
+	 */
+	public void setAvailability(String availability) {
+		this.availability = availability;
+	}
+
+	/**
 	 * Returns interests.
 	 * 
 	 * @return

@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,7 +28,7 @@ public class RestaurantReviewsModel {
 	}
 
 	/**
-	 * Returns list of restaurants
+	 * Returns list of restaurants sorted by name.
 	 * 
 	 * @return
 	 */
@@ -35,6 +37,28 @@ public class RestaurantReviewsModel {
 
 		try (Connection conn = Database.getConnection()) {
 			String statement = "select restaurant_id, name, description from Restaurant order by name";
+
+			ResultSet rs = conn.createStatement().executeQuery(statement);
+			while (rs.next()) {
+				list.add(new Restaurant(rs.getInt("restaurant_id"), rs.getString("name"), rs.getString("description")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns array of restaurants sorted by id.
+	 * 
+	 * @return
+	 */
+	public List<Restaurant> getRestaurantsAsArray() {
+		List<Restaurant> list = new ArrayList<>();
+
+		try (Connection conn = Database.getConnection()) {
+			String statement = "select restaurant_id, name, description from Restaurant order by restaurant_id";
 
 			ResultSet rs = conn.createStatement().executeQuery(statement);
 			while (rs.next()) {

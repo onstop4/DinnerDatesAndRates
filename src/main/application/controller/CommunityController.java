@@ -1,10 +1,13 @@
 package main.application.controller;
 
+import java.util.List;
+
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.VBox;
@@ -12,11 +15,15 @@ import javafx.scene.text.Text;
 import javafx.util.Callback;
 import javafx.util.StringConverter;
 import main.application.SceneSwitcher;
+import main.application.model.AccountSettingsModel;
 import main.application.model.Conversation;
+import main.application.model.FacultyAccountSettingsModel;
 import main.application.model.Following;
 import main.application.model.FollowingModel;
 import main.application.model.Message;
 import main.application.model.MessagingModel;
+import main.application.model.Restaurant;
+import main.application.model.RestaurantReviewsModel;
 import main.application.model.User;
 
 /**
@@ -30,6 +37,8 @@ public class CommunityController extends AbstractController {
 	private FollowingModel followingModel;
 	private User otherUserInConversation;
 	private MessagingModel messagingModel;
+	private RestaurantReviewsModel restaurantReviewsModel;
+	private List<Restaurant> restaurants;
 
 	@FXML
 	private ListView<Following> FriendsListView;
@@ -45,6 +54,8 @@ public class CommunityController extends AbstractController {
 	private Label MessagesHeaderText;
 	@FXML
 	private TextField MessageField;
+	@FXML
+	private TextArea SelectedUserInfoTextArea;
 
 	/**
 	 * Converts Following object to String to be used in FriendsListView and
@@ -149,6 +160,7 @@ public class CommunityController extends AbstractController {
 
 		followingModel = new FollowingModel(currentUser);
 		messagingModel = new MessagingModel(currentUser);
+		restaurantReviewsModel = new RestaurantReviewsModel(currentUser);
 
 		SelectConversationListView.setCellFactory(new Callback<ListView<Conversation>, ListCell<Conversation>>() {
 			@Override
@@ -190,6 +202,7 @@ public class CommunityController extends AbstractController {
 
 		refreshConversationsListView();
 		refreshMessagesListView();
+		refreshRestaurantsArray();
 	}
 
 	/**
@@ -213,6 +226,34 @@ public class CommunityController extends AbstractController {
 		} else {
 			MessagesListView.getItems().clear();
 			MessagesHeaderText.setText("No User Selected");
+		}
+	}
+
+	private void refreshRestaurantsArray() {
+		restaurants = restaurantReviewsModel.getRestaurantsAsArray();
+	}
+
+	@FXML
+	private void handleSelectFriend() {
+		Following following = FriendsListView.getSelectionModel().getSelectedItem();
+		if (following != null) {
+			updateSelectedUserInfoTextArea(following.getTo());
+		}
+	}
+
+	@FXML
+	private void handleSelectFollowing() {
+		Following following = FollowingListView.getSelectionModel().getSelectedItem();
+		if (following != null) {
+			updateSelectedUserInfoTextArea(following.getFrom());
+		}
+	}
+
+	@FXML
+	private void handleSelectOtherUser() {
+		User otherUser = AddFriendsListView.getSelectionModel().getSelectedItem();
+		if (otherUser != null) {
+			updateSelectedUserInfoTextArea(otherUser);
 		}
 	}
 
@@ -249,6 +290,7 @@ public class CommunityController extends AbstractController {
 		if (friend != null) {
 			otherUserInConversation = friend.getTo();
 			refreshMessagesListView();
+			updateSelectedUserInfoTextArea(otherUserInConversation);
 		}
 	}
 
@@ -263,6 +305,7 @@ public class CommunityController extends AbstractController {
 		if (selectedConversation != null) {
 			otherUserInConversation = selectedConversation.getOtherUser();
 			refreshMessagesListView();
+			updateSelectedUserInfoTextArea(otherUserInConversation);
 		}
 	}
 
@@ -276,5 +319,45 @@ public class CommunityController extends AbstractController {
 			refreshConversationsListView();
 			refreshMessagesListView();
 		}
+	}
+
+	private void updateSelectedUserInfoTextArea(User selectedUser) {
+		StringBuilder sb = new StringBuilder(String.format("Information about %s%n%n", selectedUser.getFullName()));
+
+		if (selectedUser.getUserType() == User.UserType.STUDENT) {
+			AccountSettingsModel settings = new AccountSettingsModel(selectedUser);
+			int academicYear = settings.getAcademicYear();
+			String major = settings.getMajor();
+			int favoriteRestaurantId = settings.getFavoriteRestaurantId();
+			String favoriteFoods = settings.getFavoriteFoods();
+			String interests = settings.getInterests();
+			String availability = settings.getAvailability();
+
+			sb.append(String.format("Academic Year: %d%nMajor: %s%n", academicYear, major));
+
+			if (favoriteRestaurantId != 0) {
+				Restaurant favoriteRestaurant = restaurants.get(favoriteRestaurantId - 1);
+				sb.append(String.format("Favorite Restaurant: %s%n", favoriteRestaurant.getName()));
+			}
+
+			sb.append(String.format("Favorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
+					interests));
+		} else if (selectedUser.getUserType() == User.UserType.FACULTY) {
+			FacultyAccountSettingsModel settings = new FacultyAccountSettingsModel(selectedUser);
+			int favoriteRestaurantId = settings.getFavoriteRestaurantId();
+			String favoriteFoods = settings.getFavoriteFoods();
+			String interests = settings.getInterests();
+			String availability = settings.getAvailability();
+
+			if (favoriteRestaurantId != 0) {
+				Restaurant favoriteRestaurant = restaurants.get(favoriteRestaurantId - 1);
+				sb.append(String.format("Favorite Restaurant: %s%n", favoriteRestaurant.getName()));
+			}
+
+			sb.append(String.format("Favorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
+					interests));
+		}
+
+		SelectedUserInfoTextArea.setText(sb.toString());
 	}
 }
