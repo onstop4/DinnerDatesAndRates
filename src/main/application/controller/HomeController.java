@@ -1,9 +1,13 @@
 package main.application.controller;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.HBox;
@@ -22,10 +26,15 @@ import main.application.model.User;
 /**
  * Lists events and restaurant hours for today.
  */
-public class HomeController extends AbstractController {
+public class HomeController extends AbstractControllerWithNav {
+	private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM");
+
+	private User currentUser;
 	private EventsModel eventModel;
 	private RestaurantReviewsModel restaurantTimeModel;
 
+	@FXML
+	private Label UpcomingEventsHeadingText;
 	@FXML
 	private ListView<Event> EventsListView;
 	@FXML
@@ -49,8 +58,13 @@ public class HomeController extends AbstractController {
 			button.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					item.confirmAttendance(currentUser);
-					button.setDisable(true);
+					if (item.willAttend()) {
+						item.denyAttendance(currentUser);
+					} else {
+						item.confirmAttendance(currentUser);
+					}
+
+					editButton();
 				}
 			});
 		}
@@ -64,10 +78,19 @@ public class HomeController extends AbstractController {
 			} else {
 				this.item = item;
 				descriptionText.setText(item.getDescription() + "\n" + item.getWhenWillOccurFormatted());
-				if (item.willAttend()) {
-					button.setDisable(true);
-				}
+				editButton();
 				setGraphic(hbox);
+			}
+		}
+
+		/**
+		 * Edits button text based on whether or not current user is attending event.
+		 */
+		private void editButton() {
+			if (item.willAttend()) {
+				button.setText("Currently attending");
+			} else {
+				button.setText("I will attend");
 			}
 		}
 	}
@@ -107,6 +130,7 @@ public class HomeController extends AbstractController {
 	 */
 	@Override
 	public void configure(User currentUser) {
+		this.currentUser = currentUser;
 		super.configure(currentUser);
 		SceneSwitcher.getPrimaryStage().setTitle("Home");
 
@@ -130,10 +154,20 @@ public class HomeController extends AbstractController {
 	}
 
 	/**
-	 * Refreshes lists.
+	 * Refreshes lists and updates heading text.
 	 */
 	private void refresh() {
-		EventsListView.setItems(eventModel.getEvents());
+		YearMonth yearMonth = YearMonth.now();
+		UpcomingEventsHeadingText.setText("Upcoming Events in " + formatter.format(yearMonth));
+		EventsListView.setItems(eventModel.getEventsOfMonth(yearMonth));
 		RestaurantTimesListView.setItems(restaurantTimeModel.getRestaurantTimes());
+	}
+
+	/**
+	 * Switches to Event Calendar page.
+	 */
+	@FXML
+	private void handleNavEventCalendar() {
+		SceneSwitcher.switchToEventCalendar(currentUser);
 	}
 }

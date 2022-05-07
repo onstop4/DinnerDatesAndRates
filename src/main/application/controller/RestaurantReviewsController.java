@@ -24,7 +24,7 @@ import main.application.model.User;
 /**
  * Allows user to read and write reviews for the menu items of restaurants.
  */
-public class RestaurantReviewsController extends AbstractController {
+public class RestaurantReviewsController extends AbstractControllerWithNav {
 	private static final int MAX_RATING = 5;
 
 	private RestaurantReviewsModel restaurantReviewModel;

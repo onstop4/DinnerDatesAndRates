@@ -32,7 +32,7 @@ import main.application.model.User;
  * them. In the code below, a friend is someone who the current user is
  * following, and a follower is someone following the current user.
  */
-public class CommunityController extends AbstractController {
+public class CommunityController extends AbstractControllerWithNav {
 	private User currentUser;
 	private FollowingModel followingModel;
 	private User otherUserInConversation;

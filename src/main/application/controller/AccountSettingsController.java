@@ -20,7 +20,7 @@ import main.application.model.User;
  * Allows students to change values in the database associated with their
  * account.
  */
-public class AccountSettingsController extends AbstractController {
+public class AccountSettingsController extends AbstractControllerWithNav {
 	private AccountSettingsModel accountSettingsModel;
 
 	@FXML

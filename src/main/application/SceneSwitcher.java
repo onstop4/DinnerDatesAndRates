@@ -22,6 +22,7 @@ public class SceneSwitcher {
 	private static URL facultyAccountSettingsPage = SceneSwitcher.class.getResource("FacultyAccountSettingsPgUI.fxml");
 	private static URL communityPage = SceneSwitcher.class.getResource("CommunityPgUI.fxml");
 	private static URL restaurantReviewsPage = SceneSwitcher.class.getResource("RestaurantReviewsPgUI.fxml");
+	private static URL eventCalendarPage = SceneSwitcher.class.getResource("EventCalendarPgUI.fxml");
 
 	private static Stage primaryStage;
 
@@ -130,6 +131,15 @@ public class SceneSwitcher {
 	 */
 	public static void switchToRestaurantReviews(User currentUser) {
 		switchToScene(getSceneForSignedInUser(new FXMLLoader(restaurantReviewsPage), currentUser));
+	}
+
+	/**
+	 * Switches to Event Calendar page.
+	 * 
+	 * @param currentUser signed-in user
+	 */
+	public static void switchToEventCalendar(User currentUser) {
+		switchToScene(getSceneForSignedInUser(new FXMLLoader(eventCalendarPage), currentUser));
 	}
 
 	/**

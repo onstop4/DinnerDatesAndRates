@@ -18,7 +18,7 @@ import main.application.model.User;
  * Allows faculty members to change values in the database associated with their
  * account.
  */
-public class FacultyAccountSettingsController extends AbstractController {
+public class FacultyAccountSettingsController extends AbstractControllerWithNav {
 	private FacultyAccountSettingsModel facultyAccountSettingsModel;
 
 	@FXML

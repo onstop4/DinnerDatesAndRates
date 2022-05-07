@@ -15,7 +15,7 @@ public class Event {
 	private final int id;
 	private final String description;
 	private final LocalDate date;
-	private final boolean willAttend;
+	private boolean willAttend;
 
 	/**
 	 * Constructs new object.
@@ -82,6 +82,27 @@ public class Event {
 			stmt.setInt(2, id);
 
 			stmt.executeUpdate();
+			willAttend = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Removes record that signed-in user will attend event.
+	 * 
+	 * @param currentUser
+	 */
+	public void denyAttendance(User currentUser) {
+		try (Connection conn = Database.getConnection()) {
+			String statement = "delete from EventAttendant where attendant_id = ? and event_id = ?";
+
+			PreparedStatement stmt = conn.prepareStatement(statement);
+			stmt.setInt(1, currentUser.getId());
+			stmt.setInt(2, id);
+
+			stmt.executeUpdate();
+			willAttend = false;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
