@@ -36,12 +36,12 @@
             <VBox fx:id="UserTypeBox" spacing="5.0">
                <children>
                   <Label styleClass="SignInLabel" text="User Type" />
-                  <RadioButton fx:id="UserTypeStudentRadioButton" mnemonicParsing="false" text="Student">
+                  <RadioButton styleClass="userTypeToggleBtn" fx:id="UserTypeStudentRadioButton" mnemonicParsing="false" text="Student">
                      <toggleGroup>
                         <ToggleGroup fx:id="UserTypeToggleGroup" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="UserTypeFacultyRadioButton" mnemonicParsing="false" text="Faculty" toggleGroup="$UserTypeToggleGroup" />
+                  <RadioButton styleClass="userTypeToggleBtn" fx:id="UserTypeFacultyRadioButton" mnemonicParsing="false" text="Faculty" toggleGroup="$UserTypeToggleGroup" />
                </children>
             </VBox>
             <VBox fx:id="YearBox" prefHeight="60.0" prefWidth="560.0" spacing="5.0">

@@ -67,3 +67,15 @@
 .charLimitLabel{
 	-fx-font-size: 10pt;
 }
+
+.calendarPane{
+	-fx-background-color: "#fcfeff";
+}
+
+.monthText{
+	-fx-font-color: "white";
+}
+
+.userTypeToggleBtn{
+	-fx-background-color: "white";
+}

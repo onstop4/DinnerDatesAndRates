@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.application.controller.EventCalendarController">
+<AnchorPane styleClass="calendarPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.application.controller.EventCalendarController">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="800.0">
          <center>
@@ -30,7 +30,7 @@
             </GridPane>
          </center>
          <top>
-            <BorderPane prefHeight="43.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+            <BorderPane styleClass="calendarPane" prefHeight="43.0" prefWidth="800.0" BorderPane.alignment="CENTER">
                <left>
                   <Button mnemonicParsing="false" onAction="#handleNavHome" text="GO BACK" BorderPane.alignment="CENTER" />
                </left>
@@ -38,7 +38,7 @@
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
                      <children>
                         <Button mnemonicParsing="false" onAction="#handleViewPreviousMonth" text="PREVIOUS" />
-                        <Text fx:id="CurrentMonthText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="127.46614456176758" />
+                        <Text styleClass="monthText" fx:id="CurrentMonthText" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="127.46614456176758" />
                         <Button mnemonicParsing="false" onAction="#handleViewNextMonth" text="NEXT" />
                      </children>
                   </HBox>
