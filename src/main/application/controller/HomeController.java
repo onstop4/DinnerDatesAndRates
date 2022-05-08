@@ -45,7 +45,7 @@ public class HomeController extends AbstractControllerWithNav {
 		HBox hbox = new HBox();
 		Text descriptionText = new Text("");
 		Pane pane = new Pane();
-		Button button = new Button("I will attend");
+		Button button = new Button("Attending?");
 		Event item;
 
 		public EventCell(User currentUser) {
@@ -82,9 +82,9 @@ public class HomeController extends AbstractControllerWithNav {
 		 */
 		private void editButton() {
 			if (item.willAttend()) {
-				button.setText("Currently attending");
+				button.setText("✔");
 			} else {
-				button.setText("I will attend");
+				button.setText("Attending?");
 			}
 		}
 	}

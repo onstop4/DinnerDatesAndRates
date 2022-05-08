@@ -53,6 +53,7 @@ public class EventCalendarController extends AbstractController {
 		this.currentUser = currentUser;
 		eventsModel = new EventsModel(currentUser);
 		yearMonth = YearMonth.now();
+		SceneSwitcher.getPrimaryStage().setTitle("Event Calendar");
 
 		refresh();
 	}
