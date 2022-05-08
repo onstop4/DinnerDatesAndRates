@@ -109,7 +109,7 @@ public class RestaurantReviewsModel {
 		ObservableList<Review> list = FXCollections.observableArrayList();
 
 		try (Connection conn = Database.getConnection()) {
-			String statement = "select Review.review_id, User.full_name, Review.rating, Review.comment, Review.date_submitted from Review inner join User on Review.user_id = User.user_id where Review.menu_item_id = ? order by Review.date_submitted desc";
+			String statement = "select Review.review_id, User.full_name, Review.rating, Review.comment, Review.date_submitted from Review inner join User on Review.user_id = User.user_id where Review.menu_item_id = ? order by Review.date_submitted, Review.review_id desc";
 
 			PreparedStatement stmt = conn.prepareStatement(statement);
 			stmt.setInt(1, menuItemId);
