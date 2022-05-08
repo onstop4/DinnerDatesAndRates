@@ -3,8 +3,6 @@ package main.application.controller;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,7 +13,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import main.application.SceneSwitcher;
 import main.application.model.Event;
 import main.application.model.EventsModel;
@@ -55,17 +52,14 @@ public class HomeController extends AbstractControllerWithNav {
 			super();
 			hbox.getChildren().setAll(descriptionText, pane, button);
 			HBox.setHgrow(pane, Priority.ALWAYS);
-			button.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
-					if (item.willAttend()) {
-						item.denyAttendance(currentUser);
-					} else {
-						item.confirmAttendance(currentUser);
-					}
-
-					editButton();
+			button.setOnAction(arg -> {
+				if (item.willAttend()) {
+					item.denyAttendance(currentUser);
+				} else {
+					item.confirmAttendance(currentUser);
 				}
+
+				editButton();
 			});
 		}
 
@@ -135,20 +129,10 @@ public class HomeController extends AbstractControllerWithNav {
 		SceneSwitcher.getPrimaryStage().setTitle("Home");
 
 		eventModel = new EventsModel(currentUser);
-		EventsListView.setCellFactory(new Callback<ListView<Event>, ListCell<Event>>() {
-			@Override
-			public ListCell<Event> call(ListView<Event> param) {
-				return new EventCell(currentUser);
-			}
-		});
+		EventsListView.setCellFactory(arg -> new EventCell(currentUser));
 
 		restaurantTimeModel = new RestaurantReviewsModel(currentUser);
-		RestaurantTimesListView.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
-			@Override
-			public ListCell<Restaurant> call(ListView<Restaurant> param) {
-				return new RestaurantTimesCell();
-			}
-		});
+		RestaurantTimesListView.setCellFactory(arg -> new RestaurantTimesCell());
 
 		refresh();
 	}

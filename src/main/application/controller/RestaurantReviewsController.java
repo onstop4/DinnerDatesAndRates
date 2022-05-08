@@ -13,7 +13,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import main.application.SceneSwitcher;
 import main.application.model.MenuItem;
 import main.application.model.Restaurant;
@@ -137,26 +136,11 @@ public class RestaurantReviewsController extends AbstractControllerWithNav {
 
 		restaurantReviewModel = new RestaurantReviewsModel(currentUser);
 
-		RestaurantsListView.setCellFactory(new Callback<ListView<Restaurant>, ListCell<Restaurant>>() {
-			@Override
-			public ListCell<Restaurant> call(ListView<Restaurant> arg0) {
-				return new RestaurantCell();
-			}
-		});
+		RestaurantsListView.setCellFactory(arg -> new RestaurantCell());
 
-		MenuListView.setCellFactory(new Callback<ListView<MenuItem>, ListCell<MenuItem>>() {
-			@Override
-			public ListCell<MenuItem> call(ListView<MenuItem> arg0) {
-				return new MenuCell();
-			}
-		});
+		MenuListView.setCellFactory(arg -> new MenuCell());
 
-		ReviewsListView.setCellFactory(new Callback<ListView<Review>, ListCell<Review>>() {
-			@Override
-			public ListCell<Review> call(ListView<Review> arg0) {
-				return new ReviewCell();
-			}
-		});
+		ReviewsListView.setCellFactory(arg -> new ReviewCell());
 
 		refresh();
 	}

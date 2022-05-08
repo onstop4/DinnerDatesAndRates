@@ -8,8 +8,6 @@ import java.time.temporal.WeekFields;
 import java.util.List;
 import java.util.Optional;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -177,16 +175,13 @@ public class EventCalendarController extends AbstractController {
 		events.stream().filter(event -> date.isEqual(event.getDate())).forEachOrdered(event -> {
 			Button button = new Button();
 
-			button.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent arg0) {
-					// Only lets current user confirm or deny attendance if event will occur today
-					// or in the future.
-					if (todaysDate.isAfter(event.getDate())) {
-						displayAlertToDescribeEventOnly(event);
-					} else {
-						displayAlertToConfirmOrDenyAttendance(event, button);
-					}
+			button.setOnAction(arg -> {
+				// Only lets current user confirm or deny attendance if event will occur today
+				// or in the future.
+				if (todaysDate.isAfter(event.getDate())) {
+					displayAlertToDescribeEventOnly(event);
+				} else {
+					displayAlertToConfirmOrDenyAttendance(event, button);
 				}
 			});
 

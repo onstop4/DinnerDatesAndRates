@@ -1,7 +1,5 @@
 package main.application.controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import main.application.SceneSwitcher;
@@ -28,39 +26,14 @@ public abstract class AbstractControllerWithNav extends AbstractController {
 	 */
 	@Override
 	public void configure(User currentUser) {
-		NavHomeButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				SceneSwitcher.switchToHome(currentUser);
-			}
-		});
+		NavHomeButton.setOnAction(arg -> SceneSwitcher.switchToHome(currentUser));
 
-		NavAccountSettingsButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				SceneSwitcher.switchToAccountSettings(currentUser);
-			}
-		});
+		NavAccountSettingsButton.setOnAction(arg -> SceneSwitcher.switchToAccountSettings(currentUser));
 
-		NavCommunityButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				SceneSwitcher.switchToCommunity(currentUser);
-			}
-		});
+		NavCommunityButton.setOnAction(arg -> SceneSwitcher.switchToCommunity(currentUser));
 
-		NavRestaurantReviewsButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				SceneSwitcher.switchToRestaurantReviews(currentUser);
-			}
-		});
+		NavRestaurantReviewsButton.setOnAction(arg -> SceneSwitcher.switchToRestaurantReviews(currentUser));
 
-		NavSignOutButton.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				SceneSwitcher.switchToSignIn();
-			}
-		});
+		NavSignOutButton.setOnAction(arg -> SceneSwitcher.switchToSignIn());
 	}
 }

@@ -12,7 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.ComboBoxListCell;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.util.Callback;
 import javafx.util.StringConverter;
 import main.application.SceneSwitcher;
 import main.application.model.AccountSettingsModel;
@@ -162,19 +161,9 @@ public class CommunityController extends AbstractControllerWithNav {
 		messagingModel = new MessagingModel(currentUser);
 		restaurantReviewsModel = new RestaurantReviewsModel(currentUser);
 
-		SelectConversationListView.setCellFactory(new Callback<ListView<Conversation>, ListCell<Conversation>>() {
-			@Override
-			public ListCell<Conversation> call(ListView<Conversation> arg0) {
-				return new ConversationCell();
-			}
-		});
+		SelectConversationListView.setCellFactory(arg -> new ConversationCell());
 
-		MessagesListView.setCellFactory(new Callback<ListView<Message>, ListCell<Message>>() {
-			@Override
-			public ListCell<Message> call(ListView<Message> arg0) {
-				return new MessageCell();
-			}
-		});
+		MessagesListView.setCellFactory(arg -> new MessageCell());
 
 		refresh();
 	}
