@@ -143,7 +143,7 @@ public class HomeController extends AbstractControllerWithNav {
 	private void refresh() {
 		YearMonth yearMonth = YearMonth.now();
 		UpcomingEventsHeadingText.setText("Upcoming Events in " + formatter.format(yearMonth));
-		EventsListView.setItems(eventModel.getEventsOfMonth(yearMonth));
+		EventsListView.setItems(eventModel.getEventsThatOccurLaterInMonth(yearMonth));
 		RestaurantTimesListView.setItems(restaurantTimeModel.getRestaurantTimes());
 	}
 

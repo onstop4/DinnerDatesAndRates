@@ -282,4 +282,19 @@ public class User {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * Determines if this object is equal to the object passed as an argument.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return id == other.id;
+	}
 }

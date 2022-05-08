@@ -1,6 +1,8 @@
 package main.application.controller;
 
+import java.time.YearMonth;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +18,8 @@ import javafx.util.StringConverter;
 import main.application.SceneSwitcher;
 import main.application.model.AccountSettingsModel;
 import main.application.model.Conversation;
+import main.application.model.Event;
+import main.application.model.EventsModel;
 import main.application.model.FacultyAccountSettingsModel;
 import main.application.model.Following;
 import main.application.model.FollowingModel;
@@ -29,7 +33,8 @@ import main.application.model.User;
  * Allows users to add others as friends (as long as their friends are of the
  * same user type), unfriend people, chat with friends, and see who is following
  * them. In the code below, a friend is someone who the current user is
- * following, and a follower is someone following the current user.
+ * following, and a follower is someone following the current user. The words
+ * "follower" and "following" might be used interchangeably.
  */
 public class CommunityController extends AbstractControllerWithNav {
 	private User currentUser;
@@ -310,6 +315,13 @@ public class CommunityController extends AbstractControllerWithNav {
 		}
 	}
 
+	/**
+	 * Updates the contents of the user info text area, which provides details on
+	 * the currently selected user (whichever user will selected last in the
+	 * ListViews).
+	 * 
+	 * @param selectedUser user selected from one of the ListViews
+	 */
 	private void updateSelectedUserInfoTextArea(User selectedUser) {
 		StringBuilder sb = new StringBuilder(String.format("Information about %s%n%n", selectedUser.getFullName()));
 
@@ -327,6 +339,7 @@ public class CommunityController extends AbstractControllerWithNav {
 			interests = settings.getInterests();
 			availability = settings.getAvailability();
 
+			// Appends academic year and major of selected user to StringBuilder object.
 			sb.append(String.format("Academic Year: %d%nMajor: %s%n", academicYear, major));
 		} else if (selectedUser.getUserType() == User.UserType.FACULTY) {
 			FacultyAccountSettingsModel settings = new FacultyAccountSettingsModel(selectedUser);
@@ -338,6 +351,9 @@ public class CommunityController extends AbstractControllerWithNav {
 			return;
 		}
 
+		// Appends favorite restaurant (or no favorite restaurant) of selected user to
+		// StringBuilder
+		// object.
 		sb.append("Favorite restaurant: ");
 
 		if (favoriteRestaurantId != 0) {
@@ -347,8 +363,35 @@ public class CommunityController extends AbstractControllerWithNav {
 			sb.append("No favorite restaurant");
 		}
 
+		// Appends favorite food, availability, and interests of selected user to
+		// StringBuilder object.
 		sb.append(String.format("%nFavorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
 				interests));
+
+		// Determines if selected user is following current user.
+		boolean isFollowing = FollowingListView.getItems().stream()
+				.filter(following -> selectedUser.equals(following.getFrom())).findFirst().isPresent();
+
+		// Only shows events that selected user has attended or will attend if selected
+		// user is following current
+		// user.
+		if (isFollowing) {
+			// Gets this month's events.
+			ObservableList<Event> events = new EventsModel(selectedUser).getEventsOfMonth(YearMonth.now());
+
+			if (!events.isEmpty()) {
+				// Joins events dates and descriptions into one string, with each event
+				// separated by a newline character. Only includes events that selected user has
+				// attended or will attend.
+				String eventsJoined = events.stream().filter(Event::willAttend)
+						.map(event -> event.getDateFormatted() + " - " + event.getDescription())
+						.collect(Collectors.joining("\n"));
+
+				// Appends the event dates and descriptions to the StringBuilder object.
+				sb.append(String.format("%n%nEvents that %s has attended or will attend this month:%n%s",
+						selectedUser.getFullName(), eventsJoined));
+			}
+		}
 
 		SelectedUserInfoTextArea.setText(sb.toString());
 	}

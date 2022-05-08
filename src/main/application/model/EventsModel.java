@@ -1,9 +1,11 @@
 package main.application.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.YearMonth;
 
 import javafx.collections.FXCollections;
@@ -40,6 +42,38 @@ public class EventsModel {
 			stmt.setInt(1, currentUser.getId());
 			stmt.setInt(2, yearMonth.getMonthValue());
 			stmt.setInt(3, yearMonth.getYear());
+
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				boolean willAttend = rs.getInt("EventAttendant.attendant_id") > 0;
+				list.add(new Event(rs.getInt("Event.event_id"), rs.getString("Event.description"),
+						rs.getDate("Event.event_date").toLocalDate(), willAttend));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns list of events that occur in a specific month AND either occur today
+	 * or in the future.
+	 * 
+	 * @param yearMonth month
+	 * @return
+	 */
+	public ObservableList<Event> getEventsThatOccurLaterInMonth(YearMonth yearMonth) {
+		ObservableList<Event> list = FXCollections.observableArrayList();
+
+		try (Connection conn = Database.getConnection()) {
+			String statement = "select Event.event_id, Event.description, Event.event_date, EventAttendant.attendant_id from Event left outer join EventAttendant on Event.event_id = EventAttendant.event_id and EventAttendant.attendant_id = ? where month(Event.event_date) = ? and year(Event.event_date) = ? and Event.event_date >= ? order by Event.event_date, Event.description";
+
+			PreparedStatement stmt = conn.prepareStatement(statement);
+			stmt.setInt(1, currentUser.getId());
+			stmt.setInt(2, yearMonth.getMonthValue());
+			stmt.setInt(3, yearMonth.getYear());
+			stmt.setDate(4, Date.valueOf(LocalDate.now()));
 
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
