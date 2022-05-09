@@ -368,35 +368,26 @@ public class CommunityController extends AbstractControllerWithNav {
 		sb.append(String.format("%nFavorite Food: %s%nAvailability: %s%nInterests: %s", favoriteFoods, availability,
 				interests));
 
-		// Determines if selected user is following current user.
-		boolean isFollowing = FollowingListView.getItems().stream()
-				.filter(following -> selectedUser.equals(following.getFrom())).anyMatch(following -> true);
+		// Gets this month's events and if the selected user is attending these events.
+		ObservableList<Event> events = new EventsModel(selectedUser).getEventsOfMonth(YearMonth.now());
 
-		// Only shows events that selected user has attended or will attend if selected
-		// user is following current
-		// user.
-		if (isFollowing) {
-			// Gets this month's events.
-			ObservableList<Event> events = new EventsModel(selectedUser).getEventsOfMonth(YearMonth.now());
+		// Joins events dates and descriptions (that the selected user has attended or
+		// will attend) into one string, with each event separated by a newline
+		// character. Only includes events that selected user has attended or will
+		// attend.
+		String eventsJoined = events.stream().filter(Event::willAttend)
+				.map(event -> event.getDateFormatted() + " - " + event.getDescription())
+				.collect(Collectors.joining("\n"));
 
-			// Joins events dates and descriptions (that the selected user has attended or
-			// will attend) into one string, with each event separated by a newline
-			// character. Only includes events that selected user has attended or will
-			// attend.
-			String eventsJoined = events.stream().filter(Event::willAttend)
-					.map(event -> event.getDateFormatted() + " - " + event.getDescription())
-					.collect(Collectors.joining("\n"));
-
-			// Only prints generated string if the selected user will attend any events this
-			// month.
-			if (!eventsJoined.isEmpty()) {
-				// Appends the event dates and descriptions to the StringBuilder object.
-				sb.append(String.format("%n%nEvents that %s has attended or will attend this month:%n%s",
-						selectedUser.getFullName(), eventsJoined));
-			} else {
-				sb.append(String.format("%n%nThere are no events that %s has attended or will attend this month.",
-						selectedUser.getFullName()));
-			}
+		// Only prints generated string if the selected user will attend any events this
+		// month.
+		if (!eventsJoined.isEmpty()) {
+			// Appends the event dates and descriptions to the StringBuilder object.
+			sb.append(String.format("%n%nEvents that %s has attended or will attend this month:%n%s",
+					selectedUser.getFullName(), eventsJoined));
+		} else {
+			sb.append(String.format("%n%nThere are no events that %s has attended or will attend this month.",
+					selectedUser.getFullName()));
 		}
 
 		SelectedUserInfoTextArea.setText(sb.toString());
