@@ -76,7 +76,8 @@ public class EventCalendarController extends AbstractController {
 		clearCalendarGridPane();
 
 		LocalDate currentDate = yearMonth.atDay(1);
-		LocalDate firstDayOfNextMonth = currentDate.withDayOfMonth(currentDate.lengthOfMonth()).plusDays(1);
+		LocalDate lastDayOfMonth = currentDate.withDayOfMonth(currentDate.lengthOfMonth());
+		LocalDate firstDayOfNextMonth = lastDayOfMonth.plusDays(1);
 		int numberOfWeeks = yearMonth.atEndOfMonth().get(WeekFields.ISO.weekOfMonth());
 
 		// ISO-8601 requires at least 4 days of the week to be present before counting
@@ -84,6 +85,13 @@ public class EventCalendarController extends AbstractController {
 		// WeekFields.ISO.weekOfMonth(). The code below increments numberOfWeeks if the
 		// actual first week of the month has less than 4 days to get around this.
 		if (currentDate.getDayOfWeek().getValue() > 4) {
+			numberOfWeeks++;
+		}
+
+		// Increments numberOfWeeks if the last day of the month is a Sunday, since Java
+		// think's that the first day of the week is a Monday and the last day of the
+		// week is a Sunday.
+		if (lastDayOfMonth.getDayOfWeek().getValue() == 7) {
 			numberOfWeeks++;
 		}
 
