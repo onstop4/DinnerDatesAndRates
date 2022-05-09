@@ -59,7 +59,7 @@ public class AccountSettingsModel {
 			if (currentUser == null) {
 				System.err.println("UserModel object that passed to constructor was actually null");
 			} else {
-				System.err.println("Cannot find student with id " + currentUser.getId());
+				System.err.println("Cannot obtain details of student with id " + currentUser.getId());
 			}
 		}
 	}
