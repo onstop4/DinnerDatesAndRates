@@ -24,7 +24,7 @@
             <Insets left="10.0" right="10.0" />
          </padding>
       </ButtonBar>
-      <Label alignment="CENTER" layoutX="132.0" layoutY="68.0" prefHeight="39.0" prefWidth="419.0" styleClass="headerLabel" text="SJU Campus Dining" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="132.0" layoutY="68.0" prefHeight="39.0" prefWidth="419.0" styleClass="headerLabel" text="Dinner Dates &amp; Rates" textAlignment="CENTER">
          <font>
             <Font size="25.0" />
          </font>
